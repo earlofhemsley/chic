@@ -16,11 +16,23 @@
         <![endif]-->
 
         <header>
-            <div class="standard-wrap">
-                <?php 
-                    sewchic_custom_logo();
-                ?>
+            <div class="standard-wrap container">
+                <div class="sewchic-header-widget-container">
+                    <?php 
+                        sewchic_custom_logo();
+                    ?>
+                    <div class="sewchic-header-widget-element">
+                    <?php
+                        if(is_active_sidebar('header-social')){
+                            dynamic_sidebar('header-social');
+                            //TODO: adapt the ssm to have tiny icons, and add youtube pinterest etsy craftsy
+                        }
+                    ?>
+                    </div>
+                </div>
             </div>
+            <div class="sewchic-header-pink"></div>
+            <nav></nav>
         </header>
 
 

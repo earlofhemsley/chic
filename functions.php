@@ -10,8 +10,8 @@ function sewchic_setup(){
     add_theme_support('title-tag');
     add_theme_support('automatic-feed-links');
     add_theme_support('custom-logo', array(
-        'height' => 116,
-        'width' => 300,
+        'height' => 200,
+        'width' => 400,
         'flex-height' => true,
         'flex-width' => true,
     ));
@@ -60,9 +60,22 @@ endif;
 if(!function_exists('sewchic_custom_logo')):
 function sewchic_custom_logo(){
     if(function_exists('the_custom_logo') && has_custom_logo()) the_custom_logo();
-    else echo '<img src="'.get_template_directory_uri().'/img/logo2.png" alt="Sew Chic Pattern Company" >';
+    else echo '<img src="'.get_template_directory_uri().'/img/templogo.png" alt="Sew Chic Pattern Company" class="custom-logo">';
 }
 endif;
 
+if(!function_exists('sewchic_widgets_setup')):
+function sewchic_widgets_setup(){
+    register_sidebar(array(
+        'name' => __('Home page header social widget area', 'sewchic'),
+        'id' => 'header-social',
+        'description' => __('Appears in the top-right corner of the home page','sewchic'),
+        'before_widget' => '',
+        'after_widget' => '',
+    ));
+}
+add_action('widgets_init','sewchic_widgets_setup');
+
+endif;
 
 ?>

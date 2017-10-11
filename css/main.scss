@@ -1,0 +1,52 @@
+/* This is the theme's principal scss stylesheet */
+
+@import 'colors';
+
+/************************
+ * GENERAL STYLES
+ * 
+ * **********************/
+.standard-wrap{
+    max-width: 1500px;
+    margin: auto;
+    width: 95%;
+}
+
+/************************
+ * HEADER STYLES
+ * LOGO AND NAV MENU
+ * **********************/
+.sewchic-header-pink{
+    border-bottom: 125px solid $headerpink;
+}
+
+.sewchic-header-widget-container{
+    position: relative;
+    height:200px;
+
+    .custom-logo{
+        max-width: 100%;
+        height: auto;
+        max-height: 100%;
+    }
+    
+}
+
+@media screen and (min-width: 768px){
+    .sewchic-header-widget-container{
+
+        .sewchic-header-widget-element{
+            position:absolute;
+            bottom: 0;    
+            right:0;
+        }
+    }
+}
+
+@media screen and (min-width: 992px){
+
+}
+
+@media screen and (min-width: 1200px){
+
+}

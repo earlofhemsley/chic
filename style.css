@@ -1,14 +1,12 @@
-/* style.css */
+/* Theme Name: Sew Chic
+ * Description: An ecommerce, blogging theme, custom built for Sew Chic Pattern Company
+ * Author: Landon Hemsley
+ * Author URI: http://landonhemsley.com
+ * Version: 1.0
+ * License: None
+ * Text Domain: sewchic
+ * Theme URI: https://github.com/landon-hemsley/chic
+ * TODO: RESEARCH THE LICENSES AND TAGS ELEMENTS OF THIS THING
+ */
 
-
-/************************
- * HEADER STYLES
- * LOGO AND NAV MENU
- * **********************/
-.header{
-    border-bottom: 20px solid #fbdedd;
-}
-
-#chic-logo{
-    margin-left:200px;
-}
+@import url('css/main.css');
