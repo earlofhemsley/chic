@@ -25,14 +25,35 @@
                     <?php
                         if(is_active_sidebar('header-social')){
                             dynamic_sidebar('header-social');
-                            //TODO: adapt the ssm to have tiny icons, and add youtube pinterest etsy craftsy
                         }
                     ?>
                     </div>
                 </div>
             </div>
             <div class="sewchic-header-pink"></div>
-            <nav></nav>
+            <div class="sewchic-home-main-body">
+                <div class="standard-wrap">
+                    <nav class="navbar sewchic-navbar-default">
+                        <div class="container-fluid">
+                        <button type="button" class="navbar-toggle sewchic-navbar-toggle collapsed" data-toggle="collapse" data-target="#sewchic-primary-menu" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle Navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                            <?php
+                                wp_nav_menu(array(
+                                    'theme_location' => 'primary',
+                                    'menu_class' => 'nav navbar-nav',
+                                    'container' => 'div',
+                                    'container_class' => 'collapse navbar-collapse',
+                                    'container_id' => 'sewchic-primary-menu'
+                                ));
+                            ?>
+                        </div>
+                    </nav>
+                </div>
+            </div>
         </header>
 
 

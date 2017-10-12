@@ -75,7 +75,14 @@ function sewchic_widgets_setup(){
     ));
 }
 add_action('widgets_init','sewchic_widgets_setup');
-
 endif;
 
+if(!function_exists('sewchic_register_menus')):
+function sewchic_register_menus(){
+    register_nav_menus( array(
+        'primary' => 'Primary site navigation, located in site header'
+    ));
+}
+add_action('init','sewchic_register_menus');
+endif;
 ?>

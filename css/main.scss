@@ -6,6 +6,10 @@
  * GENERAL STYLES
  * 
  * **********************/
+body{
+    font-family:"Garamond","Times New Roman", serif, sans-serif
+}
+
 .standard-wrap{
     max-width: 1500px;
     margin: auto;
@@ -22,7 +26,6 @@
 
 .sewchic-header-widget-container{
     position: relative;
-    height:200px;
 
     .custom-logo{
         max-width: 100%;
@@ -30,6 +33,30 @@
         max-height: 100%;
     }
     
+}
+
+.sewchic-navbar-default{
+    .navbar-toggle{
+        .icon-bar{
+            background-color:$navbarToggleBg;
+        }
+    }
+}
+
+.sewchic-navbar-toggle{
+    float:none;
+    display:block;
+    margin: 8px auto;
+    background-color:$navbarIconBars;
+}
+
+#sewchic-primary-menu{
+    font-size:18px;
+}
+
+
+.sewchic-home-main-body{
+    background-color: $beige;
 }
 
 @media screen and (min-width: 768px){
@@ -41,9 +68,19 @@
             right:0;
         }
     }
+    .sewchic-navbar-toggle{
+        display:none;
+    }
 }
 
 @media screen and (min-width: 992px){
+    #sewchic-primary-menu{
+        font-size:28px;
+        font-weight:bold;
+        li.menu-item{
+            margin-right: 10px;
+        }
+    }
 
 }
 

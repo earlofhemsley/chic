@@ -4,6 +4,9 @@
  * GENERAL STYLES
  * 
  * **********************/
+body {
+  font-family: "Garamond", "Times New Roman", serif, sans-serif; }
+
 .standard-wrap {
   max-width: 1500px;
   margin: auto;
@@ -17,17 +20,40 @@
   border-bottom: 125px solid #fbdedd; }
 
 .sewchic-header-widget-container {
-  position: relative;
-  height: 200px; }
+  position: relative; }
   .sewchic-header-widget-container .custom-logo {
     max-width: 100%;
     height: auto;
     max-height: 100%; }
 
+.sewchic-navbar-default .navbar-toggle .icon-bar {
+  background-color: #ddd; }
+
+.sewchic-navbar-toggle {
+  float: none;
+  display: block;
+  margin: 8px auto;
+  background-color: #bbb; }
+
+#sewchic-primary-menu {
+  font-size: 18px; }
+
+.sewchic-home-main-body {
+  background-color: #fbfae7; }
+
 @media screen and (min-width: 768px) {
   .sewchic-header-widget-container .sewchic-header-widget-element {
     position: absolute;
     bottom: 0;
-    right: 0; } }
+    right: 0; }
+
+  .sewchic-navbar-toggle {
+    display: none; } }
+@media screen and (min-width: 992px) {
+  #sewchic-primary-menu {
+    font-size: 28px;
+    font-weight: bold; }
+    #sewchic-primary-menu li.menu-item {
+      margin-right: 10px; } }
 
 /*# sourceMappingURL=main.css.map */
