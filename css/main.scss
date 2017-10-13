@@ -64,11 +64,6 @@ body{
   HOME PAGE STYLES
 *********************/
 .sewchic-home-body-wrapper{
-    background-color:$beige;
-}
-
-.sewchic-home-body{
-    height: 400px;
     background: repeating-linear-gradient(
         to right,
         $headerpink,
@@ -76,6 +71,20 @@ body{
         $beige 15px,
         $beige 30px
     );
+}
+.sewchic-home-body-padding{
+    background: $beige;
+    height:50px;
+    margin:0;
+    padding:0;
+}
+.sewchic-home-body{
+    padding:20px 0;
+}
+
+#sewchic-home-tower-img{
+    max-width:100%;
+    height:auto;
 }
 
 
@@ -109,5 +118,9 @@ body{
 }
 
 @media screen and (min-width: 1200px){
+    #sewchic-home-tower-img{
+        margin-top: -175px;
+        height: 800px;
+    }
 
 }

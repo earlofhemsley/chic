@@ -48,11 +48,20 @@ body {
   HOME PAGE STYLES
 *********************/
 .sewchic-home-body-wrapper {
-  background-color: #fbfae7; }
+  background: repeating-linear-gradient(to right, #fbdedd, #fbdedd 15px, #fbfae7 15px, #fbfae7 30px); }
+
+.sewchic-home-body-padding {
+  background: #fbfae7;
+  height: 50px;
+  margin: 0;
+  padding: 0; }
 
 .sewchic-home-body {
-  height: 400px;
-  background: repeating-linear-gradient(to right, #fbdedd, #fbdedd 15px, #fbfae7 15px, #fbfae7 30px); }
+  padding: 20px 0; }
+
+#sewchic-home-tower-img {
+  max-width: 100%;
+  height: auto; }
 
 @media screen and (min-width: 768px) {
   .sewchic-header-widget-container .sewchic-header-widget-element {
@@ -71,5 +80,9 @@ body {
   #sewchic-primary-menu {
     font-size: 28px;
     font-weight: bold; } }
+@media screen and (min-width: 1200px) {
+  #sewchic-home-tower-img {
+    margin-top: -175px;
+    height: 800px; } }
 
 /*# sourceMappingURL=main.css.map */

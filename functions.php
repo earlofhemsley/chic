@@ -16,15 +16,6 @@ function sewchic_setup(){
         'flex-width' => true,
     ));
 
-    //add_theme_support('custom-background', array(
-    //    'default-image' => get_template_directory_uri().'/img/defaultbg.png',
-    //    'default-color' => "#fbfae7",
-    //    'default-repeat' => 'repeat',
-    //    'default-size' => 'auto',
-    //    'default-position-y' => 'top',
-    //    'default-position-x' => 'left',
-    //));
-
 }
 add_action('after_setup_theme', 'sewchic_setup');
 endif;
@@ -57,6 +48,7 @@ function sewchic_register_scripts(){
 add_action('wp_enqueue_scripts', 'sewchic_register_scripts');
 endif;
 
+//Use a placeholder custom logo if none is uploaded
 if(!function_exists('sewchic_custom_logo')):
 function sewchic_custom_logo(){
     if(function_exists('the_custom_logo') && has_custom_logo()) the_custom_logo();
@@ -64,6 +56,7 @@ function sewchic_custom_logo(){
 }
 endif;
 
+//Widget area setup
 if(!function_exists('sewchic_widgets_setup')):
 function sewchic_widgets_setup(){
     register_sidebar(array(
@@ -77,6 +70,7 @@ function sewchic_widgets_setup(){
 add_action('widgets_init','sewchic_widgets_setup');
 endif;
 
+//WordPress menu setup
 if(!function_exists('sewchic_register_menus')):
 function sewchic_register_menus(){
     register_nav_menus( array(
@@ -85,4 +79,39 @@ function sewchic_register_menus(){
 }
 add_action('init','sewchic_register_menus');
 endif;
+
+function sewchic_customizer_setup($wp_customizer){
+    $wp_customizer->remove_section('static_front_page');
+
+    $wp_customizer->add_section('front_page_customization', array(
+        'title' => __('Customize Front Page', 'sewchic'),
+        'description' => __('Adjust the look and feel of your home page', 'sewchic'),
+        'priority' => 120
+    ));
+
+    $wp_customizer->add_setting('front_page_tower_img', array(
+        'sanitize_callback' => function($input) {return $input; },
+        //'transport' => 'postMessage'
+    ));
+    $wp_customizer->add_control(new WP_Customize_Image_Control(
+        $wp_customizer, 
+        'front_page_tower_img',
+        array(
+            'section' => 'front_page_customization',
+            'settings' => 'front_page_tower_img' ,
+            'label' => 'Front Page Tower Image',
+            'description' => 'An image placed on the far right side of the center of the home page. It\'s meant to be very tall. In the largest view, it will be forced to 800px tall, so recommended height is 800px'
+        )
+    ));
+    /*
+     *Control type. Core controls include 'text', 'checkbox',
+  'textarea', 'radio', 'select', and 'dropdown-pages'. Additional
+  input types such as 'email', 'url', 'number', 'hidden', and
+  'date' are supported implicitly. Default 'text'.
+     * */
+
+}
+add_action('customize_register', 'sewchic_customizer_setup');
+
+
 ?>
