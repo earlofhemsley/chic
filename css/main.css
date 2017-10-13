@@ -1,5 +1,6 @@
 /* This is the theme's principal scss stylesheet */
 /*this is the colors stylesheet*/
+/* styles in bootstrap that I'm overriding and changing for the purposes of this theme */
 /************************
  * GENERAL STYLES
  * 
@@ -26,8 +27,10 @@ body {
     height: auto;
     max-height: 100%; }
 
-.sewchic-navbar-default .navbar-toggle .icon-bar {
-  background-color: #ddd; }
+.sewchic-navbar-default {
+  margin-bottom: 0; }
+  .sewchic-navbar-default .navbar-toggle .icon-bar {
+    background-color: #ddd; }
 
 .sewchic-navbar-toggle {
   float: none;
@@ -35,11 +38,21 @@ body {
   margin: 8px auto;
   background-color: #bbb; }
 
+.sewchic-nav-body {
+  background-color: #fbfae7; }
+
 #sewchic-primary-menu {
   font-size: 18px; }
 
-.sewchic-home-main-body {
+/*********************
+  HOME PAGE STYLES
+*********************/
+.sewchic-home-body-wrapper {
   background-color: #fbfae7; }
+
+.sewchic-home-body {
+  height: 400px;
+  background: repeating-linear-gradient(to right, #fbdedd, #fbdedd 15px, #fbfae7 15px, #fbfae7 30px); }
 
 @media screen and (min-width: 768px) {
   .sewchic-header-widget-container .sewchic-header-widget-element {
@@ -48,12 +61,15 @@ body {
     right: 0; }
 
   .sewchic-navbar-toggle {
-    display: none; } }
+    display: none; }
+
+  #sewchic-primary-menu {
+    padding: 0; }
+    #sewchic-primary-menu li.menu-item {
+      margin-right: 10px; } }
 @media screen and (min-width: 992px) {
   #sewchic-primary-menu {
     font-size: 28px;
-    font-weight: bold; }
-    #sewchic-primary-menu li.menu-item {
-      margin-right: 10px; } }
+    font-weight: bold; } }
 
 /*# sourceMappingURL=main.css.map */

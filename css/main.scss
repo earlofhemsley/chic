@@ -1,6 +1,7 @@
 /* This is the theme's principal scss stylesheet */
 
 @import 'colors';
+@import 'bootstrap_overrides';
 
 /************************
  * GENERAL STYLES
@@ -36,6 +37,7 @@ body{
 }
 
 .sewchic-navbar-default{
+    margin-bottom:0;
     .navbar-toggle{
         .icon-bar{
             background-color:$navbarToggleBg;
@@ -50,14 +52,33 @@ body{
     background-color:$navbarIconBars;
 }
 
+.sewchic-nav-body{
+    background-color: $beige;
+}
+
 #sewchic-primary-menu{
     font-size:18px;
 }
 
-
-.sewchic-home-main-body{
-    background-color: $beige;
+/*********************
+  HOME PAGE STYLES
+*********************/
+.sewchic-home-body-wrapper{
+    background-color:$beige;
 }
+
+.sewchic-home-body{
+    height: 400px;
+    background: repeating-linear-gradient(
+        to right,
+        $headerpink,
+        $headerpink 15px,
+        $beige 15px,
+        $beige 30px
+    );
+}
+
+
 
 @media screen and (min-width: 768px){
     .sewchic-header-widget-container{
@@ -71,15 +92,18 @@ body{
     .sewchic-navbar-toggle{
         display:none;
     }
+    #sewchic-primary-menu{
+        padding:0;
+        li.menu-item{
+            margin-right: 10px;
+        }
+    }
 }
 
 @media screen and (min-width: 992px){
     #sewchic-primary-menu{
         font-size:28px;
         font-weight:bold;
-        li.menu-item{
-            margin-right: 10px;
-        }
     }
 
 }
