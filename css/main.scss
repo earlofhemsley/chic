@@ -8,7 +8,8 @@
  * 
  * **********************/
 body{
-    font-family:"Garamond","Times New Roman", serif, sans-serif
+    font-family:"Garamond","Times New Roman", serif, sans-serif;
+    font-size:18px;
 }
 
 .standard-wrap{
@@ -17,6 +18,10 @@ body{
     width: 95%;
 }
 
+.sewchic-all-caps{
+
+    font-variant: small-caps;
+}
 /************************
  * HEADER STYLES
  * LOGO AND NAV MENU
@@ -87,6 +92,14 @@ body{
     height:auto;
 }
 
+#sewchic-home-search{
+    margin: 20px 0;
+    input,label,button{
+        margin:5px 0;
+    }
+
+}
+
 
 
 @media screen and (min-width: 768px){
@@ -107,6 +120,24 @@ body{
             margin-right: 10px;
         }
     }
+    .big-text-sm{
+        font-size:28px;
+        font-weight:bold;
+    }
+
+    #sewchic-home-search{
+        input,label,button{
+            margin: 0 10px;
+        }
+        label{
+            position:relative;
+            top:4px;
+        }
+        input{
+            width: 250px;
+        }
+    }
+
 }
 
 @media screen and (min-width: 992px){

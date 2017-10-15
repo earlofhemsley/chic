@@ -91,24 +91,34 @@ function sewchic_customizer_setup($wp_customizer){
 
     $wp_customizer->add_setting('front_page_tower_img', array(
         'sanitize_callback' => function($input) {return $input; },
-        //'transport' => 'postMessage'
     ));
+    //TODO: Hook up javascript callback for dynamic loading
+    //TODO: actually sanitize/validate what's input
+
+
     $wp_customizer->add_control(new WP_Customize_Image_Control(
         $wp_customizer, 
         'front_page_tower_img',
         array(
             'section' => 'front_page_customization',
             'settings' => 'front_page_tower_img' ,
-            'label' => 'Front Page Tower Image',
-            'description' => 'An image placed on the far right side of the center of the home page. It\'s meant to be very tall. In the largest view, it will be forced to 800px tall, so recommended height is 800px'
+            'label' => __('Front Page Tower Image','sewchic'),
+            'description' => __('An image placed on the far right side of the center of the home page. It\'s meant to be very tall. In the largest view, it will be forced to 800px tall, so recommended height is 800px','sewchic')
         )
     ));
-    /*
-     *Control type. Core controls include 'text', 'checkbox',
-  'textarea', 'radio', 'select', and 'dropdown-pages'. Additional
-  input types such as 'email', 'url', 'number', 'hidden', and
-  'date' are supported implicitly. Default 'text'.
-     * */
+
+    $wp_customizer->add_setting('sewchic_secondary_tagline', array(
+        'sanitize_callback' => function($input) { return $input; }
+    ));
+    //TODO: strip tags if any
+
+    $wp_customizer->add_control('sewchic_secondary_tagline', array(
+        'section' => 'title_tagline',
+        'label' => __('Secondary Tagline','sewchic'),
+        'description' => __('This tagline displays on the home page beneath the search form', 'sewchic'),
+        'type' => 'text',
+        'priority' => 100
+    ));
 
 }
 add_action('customize_register', 'sewchic_customizer_setup');

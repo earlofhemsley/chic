@@ -17,6 +17,20 @@ get_header();
     </div> 
 </div>
 <div class="sewchic-home-body-padding"></div>
+<div class="sewchic-home-footer-wrapper">
+    <div class="standard-wrap">
+        <div class="text-center" id="sewchic-home-search">
+            <?php get_search_form(); ?>
+        </div>
+        
+        <?php if(!empty(get_theme_mod('sewchic_secondary_tagline'))): ?>
+        <h2 id="sewchic-secondary-tagline" class="text-center sewchic-all-caps">
+            <?php echo get_theme_mod('sewchic_secondary_tagline'); ?>
+        </h2>
+        <?php endif; ?>
+
+    </div>
+</div>
 
 <?php
 get_footer();

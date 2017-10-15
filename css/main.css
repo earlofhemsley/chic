@@ -6,12 +6,16 @@
  * 
  * **********************/
 body {
-  font-family: "Garamond", "Times New Roman", serif, sans-serif; }
+  font-family: "Garamond","Times New Roman", serif, sans-serif;
+  font-size: 18px; }
 
 .standard-wrap {
   max-width: 1500px;
   margin: auto;
   width: 95%; }
+
+.sewchic-all-caps {
+  font-variant: small-caps; }
 
 /************************
  * HEADER STYLES
@@ -63,6 +67,11 @@ body {
   max-width: 100%;
   height: auto; }
 
+#sewchic-home-search {
+  margin: 20px 0; }
+  #sewchic-home-search input, #sewchic-home-search label, #sewchic-home-search button {
+    margin: 5px 0; }
+
 @media screen and (min-width: 768px) {
   .sewchic-header-widget-container .sewchic-header-widget-element {
     position: absolute;
@@ -75,7 +84,19 @@ body {
   #sewchic-primary-menu {
     padding: 0; }
     #sewchic-primary-menu li.menu-item {
-      margin-right: 10px; } }
+      margin-right: 10px; }
+
+  .big-text-sm {
+    font-size: 28px;
+    font-weight: bold; }
+
+  #sewchic-home-search input, #sewchic-home-search label, #sewchic-home-search button {
+    margin: 0 10px; }
+  #sewchic-home-search label {
+    position: relative;
+    top: 4px; }
+  #sewchic-home-search input {
+    width: 250px; } }
 @media screen and (min-width: 992px) {
   #sewchic-primary-menu {
     font-size: 28px;
