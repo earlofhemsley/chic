@@ -20,7 +20,8 @@
                 <div class="sewchic-header-widget-container">
                     <?php 
                         sewchic_custom_logo();
-                    ?>
+?>
+                    <h3 id="sewchic-tagline"><?php bloginfo('description'); ?></h3>
                     <div class="sewchic-header-widget-element">
                     <?php
                         if(is_active_sidebar('header-social')){

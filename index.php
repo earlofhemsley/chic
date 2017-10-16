@@ -24,7 +24,7 @@ get_header();
         </div>
         
         <?php if(!empty(get_theme_mod('sewchic_secondary_tagline'))): ?>
-        <h2 id="sewchic-secondary-tagline" class="text-center sewchic-all-caps">
+        <h2 id="sewchic-secondary-tagline" class="text-center">
             <?php echo get_theme_mod('sewchic_secondary_tagline'); ?>
         </h2>
         <?php endif; ?>

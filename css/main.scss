@@ -10,6 +10,7 @@
 body{
     font-family:"Garamond","Times New Roman", serif, sans-serif;
     font-size:18px;
+    font-variant: small-caps;
 }
 
 .standard-wrap{
@@ -19,8 +20,6 @@ body{
 }
 
 .sewchic-all-caps{
-
-    font-variant: small-caps;
 }
 /************************
  * HEADER STYLES
@@ -32,12 +31,14 @@ body{
 
 .sewchic-header-widget-container{
     position: relative;
-
+    text-align:center;
     .custom-logo{
         max-width: 100%;
         height: auto;
         max-height: 100%;
     }
+    h3{text-align:center;}
+    
     
 }
 
@@ -104,11 +105,17 @@ body{
 
 @media screen and (min-width: 768px){
     .sewchic-header-widget-container{
+        text-align:left;
 
         .sewchic-header-widget-element{
             position:absolute;
             bottom: 0;    
             right:0;
+        }
+        h3{
+            max-width:400px;
+            margin: 3px 0 0 0;
+            padding-bottom:15px;
         }
     }
     .sewchic-navbar-toggle{

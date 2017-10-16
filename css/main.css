@@ -7,15 +7,13 @@
  * **********************/
 body {
   font-family: "Garamond","Times New Roman", serif, sans-serif;
-  font-size: 18px; }
+  font-size: 18px;
+  font-variant: small-caps; }
 
 .standard-wrap {
   max-width: 1500px;
   margin: auto;
   width: 95%; }
-
-.sewchic-all-caps {
-  font-variant: small-caps; }
 
 /************************
  * HEADER STYLES
@@ -25,11 +23,14 @@ body {
   border-bottom: 125px solid #fbdedd; }
 
 .sewchic-header-widget-container {
-  position: relative; }
+  position: relative;
+  text-align: center; }
   .sewchic-header-widget-container .custom-logo {
     max-width: 100%;
     height: auto;
     max-height: 100%; }
+  .sewchic-header-widget-container h3 {
+    text-align: center; }
 
 .sewchic-navbar-default {
   margin-bottom: 0; }
@@ -73,10 +74,16 @@ body {
     margin: 5px 0; }
 
 @media screen and (min-width: 768px) {
-  .sewchic-header-widget-container .sewchic-header-widget-element {
-    position: absolute;
-    bottom: 0;
-    right: 0; }
+  .sewchic-header-widget-container {
+    text-align: left; }
+    .sewchic-header-widget-container .sewchic-header-widget-element {
+      position: absolute;
+      bottom: 0;
+      right: 0; }
+    .sewchic-header-widget-container h3 {
+      max-width: 400px;
+      margin: 3px 0 0 0;
+      padding-bottom: 15px; }
 
   .sewchic-navbar-toggle {
     display: none; }
