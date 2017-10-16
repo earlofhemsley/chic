@@ -19,8 +19,8 @@
             <div class="standard-wrap container">
                 <div class="sewchic-header-widget-container">
                     <?php 
-                        sewchic_custom_logo();
-?>
+                        sewchic_custom_logo(true);
+                    ?>
                     <h3 id="sewchic-tagline"><?php bloginfo('description'); ?></h3>
                     <div class="sewchic-header-widget-element">
                     <?php

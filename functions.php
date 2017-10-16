@@ -33,26 +33,41 @@ endif;
 //Register styles, scripts
 if(!function_exists('sewchic_register_scripts')):
 function sewchic_register_scripts(){
-    wp_enqueue_style('bootstrap', get_template_directory_uri().'/css/bootstrap.min.css');
-    wp_enqueue_style('bootstrap-theme', get_template_directory_uri().'/css/bootstrap-theme.min.css');
-    wp_enqueue_style('h5bp', get_template_directory_uri().'/css/h5bp.css');
-    wp_enqueue_style('core', get_stylesheet_uri(), array('bootstrap','bootstrap-theme','h5bp'));
-
+    //scripts
     wp_enqueue_script('jquery', '', array(), false, true);
     wp_enqueue_script('bootstrap-js', get_template_directory_uri().'/js/vendor/bootstrap.min.js', array('jquery'), false, true);
     wp_enqueue_script('modernizr', get_template_directory_uri().'/js/vendor/modernizr-3.5.0.min.js', array('jquery'), false, true);
     wp_enqueue_script('plugins',get_template_directory_uri().'/js/plugins.js', array('jquery'), false, true);
     wp_enqueue_script('main',get_template_directory_uri().'/js/main.js', array('jquery'), false, true);
 
+    //styles
+    wp_enqueue_style('bootstrap', get_template_directory_uri().'/css/bootstrap.min.css');
+    wp_enqueue_style('bootstrap-theme', get_template_directory_uri().'/css/bootstrap-theme.min.css');
+    wp_enqueue_style('h5bp', get_template_directory_uri().'/css/h5bp.css');
+    wp_enqueue_style('core', get_stylesheet_uri(), array('bootstrap','bootstrap-theme','h5bp'));
+
+
+    //dynamic styles
+    $style ='';
+    //if more dynamic styles required w/o function calls, EOT
+
+    $logo = sewchic_custom_logo(false);
+    if(preg_match('/width="(\d+)"/', $logo, $matches)){
+        $style .= "@media screen and (min-width: 768px){#sewchic-tagline { max-width: $matches[1]px; }}";
+        wp_add_inline_style('core', $style);
+    }
 }
 add_action('wp_enqueue_scripts', 'sewchic_register_scripts');
 endif;
 
 //Use a placeholder custom logo if none is uploaded
 if(!function_exists('sewchic_custom_logo')):
-function sewchic_custom_logo(){
-    if(function_exists('the_custom_logo') && has_custom_logo()) the_custom_logo();
-    else echo '<img src="'.get_template_directory_uri().'/img/templogo.png" alt="Sew Chic Pattern Company" class="custom-logo">';
+function sewchic_custom_logo($echo = true){
+    if(function_exists('get_custom_logo') && has_custom_logo()) $logo = get_custom_logo();
+    else $logo = '<img src="'.get_template_directory_uri().'/img/templogo.png" alt="Sew Chic Pattern Company" class="custom-logo">';
+
+    if($echo) echo $logo;
+    else return $logo;
 }
 endif;
 

@@ -7,7 +7,7 @@ var resizeTagline = function($){
 }
 
 jQuery(document).ready(function(){
-    resizeTagline(jQuery);
+    //resizeTagline(jQuery);
 });
 
 
