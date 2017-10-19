@@ -16,7 +16,7 @@
         <![endif]-->
 
         <header>
-            <div class="standard-wrap container">
+            <div class="standard-wrap wrap container">
                 <div class="sewchic-header-widget-container">
                     <?php 
                         sewchic_custom_logo(true);
@@ -33,7 +33,7 @@
             </div>
             <div class="sewchic-header-pink"></div>
             <div class="sewchic-nav-body">
-                <div class="standard-wrap">
+                <div class="standard-wrap wrap">
                     <nav class="navbar sewchic-navbar-default">
                         <div class="container-fluid">
                         <button type="button" class="navbar-toggle sewchic-navbar-toggle collapsed" data-toggle="collapse" data-target="#sewchic-primary-menu" aria-expanded="false" aria-controls="navbar">

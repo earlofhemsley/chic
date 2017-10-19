@@ -16,6 +16,10 @@ function sewchic_setup(){
         'flex-width' => true,
     ));
 
+    //this theme designed to be used with woocommerce ecommerce plugin
+    //TODO: prompt admin users to download and install woocommerce if not installed
+    add_theme_support('woocommerce');
+
 }
 add_action('after_setup_theme', 'sewchic_setup');
 endif;
@@ -89,7 +93,10 @@ endif;
 if(!function_exists('sewchic_register_menus')):
 function sewchic_register_menus(){
     register_nav_menus( array(
-        'primary' => 'Primary site navigation, located in site header'
+        'primary' => __('Primary site navigation, located in site header','sewchic'),
+        'home-footer-left' => __('Home page menu on the bottom left','sewchic'),
+        'home-footer-center' => __('Home page menu on the bottom in the middle','sewchic'),
+        'home-footer-right' => __('Home page menu on the bottom right','sewchic'),
     ));
 }
 add_action('init','sewchic_register_menus');

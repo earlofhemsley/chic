@@ -15,8 +15,15 @@ body{
 
 .standard-wrap{
     max-width: 1500px;
-    margin: auto;
-    width: 95%;
+}
+
+.tight-wrap{
+    max-width: 992px;
+}
+
+.wrap{
+    margin:auto;
+    width:95%;
 }
 
 .sewchic-all-caps{
@@ -26,7 +33,7 @@ body{
  * LOGO AND NAV MENU
  * **********************/
 .sewchic-header-pink{
-    border-bottom: 125px solid $headerpink;
+    border-bottom: 50px solid $headerpink;
 }
 
 .sewchic-header-widget-container{
@@ -43,6 +50,7 @@ body{
 }
 
 .sewchic-navbar-default{
+    a{color:$black;}
     margin-bottom:0;
     .navbar-toggle{
         .icon-bar{
@@ -101,9 +109,33 @@ body{
 
 }
 
+.sewchic-home-menu-title{
+    text-decoration:underline;
+    font-weight:bold;
+}
+
+.sewchic-menu{
+    font-size:24px;
+    a{color:$black}
+}
+
+.sewchic-copyright{
+    text-align:center;
+    font-size:14px;
+    font-variant:normal;
+    color:$light-grey;
+    a{
+        color:$light-grey;
+    }
+}
 
 
 @media screen and (min-width: 768px){
+    .sewchic-header-pink{
+        border-bottom: 125px solid $headerpink;
+    }
+
+
     .sewchic-header-widget-container{
         text-align:left;
 
