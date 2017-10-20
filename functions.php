@@ -94,9 +94,10 @@ if(!function_exists('sewchic_register_menus')):
 function sewchic_register_menus(){
     register_nav_menus( array(
         'primary' => __('Primary site navigation, located in site header','sewchic'),
-        'home-footer-left' => __('Home page menu on the bottom left','sewchic'),
-        'home-footer-center' => __('Home page menu on the bottom in the middle','sewchic'),
-        'home-footer-right' => __('Home page menu on the bottom right','sewchic'),
+        'home-footer-1' => __('First (from left) optional home page footer menu','sewchic'),
+        'home-footer-2' => __('Second (from left) optional home page footer menu','sewchic'),
+        'home-footer-3' => __('Third (from left) optional home page footer menu','sewchic'),
+        'home-footer-4' => __('Fourth (from left) optional home page footer menu','sewchic'),
     ));
 }
 add_action('init','sewchic_register_menus');

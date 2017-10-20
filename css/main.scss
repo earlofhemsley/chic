@@ -33,7 +33,7 @@ body{
  * LOGO AND NAV MENU
  * **********************/
 .sewchic-header-pink{
-    border-bottom: 50px solid $headerpink;
+    background-color: $headerpink;
 }
 
 .sewchic-header-widget-container{
@@ -64,10 +64,6 @@ body{
     display:block;
     margin: 8px auto;
     background-color:$navbarIconBars;
-}
-
-.sewchic-nav-body{
-    background-color: $beige;
 }
 
 #sewchic-primary-menu{
@@ -132,23 +128,14 @@ body{
 
 @media screen and (min-width: 768px){
     .sewchic-header-pink{
-        border-bottom: 125px solid $headerpink;
+        border-top: 75px solid $headerpink;
     }
-
-
     .sewchic-header-widget-container{
-        text-align:left;
-
-        .sewchic-header-widget-element{
-            position:absolute;
-            bottom: 0;    
-            right:0;
-        }
         h3{
-            margin: 3px 0 0 0;
-            padding-bottom:15px;
+            margin: 3px auto;
         }
     }
+
     .sewchic-navbar-toggle{
         display:none;
     }
@@ -182,6 +169,20 @@ body{
     #sewchic-primary-menu{
         font-size:28px;
         font-weight:bold;
+    }
+    
+    .sewchic-header-widget-container{
+        text-align:left;
+
+        .sewchic-header-widget-element{
+            position:absolute;
+            bottom: 0;    
+            right:0;
+        }
+        h3{
+            margin: 3px 0 0 0;
+            padding-bottom:15px;
+        }
     }
 
 }

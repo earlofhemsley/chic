@@ -1,14 +1,12 @@
 <?php
 get_header();
 ?>
+<div class="sewchic-home-body-padding"></div>
 <div class="sewchic-home-body-wrapper">
-    <div class="standard-wrap sewchic-home-body">
+    <div class="standard-wrap wrap sewchic-home-body">
         <div class="row">
-            <div class="col-sm-3">
-                <div style="background:white;height: 100px; width:200px;margin:auto;">Small post</div>
-            </div>
-            <div class="col-sm-5">
-                <div style="background:white;height: 500px; width: 100%;">Bigger post</div>
+            <div class="col-sm-8">
+                <div style="background:white;height: 500px; width:100%; max-width:500px;margin:auto;">Carousel</div>
             </div>
             <div class="col-sm-4 text-center">
                 <img id="sewchic-home-tower-img" src="<?php echo get_theme_mod('front_page_tower_img'); ?>" />
@@ -18,11 +16,12 @@ get_header();
 </div>
 <div class="sewchic-home-body-padding"></div>
 <div class="sewchic-home-footer-wrapper">
-    <div class="tight-wrap wrap">
-        <div class="text-center" id="sewchic-home-search">
-            <?php get_search_form(); ?>
-        </div>
-        
+    <div class="standard-wrap wrap">
+        <?php
+            if(is_active_sidebar('header-social')){
+                dynamic_sidebar('header-social');
+            }
+        ?>
         <?php if(!empty(get_theme_mod('sewchic_secondary_tagline'))): ?>
         <h2 id="sewchic-secondary-tagline" class="text-center">
             <?php echo get_theme_mod('sewchic_secondary_tagline'); ?>
@@ -31,22 +30,30 @@ get_header();
         <div class="row">
             <?php
                 $wpMenuLocations = get_nav_menu_locations();
-                foreach(array('left', 'center', 'right') as $location){
-                    $navName = "";
-                    if(array_key_exists("home-footer-$location", $wpMenuLocations))
-                        $navName = ($navMenuObject = wp_get_nav_menu_object($wpMenuLocations["home-footer-$location"])) ? $navMenuObject->name : "";
-
-                    echo '<div class="col-sm-4">';
-                        echo "<h2 class='sewchic-home-menu-title'>$navName</h2>";
-                        wp_nav_menu(array(
-                            'theme_location' => "home-footer-$location",
-                            'menu_class' => 'sewchic-menu',
-                            'container' => 'div',
-                            'container_class' => 'sewchic-menu-container',
-                            'container_id' => "sewchic-menu-footer-$location",
-                            'fallback_cb' => function($menu){ echo "<p>Menu {$menu["theme_location"]} not defined</p>"; },
-                        ));
-                    echo '</div>';
+                $navs = array();
+                foreach(array(1,2,3,4) as $index){
+                    $location = 'home-footer-'.$index;
+                    if(array_key_exists($location, $wpMenuLocations)){
+                        if($navMenuObject = wp_get_nav_menu_object($wpMenuLocations[$location])){
+                            $navs[$location] = $navMenuObject->name;
+                        } 
+                    }
+                }
+                if(count($navs) > 0) {
+                    $colClass = 'col-sm-' . (12/count($navs));
+                    foreach($navs as $location => $navName){
+                        echo "<div class='$colClass'>";
+                            echo "<h2 class='sewchic-home-menu-title'>$navName</h2>";
+                            wp_nav_menu(array(
+                                'theme_location' => $location,
+                                'menu_class' => 'sewchic-menu',
+                                'container' => 'div',
+                                'container_class' => 'sewchic-menu-container',
+                                'container_id' => "sewchic-menu-$navName",
+                            ));
+                        echo '</div>';
+                    
+                    }
                 }
             ?>
         </div>

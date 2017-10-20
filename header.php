@@ -22,17 +22,12 @@
                         sewchic_custom_logo(true);
                     ?>
                     <h3 id="sewchic-tagline"><?php bloginfo('description'); ?></h3>
-                    <div class="sewchic-header-widget-element">
-                    <?php
-                        if(is_active_sidebar('header-social')){
-                            dynamic_sidebar('header-social');
-                        }
-                    ?>
+                    <div class="sewchic-header-widget-element" id="sewchic-home-search">
+                        <?php get_search_form(); ?>
                     </div>
                 </div>
             </div>
-            <div class="sewchic-header-pink"></div>
-            <div class="sewchic-nav-body">
+            <div class="sewchic-header-pink">
                 <div class="standard-wrap wrap">
                     <nav class="navbar sewchic-navbar-default">
                         <div class="container-fluid">
