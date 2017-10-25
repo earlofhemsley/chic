@@ -1,7 +1,6 @@
 <?php
 get_header();
 ?>
-<div class="sewchic-home-body-padding"></div>
 <div class="sewchic-home-body-wrapper">
     <div class="standard-wrap wrap sewchic-home-body">
         <div class="row">
@@ -14,7 +13,6 @@ get_header();
         </div> 
     </div> 
 </div>
-<div class="sewchic-home-body-padding"></div>
 <div class="sewchic-home-footer-wrapper">
     <div class="standard-wrap wrap">
         <?php

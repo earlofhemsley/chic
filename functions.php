@@ -1,6 +1,9 @@
 <?php
 
+require_once('carousel-options.php');
+
 if(!isset($content_width)) $content_width=1200;
+
 
 //Add basic theme supports
 if(!function_exists('sewchic_setup')):
@@ -41,6 +44,7 @@ function sewchic_register_scripts(){
     wp_enqueue_script('jquery', '', array(), false, true);
     wp_enqueue_script('bootstrap-js', get_template_directory_uri().'/js/vendor/bootstrap.min.js', array('jquery'), false, true);
     wp_enqueue_script('modernizr', get_template_directory_uri().'/js/vendor/modernizr-3.5.0.min.js', array('jquery'), false, true);
+    wp_enqueue_script('slick', get_template_directory_uri().'/js/vendor/slick.min.js', array('jquery'), false, true);
     wp_enqueue_script('plugins',get_template_directory_uri().'/js/plugins.js', array('jquery'), false, true);
     wp_enqueue_script('main',get_template_directory_uri().'/js/main.js', array('jquery'), false, true);
 
@@ -48,6 +52,7 @@ function sewchic_register_scripts(){
     wp_enqueue_style('bootstrap', get_template_directory_uri().'/css/bootstrap.min.css');
     wp_enqueue_style('bootstrap-theme', get_template_directory_uri().'/css/bootstrap-theme.min.css');
     wp_enqueue_style('h5bp', get_template_directory_uri().'/css/h5bp.css');
+    wp_enqueue_style('slick', get_template_directory_uri().'/css/slick.min.css');
     wp_enqueue_style('core', get_stylesheet_uri(), array('bootstrap','bootstrap-theme','h5bp'));
 
 
@@ -103,6 +108,8 @@ function sewchic_register_menus(){
 add_action('init','sewchic_register_menus');
 endif;
 
+//setup customizer options
+if(!function_exists('sewchic_customizer_setup')):
 function sewchic_customizer_setup($wp_customizer){
     $wp_customizer->remove_section('static_front_page');
 
@@ -145,6 +152,7 @@ function sewchic_customizer_setup($wp_customizer){
 
 }
 add_action('customize_register', 'sewchic_customizer_setup');
+endif;
 
 
 ?>
