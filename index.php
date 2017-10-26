@@ -5,7 +5,34 @@ get_header();
     <div class="standard-wrap wrap sewchic-home-body">
         <div class="row">
             <div class="col-sm-8">
-                <div style="background:white;height: 500px; width:100%; max-width:500px;margin:auto;">Carousel</div>
+                <?php
+                    $carousel = wp_nav_menu(array(
+                        'theme_location' => 'carousel',
+                        'container_class' => 'sewchic-carousel-container',
+                        'echo' => false,
+                        'items_wrap' => '%3$s', 
+                    ));
+                    $carousel = preg_replace('/<li[^>]*>/', '<div>', $carousel);
+                    $carousel = preg_replace('/<\/li>/', '</div>', $carousel);
+                    echo $carousel;
+
+                    $settings = $GLOBALS['sewchic_carousel_settings'];
+                ?> 
+                <script type="text/javascript">
+                    jQuery(document).ready(function(){
+                        jQuery('.sewchic-carousel-container').slick({
+                            <?php   
+                                foreach($settings as $settingArray){
+                                    $value = get_option('sc-carousel-' . $settingArray['option_name']);
+                                    if(empty($value)) $value = 'false';
+                                    if($value === '1') $value = 'true';
+                                    if($settingArray['type'] == 'text') $value = "\"$value\"";
+                                    echo "{$settingArray['option_name']} : $value,\r\n";               
+                                }
+                            ?>
+                        });
+                    });
+                </script>
             </div>
             <div class="col-sm-4 text-center">
                 <img id="sewchic-home-tower-img" src="<?php echo get_theme_mod('front_page_tower_img'); ?>" />

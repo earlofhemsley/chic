@@ -99,6 +99,7 @@ if(!function_exists('sewchic_register_menus')):
 function sewchic_register_menus(){
     register_nav_menus( array(
         'primary' => __('Primary site navigation, located in site header','sewchic'),
+        'carousel' => __('Home page carousel','sewchic'),
         'home-footer-1' => __('First (from left) optional home page footer menu','sewchic'),
         'home-footer-2' => __('Second (from left) optional home page footer menu','sewchic'),
         'home-footer-3' => __('Third (from left) optional home page footer menu','sewchic'),
