@@ -53,6 +53,7 @@ function sewchic_register_scripts(){
     wp_enqueue_style('bootstrap-theme', get_template_directory_uri().'/css/bootstrap-theme.min.css');
     wp_enqueue_style('h5bp', get_template_directory_uri().'/css/h5bp.css');
     wp_enqueue_style('slick', get_template_directory_uri().'/css/slick.min.css');
+    wp_enqueue_style('slick-theme', get_template_directory_uri().'/css/slick-theme.min.css', array('slick'));
     wp_enqueue_style('core', get_stylesheet_uri(), array('bootstrap','bootstrap-theme','h5bp'));
 
 

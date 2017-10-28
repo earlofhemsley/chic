@@ -30,7 +30,7 @@ $GLOBALS['sewchic_carousel_settings'] = array(
         'option_name' => 'autoplaySpeed',
         'default_value' => 3000,
         'description' => 'Autoplay speed in milliseconds (only relevant if autoplay is enabled).',
-        'type' => 'text'
+        'type' => 'integer'
     ),
     array(
         'title' => 'Arrows',
@@ -96,119 +96,120 @@ $GLOBALS['sewchic_carousel_settings'] = array(
         'description' => 'Class for slide indicator dots container',
         'type' => 'text',
     ),
+    array(
+        'title' => 'Draggable',
+        'label_for' => 'carousel-draggable',
+        'option_name' => 'draggable',
+        'default_value' => 1,
+        'description' => 'Enable mouse dragging',
+        'type' => 'checkbox',
+    ),
+    array(
+        'title' => 'Fade',
+        'label_for' => 'carousel-fade',
+        'option_name' => 'fade',
+        'default_value' => 0,
+        'description' => 'Enable fade on transition',
+        'type' => 'checkbox',
+    ),
+    array(
+        'title' => 'Focus On Select',
+        'label_for' => 'carousel-focus-on-select',
+        'option_name' => 'focusOnSelect',
+        'default_value' => 0,
+        'description' => 'Enable focus on selected element (click)',
+        'type' => 'checkbox',
+    ),
+    array(
+        'title' => 'Easing',
+        'label_for' => 'carousel-easing',
+        'option_name' => 'easing',
+        'default_value' => 'linear',
+        'description' => 'Add easing for jQuery animate. Use with easing libraries or default easing methods',
+        'type' => 'text',
+    ),
+    array(
+        'title' => 'Edge Friction',
+        'label_for' => 'carousel-edge-friction',
+        'option_name' => 'edgeFriction',
+        'default_value' => 0.15,
+        'description' => 'Resistance when swiping edges of non-infinite carousels',
+        'type' => 'decimal',
+    ),
+    array(
+        'title' => 'Infinite Loop',
+        'label_for' => 'carousel-infinite',
+        'option_name' => 'infinite',
+        'default_value' => 1,
+        'description' => 'Infinite loop sliding',
+        'type' => 'checkbox',
+    ),
+    array(
+        'title' => 'Lazy Loading',
+        'label_for' => 'carousel-lazyload',
+        'option_name' => 'lazyLoad',
+        'default_value' => 'ondemand',
+        'description' => 'Set lazy loading technice. Accepts "ondemand" or "progressive"',
+        'type' => 'text',
+    ),
+    //array(
+    //    'title' => 'Mobile First',
+    //    'label_for' => 'carousel-mobile-first',
+    //    'option_name' => 'mobileFirst',
+    //    'default_value' => 0,
+    //    'description' => 'Responsive settins use mobile first calculation',
+    //    'type' => 'checkbox',
+    //),
+    array(
+        'title' => 'Pause on Focus',
+        'label_for' => 'carousel-pause-focus',
+        'option_name' => 'pauseOnFocus',
+        'default_value' => 1,
+        'description' => 'Pause autoplay on focus event (autoplay must be turned on to be effective)',
+        'type' => 'checkbox',
+    ),
+    array(
+        'title' => 'Pause on Hover',
+        'label_for' => 'carousel-pause-hover',
+        'option_name' => 'pauseOnHover',
+        'default_value' => 1,
+        'description' => 'Pause autoplay on hover event (autoplay must be turned on to be effective)',
+        'type' => 'checkbox',
+    ),
+    array(
+        'title' => 'Pause on Dots Hover',
+        'label_for' => 'carousel-pause-dots-hover',
+        'option_name' => 'pauseOnDotsHover',
+        'default_value' => 0,
+        'description' => 'Pause autoplay when a dot is hovered (autoplay must be turned on)',
+        'type' => 'checkbox',
+    ),
+    array(
+        'title' => 'Number of Rows',
+        'label_for' => 'carouseel-rows',
+        'option_name' => 'rows',
+        'default_value' => '1',
+        'description' => 'Setting this to more than one initializes grid mode. Use Slides Per Row to set how many slides should be in each row.',
+        'type' => 'integer',
+    ),
+    //slide??
+    array(
+        'title' => 'Slides Per Row',
+        'label_for' => 'carousel-slides-per-row',
+        'option_name' => 'slidesPerRow',
+        'default_value' => '1',
+        'description' => 'With grid mode intialized via the rows option, this sets how many slides are in each grid row',
+        'type' => 'integer',
+    ),
+    array(
+        'title' => 'SlidesToShow',
+        'label_for' => 'carousel-slides-to-show',
+        'option_name' => 'slidesToShow',
+        'default_value' => '1',
+        'description' => 'Number of slides to show',
+        'type' => 'integer',
+    ),
     /*
-    array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
-    ),
-    array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
-    ),
-    array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
-    ),
-    array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
-    ),
-    array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
-    ),
-    array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
-    ),
-    array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
-    ),
-    array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
-    ),
-    array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
-    ),
-    array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
-    ),
-    array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
-    ),
-    array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
-    ),
-    array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
-    ),
-    array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
-    ),
     array(
         'title' => '',
         'label_for' => '',
@@ -311,23 +312,33 @@ function sewchic_input_callback($args){
     extract($args);
     $option = get_option('sc-carousel-'.$option_name);
     //var_dump($option);
-    $option = ($option === false) ? $default_value : $option;
+    $option = ($option === false || (empty($option) && $type != 'checkbox')) ? $default_value : $option;
 
+    $setDefaults = true;
     switch($type){
         case "checkbox":
             $value = '1';
             $checked = checked(1, $option, false);
             $style = '';
+            $setDefaults = false;
             break;
-        default: //text
-            $value = $option;
-            $checked = '';
-            $style = "max-width:300px; width:100%;";
+        case "decimal":
+            $type = 'number" step=".01';
             break;
+        case "integer":
+            $type = 'number';
+            break;
+        default: 
+            break;
+    }
+    if($setDefaults){ //text (or similar)
+        $value = $option;
+        $checked = '';
+        $style = "max-width:300px; width:100%;";
     }
     
     echo <<< EOT
-        <input type=$type name="sc-carousel-$option_name" style="$style" id="$label_for" value="$value" $checked /><br /><span class="description">$description</span>
+        <input type="$type" name="sc-carousel-$option_name" style="$style" id="$label_for" value="$value" $checked /><br /><span class="description">$description</span>
 EOT;
 
 }
@@ -336,6 +347,14 @@ function sewchic_place_notice_in_menus_menu(){
     echo "<h2>Additional configuration options exist for the Carousel Menu, because it's special. Go <a href='#'>here</a> to set them</h2>";
 }
 add_action('after_menu_locations_table','sewchic_place_notice_in_menus_menu');
+
+function sewchic_menu_image_size_filter($sizes){
+    return array(
+        'menu-sewchic' => array(100,500,false)
+    );
+
+}
+add_filter('menu_image_default_sizes', 'sewchic_menu_image_size_filter');
 
 
 ?>
