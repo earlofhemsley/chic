@@ -202,78 +202,114 @@ $GLOBALS['sewchic_carousel_settings'] = array(
         'type' => 'integer',
     ),
     array(
-        'title' => 'SlidesToShow',
+        'title' => 'Slides To Show',
         'label_for' => 'carousel-slides-to-show',
         'option_name' => 'slidesToShow',
         'default_value' => '1',
         'description' => 'Number of slides to show',
         'type' => 'integer',
     ),
-    /*
     array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
+        'title' => 'Slides to Scroll',
+        'label_for' => 'carousel-slides-to-scroll',
+        'option_name' => 'slidesToScroll',
+        'default_value' => '1',
+        'description' => 'Number of slides to scroll on click / swipe',
+        'type' => 'integer',
     ),
     array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
+        'title' => 'Speed',
+        'label_for' => 'carousel-transition-speed',
+        'option_name' => 'speed',
+        'default_value' => '300',
+        'description' => 'Slide/fade animation speed',
+        'type' => 'integer',
     ),
     array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
+        'title' => 'Swipe',
+        'label_for' => 'carousel-swipe',
+        'option_name' => 'swipe',
+        'default_value' => 1,
+        'description' => 'Enable/Disable swiping',
+        'type' => 'checkbox',
     ),
     array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
+        'title' => 'Swipe to slide',
+        'label_for' => 'carousel-swipe-to-slide',
+        'option_name' => 'swipeToSlide',
+        'default_value' => 0,
+        'description' => 'Allow users to drag or swipe directly to a slide irrespective of slidesToScroll',
+        'type' => 'checkbox',
     ),
     array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
+        'title' => 'Touch move',
+        'label_for' => 'carousel-touchmove',
+        'option_name' => 'touchMove',
+        'default_value' => 1,
+        'description' => 'Enable/disable slide motion with touch',
+        'type' => 'checkbox',
     ),
     array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
+        'title' => 'Touch threshold',
+        'label_for' => 'carousel-touch-threshold',
+        'option_name' => 'touchThreshold',
+        'default_value' => '5',
+        'description' => 'To advance slides, the user must swipe a length of (1/threshold)*the width of the slider',
+        'type' => 'integer',
     ),
     array(
-        'title' => '',
-        'label_for' => '',
-        'option_name' => '',
-        'default_value' => '',
-        'description' => '',
-        'type' => '',
+        'title' => 'Variable Width Slides',
+        'label_for' => 'carousel-variable-width',
+        'option_name' => 'variableWidth',
+        'default_value' => 0,
+        'description' => 'Enable support for variable width slides. If your images are not all the same size, select this.',
+        'type' => 'checkbox',
     ),
-     */
-
+    array(
+        'title' => 'Vertical Slide Mode',
+        'label_for' => 'carousel-vertical',
+        'option_name' => 'vertical',
+        'default_value' => 0,
+        'description' => 'Enables vertical slide mode',
+        'type' => 'checkbox',
+    ),
+    array(
+        'title' => 'Vertical Swiping',
+        'label_for' => 'carousel-vertical-swiping',
+        'option_name' => 'verticalSwiping',
+        'default_value' => 0,
+        'description' => 'Enable vertical swiping mode',
+        'type' => 'checkbox',
+    ),
+    array(
+        'title' => 'Right to Left',
+        'label_for' => 'carousel-rtl',
+        'option_name' => 'rtl',
+        'default_value' => 0,
+        'description' => 'Invert the direction of the carousel to become right-to-left',
+        'type' => 'checkbox',
+    ),
+    array(
+        'title' => 'Wait for Animate',
+        'label_for' => 'carousel-wfa',
+        'option_name' => 'waitForAnimate',
+        'default_value' => 1,
+        'description' => 'Ignores requests to advance the slide while animating',
+        'type' => 'checkbox',
+    ),
+    array(
+        'title' => 'Z-index',
+        'label_for' => 'carousel-zindex',
+        'option_name' => 'zindex',
+        'default_value' => '1000',
+        'description' => 'Set the z-index values for slides (useful for IE9 and older)',
+        'type' => 'integer',
+    ),
 );
 
 
 function sewchic_carousel_options(){
     add_theme_page('Carousel Options', 'Carousel Options', 'edit_theme_options', 'sewchic-carousel', 'sewchic_carousel_admin_content');
-
 }
 add_action('admin_menu','sewchic_carousel_options');
 
@@ -281,36 +317,81 @@ function sewchic_carousel_admin_content(){
     if(!current_user_can('edit_theme_options')){
         wp_die(__('You do not have permission to access this page', 'sewchic'));
     }
+    $active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'lg';
+    
+    $tabs = array(
+        'lg' => 'Full Screen / Large',
+        'md' => 'Medium Size',
+        'sm' => 'Small Size',
+        'xs' => 'Extra Small / Mobile',
+    );
 
-    echo "<h1>Sewchic Theme Homepage Carousel Options</h1>";
+    echo <<< EOT
+    <h1>Carousel Customization Options</h1>
+    <h2 class="nav-tab-wrapper">
+EOT;
+
+    foreach($tabs as $key => $title){
+        $class = "nav-tab";
+        $class .= $active_tab == $key ? ' nav-tab-active' : '';
+        echo "<a href='?page=sewchic-carousel&tab=$key' class='nav-tab $class'>$title</a>";
+    }
+    echo '</h2>';
+
     echo '<form action="options.php" method="POST">';
     settings_fields('sewchic-carousel');
-    do_settings_sections('sewchic-carousel');
-    //do_settings_fields('sewchic-carousel', 'carousel_settings_section');
+    do_settings_sections('sewchic-carousel-page-'.$active_tab);
+    //do_settings_sections('sewchic-carousel');
     submit_button();
     echo '</form>';
 }
 
 function sewchic_init_carousel_options(){
-    add_settings_section('carousel_settings_section', '', 'sewchic_carousel_section_callback','sewchic-carousel');
     global $sewchic_carousel_settings;
+    foreach(array('xs','sm','md','lg') as $suffix){
 
-    foreach($sewchic_carousel_settings as $settingArray){
-        add_settings_field('sc-carousel-'.$settingArray['option_name'], $settingArray['title'], 'sewchic_input_callback', 'sewchic-carousel','carousel_settings_section', $settingArray);
-        register_setting('sewchic-carousel', 'sc-carousel-'.$settingArray['option_name']);
+        add_settings_section(
+            "sc-carousel-section-$suffix", 
+            '', 
+            "sewchic_carousel_section_cb_$suffix", 
+            'sewchic-carousel-page-'.$suffix
+        );
+
+        foreach($sewchic_carousel_settings as $settings){
+            $settings['suffix'] = $suffix;
+            add_settings_field(
+                "sc-carousel-{$settings['option_name']}-$suffix",
+                $settings['title'], 
+                'sewchic_input_callback', 
+                'sewchic-carousel-page-'.$suffix,
+                "sc-carousel-section-$suffix", 
+                $settings
+            );
+        }
+        register_setting('sewchic-carousel-page-'.$suffix,'sewchic-carousel-page-'.$suffix);
     }
-
 }
 add_action('admin_init', 'sewchic_init_carousel_options');
 
-function sewchic_carousel_section_callback(){
-    echo "<p>Select your options for the home page carousel. These options will affect how your carousel behaves. To adjust the content of the carousel, refer to the Menus page</p>";
-    echo "<p style='font-weight:bold;'>DON'T MESS WITH THESE UNLESS YOU KNOW WHAT YOU'RE DOING</p>";
+function sewchic_carousel_section_cb_lg(){
+    echo ' <h3>Full-screen and large view carousel settings</h3> <p class="description">The breakpoint for large screens is 1200 pixels</p> ';
+}
+
+function sewchic_carousel_section_cb_md(){
+    echo ' <h3>Medium view carousel settings</h3> <p class="description">The breakpoint for medium screens is 992 pixels</p> ';
+}
+
+function sewchic_carousel_section_cb_sm(){
+    echo ' <h3>Small view carousel settings</h3> <p class="description">The breakpoint for medium screens is 762 pixels</p> '; 
+}
+
+function sewchic_carousel_section_cb_xs(){
+    echo ' <h3>Small and mobile view carousel settings</h3> <p class="description">These settings apply for any screen less than 762 pixels wide.</p> ';
 }
 
 function sewchic_input_callback($args){
     extract($args);
-    $option = get_option('sc-carousel-'.$option_name);
+    $option = get_option("sc-carousel-$option_name-$suffix");
     //var_dump($option);
     $option = ($option === false || (empty($option) && $type != 'checkbox')) ? $default_value : $option;
 
@@ -338,21 +419,19 @@ function sewchic_input_callback($args){
     }
     
     echo <<< EOT
-        <input type="$type" name="sc-carousel-$option_name" style="$style" id="$label_for" value="$value" $checked /><br /><span class="description">$description</span>
+        <input type="$type" name="sc-carousel-$option_name-$suffix" style="$style" id="$label_for" value="$value" $checked /><br /><span class="description">$description</span>
 EOT;
 
 }
 
 function sewchic_place_notice_in_menus_menu(){
-    echo "<h2>Additional configuration options exist for the Carousel Menu, because it's special. Go <a href='#'>here</a> to set them</h2>";
+    echo "<h2>Additional configuration options exist for the Carousel Menu, because it's special. Go <a href='themes.php?page=sewchic-carousel'>here</a> to set them</h2>";
 }
 add_action('after_menu_locations_table','sewchic_place_notice_in_menus_menu');
 
 function sewchic_menu_image_size_filter($sizes){
-    return array(
-        'menu-sewchic' => array(100,500,false)
-    );
-
+    $sizes['menu-sewchic'] = array(200,500,false);
+    return $sizes;
 }
 add_filter('menu_image_default_sizes', 'sewchic_menu_image_size_filter');
 
