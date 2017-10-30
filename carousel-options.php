@@ -1,6 +1,14 @@
 <?php
 $GLOBALS['sewchic_carousel_settings'] = array(
     array(
+        'title' => 'Responsive Design',
+        'label_for' => 'sc-carousel-responsive',
+        'option_name' => 'responsive',
+        'default_value' => 0,
+        'description' => 'Set this option to enable responsive design settings. Additional tabs will appear, which will give you control over how the slider is handled as the size of the window changes.',
+        'type' => 'checkbox',
+    ),
+    array(
         'title' => 'Accessibility',
         'label_for' => 'sc-carousel-accessibility',
         'option_name' => 'accessibility',
@@ -318,6 +326,9 @@ function sewchic_carousel_admin_content(){
         wp_die(__('You do not have permission to access this page', 'sewchic'));
     }
     $active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'lg';
+
+    if(get_option('sc-carousel-responsive-lg' !== '1' && $active_tab === 'lg'))
+        wp_die('Cannot access responsive settings unless responsive design is enabled');
     
     $tabs = array(
         'lg' => 'Full Screen / Large',
@@ -326,10 +337,9 @@ function sewchic_carousel_admin_content(){
         'xs' => 'Extra Small / Mobile',
     );
 
-    echo <<< EOT
-    <h1>Carousel Customization Options</h1>
-    <h2 class="nav-tab-wrapper">
-EOT;
+    echo '<h1>Carousel Customization Options</h1>' ;
+    if(get_option('sc-carousel-responsive-lg') === '1'):
+    echo '<h2 class="nav-tab-wrapper">';
 
     foreach($tabs as $key => $title){
         $class = "nav-tab";
@@ -337,11 +347,11 @@ EOT;
         echo "<a href='?page=sewchic-carousel&tab=$key' class='nav-tab $class'>$title</a>";
     }
     echo '</h2>';
+    endif;
 
     echo '<form action="options.php" method="POST">';
-    settings_fields('sewchic-carousel');
+    settings_fields('sewchic-carousel-page-'.$active_tab);
     do_settings_sections('sewchic-carousel-page-'.$active_tab);
-    //do_settings_sections('sewchic-carousel');
     submit_button();
     echo '</form>';
 }
@@ -358,6 +368,7 @@ function sewchic_init_carousel_options(){
         );
 
         foreach($sewchic_carousel_settings as $settings){
+            if($settings['option_name'] == 'responsive' && $suffix != 'lg') continue;
             $settings['suffix'] = $suffix;
             add_settings_field(
                 "sc-carousel-{$settings['option_name']}-$suffix",
@@ -367,8 +378,8 @@ function sewchic_init_carousel_options(){
                 "sc-carousel-section-$suffix", 
                 $settings
             );
+            register_setting('sewchic-carousel-page-'.$suffix,"sc-carousel-{$settings['option_name']}-$suffix");
         }
-        register_setting('sewchic-carousel-page-'.$suffix,'sewchic-carousel-page-'.$suffix);
     }
 }
 add_action('admin_init', 'sewchic_init_carousel_options');
