@@ -385,7 +385,8 @@ function sewchic_init_carousel_options(){
 add_action('admin_init', 'sewchic_init_carousel_options');
 
 function sewchic_carousel_section_cb_lg(){
-    echo ' <h3>Full-screen and large view carousel settings</h3> <p class="description">The breakpoint for large screens is 1200 pixels</p> ';
+    if(get_option('sc-carousel-responsive-lg') === '1')
+        echo ' <h3>Full-screen and large view carousel settings</h3> <p class="description">The breakpoint for large screens is 1200 pixels</p> ';
 }
 
 function sewchic_carousel_section_cb_md(){

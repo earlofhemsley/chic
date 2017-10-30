@@ -26,12 +26,33 @@ get_header();
                             jQuery('.sewchic-carousel').slick({
                                 <?php   
                                     foreach($settings as $settingArray){
-                                        $value = get_option('sc-carousel-' . $settingArray['option_name']);
+                                        if($settingArray['option_name'] === 'responsive') continue;
+                                        $value = get_option("sc-carousel-{$settingArray['option_name']}-lg");
                                         if($value === false || $value == $settingArray['default_value']) continue;
                                         if(empty($value)) $value = 'false';
                                         if($value === '1') $value = 'true';
                                         if($settingArray['type'] == 'text') $value = "\"$value\"";
                                         echo "{$settingArray['option_name']} : $value,\r\n";               
+                                    }
+                                    if(get_option('sc-carousel-responsive-lg') === '1'){
+                                        echo "responsive: [\r\n";
+                                        foreach(array('md' => 1200, 'sm' => 992, 'xs' => 768) as $suffix => $size){
+                                            echo "{\r\n";
+                                            echo "breakpoint: $size,\r\n";
+                                            echo "settings:{\r\n";
+                                            foreach($settings as $settingArray){
+                                                if($settingArray['option_name'] === 'responsive') continue;
+                                                $value = get_option("sc-carousel-{$settingArray['option_name']}-$suffix");
+                                                if($value === false ) continue;
+                                                if(empty($value)) $value = 'false';
+                                                if($value === '1') $value = 'true';
+                                                if($settingArray['type'] == 'text') $value = "\"$value\"";
+                                                echo "{$settingArray['option_name']} : $value,\r\n";               
+                                            }
+                                            echo "}\r\n";
+                                            echo "},\r\n";
+                                        }
+                                        echo "]";
                                     }
                                 ?>
                             });
