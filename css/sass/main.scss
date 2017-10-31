@@ -110,11 +110,12 @@ body{
 
 #sewchic-carousel-height-block{
     height: 600px;
+    position:relative;
 }
 
 .sewchic-carousel-outer-wrapper{
     width:100%;
-    padding:50px;
+    padding:30px;
     position:absolute;
     top:50%;
     transform: translateY(-50%);
@@ -125,6 +126,23 @@ body{
     img{
         margin:auto;
     }
+}
+
+.sewchic-table{
+    display:table;
+    width:100%;
+}
+
+.sewchic-row{
+    display:table-row;
+}
+
+.sewchic-cell{
+    display:table-cell;
+}
+
+#sewchic-home-tower-container{
+    display:none;
 }
 
 #sewchic-home-tower-img{
@@ -172,7 +190,9 @@ body{
         display:none;
     }
 
-
+    .sewchic-carousel-outer-wrapper{
+        padding:50px;
+    }
 
     #sewchic-primary-menu{
         padding:0;
@@ -234,7 +254,10 @@ body{
             padding-bottom:15px;
         }
     }
-
+    #sewchic-home-tower-container{
+        display:table-cell;
+        width:33.3%
+    }
 }
 
 @media screen and (min-width: 1200px){

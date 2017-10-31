@@ -3,9 +3,9 @@ get_header();
 ?>
 <div class="sewchic-home-body-wrapper">
     <div class="standard-wrap wrap sewchic-home-body">
-        <div class="row">
-            <div class="col-sm-12 col-xs-12 col-md-8">
-                <div id="sewchic-carousel-height-block">
+        <div class="sewchic-table">
+            <div class="sewchic-row">
+                <div class="sewchic-cell" id="sewchic-carousel-height-block">
                 <div class="sewchic-carousel-outer-wrapper">
                     <div class="sewchic-carousel-inner-wrapper">
                     <?php
@@ -18,13 +18,12 @@ get_header();
                         $carousel = preg_replace('/<li[^>]*>/', '<div class="sewchic-carousel-item">', $carousel);
                         $carousel = preg_replace('/<\/li>/', '</div>', $carousel);
                         echo $carousel;
-
-                        $settings = $GLOBALS['sewchic_carousel_settings'];
                     ?> 
                     <script type="text/javascript">
                         jQuery(document).ready(function(){
                             jQuery('.sewchic-carousel').slick({
                                 <?php   
+                                    $settings = $GLOBALS['sewchic_carousel_settings'];
                                     foreach($settings as $settingArray){
                                         if($settingArray['option_name'] === 'responsive') continue;
                                         $value = get_option("sc-carousel-{$settingArray['option_name']}-lg");
@@ -61,11 +60,11 @@ get_header();
                     </div>
                 </div>
                 </div>
-            </div>
-            <div class="hidden-xs hidden-sm col-md-4 text-center">
+            <div class="sewchic-cell text-center" id="sewchic-home-tower-container">
                 <img id="sewchic-home-tower-img" src="<?php echo get_theme_mod('front_page_tower_img'); ?>" />
             </div>
-        </div> 
+            </div>
+        </div>
     </div> 
 </div>
 <div class="sewchic-home-footer-wrapper">
