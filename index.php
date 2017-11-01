@@ -6,69 +6,26 @@ get_header();
         <div class="sewchic-table">
             <div class="sewchic-row">
                 <div class="sewchic-cell" id="sewchic-carousel-height-block">
-                <div class="sewchic-carousel-outer-wrapper">
-                    <div class="sewchic-carousel-inner-wrapper">
-                    <?php
-                        $carousel = wp_nav_menu(array(
-                            'theme_location' => 'carousel',
-                            'container_class' => 'sewchic-carousel',
-                            'echo' => false,
-                            'items_wrap' => '%3$s', 
-                        ));
-                        $carousel = preg_replace('/<li[^>]*>/', '<div class="sewchic-carousel-item">', $carousel);
-                        $carousel = preg_replace('/<\/li>/', '</div>', $carousel);
-                        echo $carousel;
-                    ?> 
-                    <script type="text/javascript">
-                        jQuery(document).ready(function(){
-                            jQuery('.sewchic-carousel').slick({
-                                <?php   
-                                    $responsive = $sewchic_carousel_responsive;
-                                    $settings = $GLOBALS['sewchic_carousel_settings'];
-                                    foreach($settings as $settingArray){
-                                        if($settingArray['option_name'] === 'responsive') continue;
-                                        $value = get_option("sc-carousel-{$settingArray['option_name']}-lg");
-                                        if($value === false || $value == $settingArray['default_value']) continue;
-                                        if(empty($value)) $value = 'false';
-                                        if($value === '1') $value = 'true';
-                                        if($settingArray['type'] == 'text') $value = "\"$value\"";
-                                        echo "{$settingArray['option_name']} : $value,\r\n";               
-                                    }
-                                    if(get_option("sc-carousel-{$responsive['option_name']}-{$responsive['suffix']}") === '1'){
-                                        echo "responsive: [\r\n";
-                                        foreach(array('md' => 1200, 'sm' => 992, 'xs' => 768) as $suffix => $size){
-                                            echo "{\r\n";
-                                            echo "breakpoint: $size,\r\n";
-                                            if(get_option("sc-carousel-unslick-$suffix") === '1'){
-                                                echo "settings: 'unslick'\r\n";
-                                            }
-                                            else{
-                                                echo "settings:{\r\n";
-                                                foreach($settings as $settingArray){
-                                                    if($settingArray['option_name'] === 'responsive') continue;
-                                                    $value = get_option("sc-carousel-{$settingArray['option_name']}-$suffix");
-                                                    if($value === false ) continue;
-                                                    if(empty($value)) $value = 'false';
-                                                    if($value === '1') $value = 'true';
-                                                    if($settingArray['type'] == 'text') $value = "\"$value\"";
-                                                    echo "{$settingArray['option_name']} : $value,\r\n";               
-                                                }
-                                                echo "}\r\n";
-                                            }
-                                            echo "},\r\n";
-                                        }
-                                        echo "]";
-                                    }
-                                ?>
-                            });
-                        });
-                    </script>
+                    <div class="sewchic-carousel-outer-wrapper">
+                        <div class="sewchic-carousel-inner-wrapper">
+                        <?php
+                            $carousel = wp_nav_menu(array(
+                                'theme_location' => 'carousel',
+                                'container_class' => 'sewchic-carousel',
+                                'echo' => false,
+                                'items_wrap' => '%3$s', 
+                            ));
+                            $carousel = preg_replace('/<li[^>]*>/', '<div class="sewchic-carousel-item">', $carousel);
+                            $carousel = preg_replace('/<\/li>/', '</div>', $carousel);
+                            echo $carousel;
+                        ?> 
+                        </div>
+                        <?php sewchic_carousel_script(); ?>
                     </div>
                 </div>
+                <div class="sewchic-cell text-center" id="sewchic-home-tower-container">
+                    <img id="sewchic-home-tower-img" src="<?php echo get_theme_mod('front_page_tower_img'); ?>" />
                 </div>
-            <div class="sewchic-cell text-center" id="sewchic-home-tower-container">
-                <img id="sewchic-home-tower-img" src="<?php echo get_theme_mod('front_page_tower_img'); ?>" />
-            </div>
             </div>
         </div>
     </div> 

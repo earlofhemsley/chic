@@ -367,6 +367,7 @@ function sewchic_carousel_admin_content(){
 
     echo '<form action="options.php" method="POST">';
     settings_fields('sewchic-carousel-page-'.$active_tab);
+    submit_button();
     do_settings_sections('sewchic-carousel-page-'.$active_tab);
     submit_button();
     echo '</form>';
@@ -478,6 +479,54 @@ function sewchic_menu_image_size_filter($sizes){
     return $sizes;
 }
 add_filter('menu_image_default_sizes', 'sewchic_menu_image_size_filter');
+
+function sewchic_carousel_script(){
+    global $sewchic_carousel_responsive, $sewchic_carousel_settings;
+?>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            jQuery('.sewchic-carousel').slick({
+                <?php   
+                    foreach($sewchic_carousel_settings as $settingArray){
+                        $value = get_option("sc-carousel-{$settingArray['option_name']}-lg");
+                        if($value === false || $value == $settingArray['default_value']) continue;
+                        if(empty($value)) $value = 'false';
+                        if($value === '1') $value = 'true';
+                        if($settingArray['type'] == 'text') $value = "\"$value\"";
+                        echo "{$settingArray['option_name']} : $value,\r\n";               
+                    }
+                    if(get_option("sc-carousel-{$sewchic_carousel_responsive['option_name']}-{$sewchic_carousel_responsive['suffix']}") === '1'){
+                        echo "responsive: [\r\n";
+                        foreach(array('md' => 1200, 'sm' => 992, 'xs' => 768) as $suffix => $size){
+                            echo "{\r\n";
+                            echo "breakpoint: $size,\r\n";
+                            if(get_option("sc-carousel-unslick-$suffix") === '1'){
+                                echo "settings: 'unslick'\r\n";
+                            }
+                            else{
+                                echo "settings:{\r\n";
+                                foreach($sewchic_carousel_settings as $settingArray){
+                                    $value = get_option("sc-carousel-{$settingArray['option_name']}-$suffix");
+                                    if($value === false ) continue;
+                                    if(empty($value)) $value = 'false';
+                                    if($value === '1') $value = 'true';
+                                    if($settingArray['type'] == 'text') $value = "\"$value\"";
+                                    echo "{$settingArray['option_name']} : $value,\r\n";               
+                                }
+                                echo "}\r\n";
+                            }
+                            echo "},\r\n";
+                        }
+                        echo "]";
+                    }
+                ?>
+            });
+        });
+    </script>
+<?php
+
+
+}
 
 
 ?>
