@@ -23,6 +23,7 @@ get_header();
                         jQuery(document).ready(function(){
                             jQuery('.sewchic-carousel').slick({
                                 <?php   
+                                    $responsive = $sewchic_carousel_responsive;
                                     $settings = $GLOBALS['sewchic_carousel_settings'];
                                     foreach($settings as $settingArray){
                                         if($settingArray['option_name'] === 'responsive') continue;
@@ -33,22 +34,27 @@ get_header();
                                         if($settingArray['type'] == 'text') $value = "\"$value\"";
                                         echo "{$settingArray['option_name']} : $value,\r\n";               
                                     }
-                                    if(get_option('sc-carousel-responsive-lg') === '1'){
+                                    if(get_option("sc-carousel-{$responsive['option_name']}-{$responsive['suffix']}") === '1'){
                                         echo "responsive: [\r\n";
                                         foreach(array('md' => 1200, 'sm' => 992, 'xs' => 768) as $suffix => $size){
                                             echo "{\r\n";
                                             echo "breakpoint: $size,\r\n";
-                                            echo "settings:{\r\n";
-                                            foreach($settings as $settingArray){
-                                                if($settingArray['option_name'] === 'responsive') continue;
-                                                $value = get_option("sc-carousel-{$settingArray['option_name']}-$suffix");
-                                                if($value === false ) continue;
-                                                if(empty($value)) $value = 'false';
-                                                if($value === '1') $value = 'true';
-                                                if($settingArray['type'] == 'text') $value = "\"$value\"";
-                                                echo "{$settingArray['option_name']} : $value,\r\n";               
+                                            if(get_option("sc-carousel-unslick-$suffix") === '1'){
+                                                echo "settings: 'unslick'\r\n";
                                             }
-                                            echo "}\r\n";
+                                            else{
+                                                echo "settings:{\r\n";
+                                                foreach($settings as $settingArray){
+                                                    if($settingArray['option_name'] === 'responsive') continue;
+                                                    $value = get_option("sc-carousel-{$settingArray['option_name']}-$suffix");
+                                                    if($value === false ) continue;
+                                                    if(empty($value)) $value = 'false';
+                                                    if($value === '1') $value = 'true';
+                                                    if($settingArray['type'] == 'text') $value = "\"$value\"";
+                                                    echo "{$settingArray['option_name']} : $value,\r\n";               
+                                                }
+                                                echo "}\r\n";
+                                            }
                                             echo "},\r\n";
                                         }
                                         echo "]";

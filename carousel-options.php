@@ -12,14 +12,6 @@ $GLOBALS['sewchic_carousel_responsive'] = array(
 
 $GLOBALS['sewchic_carousel_settings'] = array(
     array(
-        'title' => 'Unslick',
-        'label_for' => 'sc-carousel-unslick',
-        'option_name' => 'unslick',
-        'default_value' => 0,
-        'description' => 'Disable the slider for this size of window (Warning: original HTML will be rendered)',
-        'type' => 'checkbox'
-    ),
-    array(
         'title' => 'Accessibility',
         'label_for' => 'sc-carousel-accessibility',
         'option_name' => 'accessibility',
@@ -323,6 +315,14 @@ $GLOBALS['sewchic_carousel_settings'] = array(
         'default_value' => '1000',
         'description' => 'Set the z-index values for slides (useful for IE9 and older)',
         'type' => 'integer',
+    ),
+    array(
+        'title' => 'Unslick',
+        'label_for' => 'sc-carousel-unslick',
+        'option_name' => 'unslick',
+        'default_value' => 0,
+        'description' => 'Disable the slider for this size of window AND SMALLER (Warning: Don\'t do this unless you understand the consequences. Original HTML will be rendered, and resizing the window larger than this size will not re-enable the slider. Once a slider is disabled, it is disabled until page reload.)',
+        'type' => 'checkbox'
     ),
 );
 
