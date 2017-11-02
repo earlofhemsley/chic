@@ -151,6 +151,32 @@ function sewchic_customizer_setup($wp_customizer){
         'type' => 'text',
         'priority' => 100
     ));
+    
+    $allCats = array();
+    foreach(array('product_cat', 'category') as $term){
+        $allCats += get_terms(array(
+            'taxonomy' => $term,
+            'hide_empty' => true,
+            'parent' => 0,
+            'fields' => 'id=>name',
+        ));
+    }
+
+    foreach(array(1 => 'first',2 => 'second',3 => 'third') as $num => $ordinal){
+        $wp_customizer->add_setting("sewchic_home_category_$num", array(
+            'sanitize_callback' => function($input){return $input;} //TODO: make sure this is a product / blog post category
+        ));
+        $wp_customizer->add_control("sewchic_home_category_$num", array(
+            'section' => 'front_page_customization',
+            'priority' => 10 + $num,
+            'label' => "Home page catagory no. $num",
+            'description' => "This is the $ordinal home page category",
+            'type' => 'select',
+            'choices' => $allCats,
+        ));
+        
+    }
+
 
 }
 add_action('customize_register', 'sewchic_customizer_setup');
