@@ -1,6 +1,8 @@
 <?php
 
 require_once('carousel-options.php');
+require_once('classes/class-fb-page-plugin.php');
+new facebookPagePlugin();
 
 if(!isset($content_width)) $content_width=1200;
 
@@ -85,9 +87,16 @@ endif;
 if(!function_exists('sewchic_widgets_setup')):
 function sewchic_widgets_setup(){
     register_sidebar(array(
-        'name' => __('Home page header social widget area', 'sewchic'),
-        'id' => 'header-social',
-        'description' => __('Appears in the top-right corner of the home page','sewchic'),
+        'name' => __('Home page body social widget area', 'sewchic'),
+        'id' => 'home-body-social',
+        'description' => __('Appears just beneath the hero elements of the home page','sewchic'),
+        'before_widget' => '',
+        'after_widget' => '',
+    ));
+    register_sidebar(array(
+        'name' => __('Home page body left rail', 'sewchic'),
+        'id' => 'home-body-left-rail',
+        'description' => __('Appars in the main body of the home page to the left'),
         'before_widget' => '',
         'after_widget' => '',
     ));
@@ -181,6 +190,5 @@ function sewchic_customizer_setup($wp_customizer){
 }
 add_action('customize_register', 'sewchic_customizer_setup');
 endif;
-
 
 ?>

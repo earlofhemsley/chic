@@ -1,8 +1,8 @@
 <?php
 get_header();
 ?>
-<div class="sewchic-home-body-wrapper">
-    <div class="standard-wrap wrap sewchic-home-body">
+<div class="sewchic-home-hero-wrapper">
+    <div class="standard-wrap wrap sewchic-hero-body">
         <div class="sewchic-table">
             <div class="sewchic-row">
                 <div class="sewchic-cell" id="sewchic-carousel-height-block">
@@ -30,18 +30,34 @@ get_header();
         </div>
     </div> 
 </div>
+<div class="sewchic-home-body-wrapper">
+    <?php
+        if(is_active_sidebar('home-body-social')){
+            dynamic_sidebar('home-body-social');
+        }
+    ?>
+    <?php if(!empty(get_theme_mod('sewchic_secondary_tagline'))): ?>
+    <h2 id="sewchic-secondary-tagline" class="text-center">
+        <?php echo get_theme_mod('sewchic_secondary_tagline'); ?>
+    </h2>
+    <?php endif; ?>
+    <div class="standard-wrap wrap">
+        <div class="sewchic-home-body-content row">
+            <div class="col-sm-4">
+                <?php 
+                    if(is_active_sidebar('home-body-left-rail')){
+                        dynamic_sidebar('home-body-left-rail');
+                    }
+                ?>
+            </div>
+            <div class="col-sm-8">
+
+            </div>
+        </div>
+    </div>
+</div>
 <div class="sewchic-home-footer-wrapper">
     <div class="standard-wrap wrap">
-        <?php
-            if(is_active_sidebar('header-social')){
-                dynamic_sidebar('header-social');
-            }
-        ?>
-        <?php if(!empty(get_theme_mod('sewchic_secondary_tagline'))): ?>
-        <h2 id="sewchic-secondary-tagline" class="text-center">
-            <?php echo get_theme_mod('sewchic_secondary_tagline'); ?>
-        </h2>
-        <?php endif; ?>
         <div class="row">
             <?php
                 $wpMenuLocations = get_nav_menu_locations();

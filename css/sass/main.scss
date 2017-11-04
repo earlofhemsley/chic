@@ -88,7 +88,7 @@ body{
 /*********************
   HOME PAGE STYLES
 *********************/
-.sewchic-home-body-wrapper{
+.sewchic-home-hero-wrapper{
     background: repeating-linear-gradient(
         to right,
         $headerpink,
@@ -98,13 +98,7 @@ body{
     );
     border-bottom:50px solid $headerpink;
 }
-.sewchic-home-body-padding{
-    background: $beige;
-    height:50px;
-    margin:0;
-    padding:0;
-}
-.sewchic-home-body{
+.sewchic-hero-body{
     padding:20px 0;
 }
 
