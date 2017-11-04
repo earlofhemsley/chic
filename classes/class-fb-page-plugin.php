@@ -134,7 +134,7 @@ EOT;
         if(empty($instance['page-id']))
             echo '<p>Cannot render plugin. No Page Id set</p>';
         else{
-            echo '<div class="sewchic-facebook-page-plugin-widget">';
+            echo '<div class="sewchic-facebook-page-plugin-widget" style="max-width:'.$instance['width'].'px;padding-bottom:'.$instance['height'].'px">';
                 echo $args['before_widget'];
                 echo <<< EOT
                     <div 
