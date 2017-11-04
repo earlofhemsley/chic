@@ -188,4 +188,3 @@ EOT;
     }
 }
 
-$fpp = new facebookPagePlugin();

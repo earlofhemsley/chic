@@ -163,6 +163,32 @@ body{
     a{color:$black}
 }
 
+.sewchic-post-container{
+    h1, h2, h3, h4, h5, h6{
+        margin-top:30px;
+    }
+}
+
+.sewchic-post{
+    background: grey;
+    text-align:right;
+    position:relative;
+    &.sewchic-post-large{
+        height:500px;    
+    }
+    &.sewchic-post-small{
+        height:242px;
+        margin-top:16px;
+    }
+    .sewchic-post-title{
+        padding:10px 15px;
+        position:absolute;
+        bottom: 0;
+        right:0;
+    }
+
+}
+
 .sewchic-copyright{
     text-align:center;
     font-size:14px;
@@ -228,6 +254,9 @@ body{
         }
     }
 
+    .sewchic-post.sewchic-post-small:first-of-type{
+        margin-top:0px;
+    }
 }
 
 @media screen and (min-width: 992px){

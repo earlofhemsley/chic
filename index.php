@@ -41,23 +41,69 @@ get_header();
         <?php echo get_theme_mod('sewchic_secondary_tagline'); ?>
     </h2>
     <?php endif; ?>
-    <div class="standard-wrap wrap">
+    <div class="standard-wrap wrap container-fluid">
         <div class="sewchic-home-body-content row">
-            <div class="col-sm-4">
+            <div class="col-sm-8 col-sm-push-4">
+            <?php
+                foreach(array(1 => 'first',2 => 'second',3 => 'third') as $num => $ordinal):
+                    $catNum = intval(get_theme_mod("sewchic_home_category_$num"));
+                    $catObj = get_term($catNum);
+                    $query = new WP_Query(array(
+                        //'cat' => intval(get_theme_mod("sewchic_home_category_$num")),
+                        'post_type' => array('post', 'product'),
+                        'posts_per_page' => 3,
+                        'ignore_sticky_posts' => true,
+                        'tax_query' => array(
+                            'relation' => 'OR',
+                            array(
+                                'taxonomy' => 'product_cat',
+                                'field' => 'term_id',
+                                'terms' => $catNum
+                            ),
+                            array(
+                                'taxonomy' => 'category',
+                                'field' => 'term_id',
+                                'terms' => $catNum
+                            ),
+                        ),
+                    ));
+                    if($query->have_posts()) $query->the_post();
+            ?>
+                <div class="sewchic-post-container row">
+                    <h2><?php echo $catObj->name;  ?></h2>
+                    <div class="col-sm-8">
+                        <div class="sewchic-post sewchic-post-large">
+                            <div class="sewchic-post-title"><?php the_title(); ?></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <?php if($query->have_posts()) $query->the_post();?>
+                        <div class="sewchic-post sewchic-post-small">
+                            <div class="sewchic-post-title"><?php the_title(); ?></div>
+                        </div>
+                        <?php if($query->have_posts()) $query->the_post();?>
+                        <div class="sewchic-post sewchic-post-small">
+                            <div class="sewchic-post-title"><?php the_title(); ?></div>
+                        </div>
+                    </div>
+                </div> 
+            <?php
+                    wp_reset_query();
+                endforeach;
+            ?>
+            </div>
+            <div class="col-sm-4 col-sm-pull-8">
                 <?php 
                     if(is_active_sidebar('home-body-left-rail')){
                         dynamic_sidebar('home-body-left-rail');
                     }
                 ?>
             </div>
-            <div class="col-sm-8">
-
-            </div>
         </div>
     </div>
 </div>
 <div class="sewchic-home-footer-wrapper">
-    <div class="standard-wrap wrap">
+    <div class="standard-wrap wrap container-fluid">
         <div class="row">
             <?php
                 $wpMenuLocations = get_nav_menu_locations();
