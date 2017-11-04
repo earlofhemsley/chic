@@ -351,7 +351,6 @@ function sewchic_carousel_admin_content(){
     );
 
     echo '<h1>Carousel Customization Options</h1>' ;
-    if(get_option('sc-carousel-responsive-lg') === '1'):
     echo '<h2 class="nav-tab-wrapper">';
 
     $rs_opt = get_option("sc-carousel-{$sewchic_carousel_responsive['option_name']}-{$sewchic_carousel_responsive['suffix']}");
@@ -363,7 +362,6 @@ function sewchic_carousel_admin_content(){
         echo "<a href='?page=sewchic-carousel&tab=$key' class='nav-tab $class'>$title</a>";
     }
     echo '</h2>';
-    endif;
 
     echo '<form action="options.php" method="POST">';
     settings_fields('sewchic-carousel-page-'.$active_tab);
