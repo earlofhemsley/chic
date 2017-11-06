@@ -12,23 +12,25 @@
                     'terms' => $catObj->term_id
                 ),
             ),
+            'sewchic_is_home' => true
         ));
+        //var_dump($query);
         if($query->have_posts()) $query->the_post();
 ?>
     <div class="sewchic-post-container row">
         <h2><a href="<?php echo get_term_link($catObj); ?>"><?php echo $catObj->name;  ?></a></h2>
         <div class="col-sm-8">
-            <div class="sewchic-post sewchic-post-large">
+            <div class="sewchic-post sewchic-post-large" style="background-image: url('<?php echo sewchic_get_feed_image_url(); ?>');">
                 <div class="sewchic-post-title"><?php the_title(); ?></div>
             </div>
         </div>
         <div class="col-sm-4">
             <?php if($query->have_posts()) $query->the_post();?>
-            <div class="sewchic-post sewchic-post-small">
+            <div class="sewchic-post sewchic-post-small" style="background-image: url('<?php echo sewchic_get_feed_image_url(); ?>');">
                 <div class="sewchic-post-title"><?php the_title(); ?></div>
             </div>
             <?php if($query->have_posts()) $query->the_post();?>
-            <div class="sewchic-post sewchic-post-small">
+            <div class="sewchic-post sewchic-post-small" style="background-image: url('<?php echo sewchic_get_feed_image_url(); ?>');">
                 <div class="sewchic-post-title"><?php the_title(); ?></div>
             </div>
         </div>

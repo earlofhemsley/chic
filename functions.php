@@ -14,6 +14,7 @@ function sewchic_setup(){
     add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
     add_theme_support('title-tag');
     add_theme_support('automatic-feed-links');
+    add_theme_support('post-formats', array('gallery','image','video'));
     add_theme_support('custom-logo', array(
         'height' => 200,
         'width' => 400,
@@ -189,6 +190,80 @@ function sewchic_customizer_setup($wp_customizer){
 
 }
 add_action('customize_register', 'sewchic_customizer_setup');
+endif;
+
+//get the image url to be associated with a post. For use on feed pages in the context of the loop
+if(!function_exists('sewchic_get_feed_image_url')):
+function sewchic_get_feed_image_url(){
+    global $post;
+    //if has defined thumbnail, return url of thumbnail
+    if(has_post_thumbnail($post)) return get_the_post_thumbnail_url($post, 'medium');
+    else{
+        $dom = new DOMDocument();
+        libxml_use_internal_errors(true);
+        $dom->loadHTML(apply_filters('the_content',$post->post_content));
+        libxml_clear_errors();
+        $images = $dom->getElementsByTagName('img');
+        if($images->length >= 1){
+            //else if content has img tag, return url of image
+            return $images->item(0)->getAttribute('src');
+        }
+        else{
+            //else if content has youtube video, return url of youtube preview img
+            $iframes = $dom->getElementsByTagName('iframe');
+            foreach($iframes as $iframe){
+                $src = $iframe->getAttribute('src');
+                if(preg_match('/youtube\.com\/embed\/(\w+)/', $src, $matches)){
+                    return "https://img.youtube.com/vi/{$matches[1]}/0.jpg";
+                }
+            }
+            //else return custom logo
+            //return get_template_directory_uri().'/assets/img/feed-default-'.get_post_format($post->ID).'.png';
+            $image = wp_get_attachment_image_src(get_theme_mod('custom_logo'), 'medium');
+            return $image[0];
+        }
+    }
+}
+endif;
+
+if(!function_exists('sewchic_set_home_on_custom_queries')):
+function sewchic_set_home_on_custom_queries( $q )
+{
+    if ( true === $q->get( 'sewchic_is_home' ) ) 
+        $q->is_home = true;
+    else return;
+    
+    $stickies = get_option('sticky_posts');
+
+    if(!$stickies) return;
+
+    $args = array(
+        'post__in' => $stickies,
+        'posts_per_page' => -1,
+        'ignore_sticky_posts' => 1,
+        'tax_query' => $q->get('tax_query'),
+        'fields' => 'ids',
+    );
+ 
+    $valid_sticky_ids = get_posts( $args );
+
+    // Make sure we have valid ids
+    if ( !$valid_sticky_ids ) {
+        $q->set( 'post__not_in', $stickies );
+        return;
+    }
+
+    // Remove these ids from the sticky posts array
+    $invalid_ids = array_diff( $stickies, $valid_sticky_ids );
+
+    // Check if we still have ids left in $invalid_ids
+    if ( !$invalid_ids )
+        return;
+
+    // Lets remove these invalid ids from our query
+    $q->set( 'post__not_in', $invalid_ids );;
+}
+add_action( 'pre_get_posts', 'sewchic_set_home_on_custom_queries');
 endif;
 
 ?>
