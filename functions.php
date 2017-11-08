@@ -1,8 +1,10 @@
 <?php
 
+require_once( get_template_directory(). '/woocommerce-integration.php');
 require_once( get_template_directory(). '/includes/carousel-options.php');
 require_once( get_template_directory(). '/classes/class-fb-page-plugin.php');
 require_once( get_template_directory(). '/classes/class-tgm-plugin-activation.php');
+
 
 if(!function_exists('sewchic_register_required_plugins')):
 function sewchic_register_required_plugins(){
