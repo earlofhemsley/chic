@@ -187,4 +187,5 @@ EOT;
 
     }
 }
+new facebookPagePlugin();
 

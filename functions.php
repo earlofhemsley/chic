@@ -1,8 +1,42 @@
 <?php
 
-require_once('carousel-options.php');
-require_once('classes/class-fb-page-plugin.php');
-new facebookPagePlugin();
+require_once( get_template_directory(). '/includes/carousel-options.php');
+require_once( get_template_directory(). '/classes/class-fb-page-plugin.php');
+require_once( get_template_directory(). '/classes/class-tgm-plugin-activation.php');
+
+if(!function_exists('sewchic_register_required_plugins')):
+function sewchic_register_required_plugins(){
+    $plugins = array(
+		array(
+			'name'      => 'WooCommerce',
+			'slug'      => 'woocommerce',
+			'required'  => true,
+        ),
+        array(
+            'name'      => 'Menu Image',
+            'slug'      => 'menu-image',
+            'required'  => true,
+        ),
+    );
+
+    $config = array(
+        'id'           => 'sewchic',
+		'default_path' => '',                      // Default absolute path to bundled plugins.
+		'menu'         => 'tgmpa-install-plugins', // Menu slug.
+		'parent_slug'  => 'themes.php',            // Parent menu slug.
+		'capability'   => 'edit_theme_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
+		'has_notices'  => true,                    // Show admin notices or not.
+		'dismissable'  => false,                    // If false, a user cannot dismiss the nag message.
+		'dismiss_msg'  => 'There are plugins that require installation.',                      // If 'dismissable' is false, this message will be output at top of nag.
+		'is_automatic' => true,                   // Automatically activate plugins after installation or not.
+		'message'      => 'This theme requires installation of certain plugins. Get on it.',                      // Message to output right before the plugins table.
+    );
+
+    tgmpa($plugins, $config);
+} 
+add_action( 'tgmpa_register', 'sewchic_register_required_plugins' );
+endif;
+
 
 if(!isset($content_width)) $content_width=1200;
 
