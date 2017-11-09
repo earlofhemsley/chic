@@ -59,8 +59,10 @@ function sewchic_setup(){
     ));
 
     //this theme designed to be used with woocommerce ecommerce plugin
-    //TODO: prompt admin users to download and install woocommerce if not installed
     add_theme_support('woocommerce');
+    //add_theme_support('wc-product-gallery-zoom');
+    add_theme_support('wc-product-gallery-lightbox');
+    add_theme_support('wc-product-gallery-slider');
 
 }
 add_action('after_setup_theme', 'sewchic_setup');
@@ -94,6 +96,7 @@ function sewchic_register_scripts(){
     wp_enqueue_style('slick', get_template_directory_uri().'/css/slick.min.css');
     wp_enqueue_style('slick-theme', get_template_directory_uri().'/css/slick-theme.min.css', array('slick'));
     wp_enqueue_style('core', get_stylesheet_uri(), array('bootstrap','bootstrap-theme','h5bp'));
+
 
 
     //dynamic styles
