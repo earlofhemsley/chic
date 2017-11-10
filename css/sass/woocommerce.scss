@@ -68,6 +68,7 @@ $viewportWidth:500px;
     .quantity-wrapper{
         padding:10px;
         border: 2px solid $headerpink;
+        border-radius: 5px;
         max-width:350px;
         margin:auto;
         width:90%;
@@ -120,7 +121,16 @@ $viewportWidth:500px;
 
 }
 
-.product-meta{
+.product_meta{
+    margin: 15px 0 10px;
+    font-size: 14px;
+    &,a{
+        color:$light-grey;
+        font-style:italic;
+    }
+    a{
+        text-decoration:underline;
+    }
     &::after{
         content:".";
         visibility:hidden;
@@ -133,6 +143,7 @@ $viewportWidth:500px;
 
 .wc-tabs-wrapper{
     clear:both;
+    padding-top:35px;
     ul.tabs{
         list-style-type:none;
         margin:0;
@@ -149,6 +160,8 @@ $viewportWidth:500px;
                 background-color:white;
                 border:1px solid $light-grey;
                 color:black;
+                border-top-left-radius:5px;
+                border-top-right-radius:5px;
             }
             a:hover{
                 text-decoration:none;
