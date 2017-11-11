@@ -82,12 +82,16 @@ endif;
 if(!function_exists('sewchic_register_scripts')):
 function sewchic_register_scripts(){
     //scripts
-    wp_enqueue_script('jquery', '', array(), false, true);
+    wp_enqueue_script('jquery');
     wp_enqueue_script('bootstrap-js', get_template_directory_uri().'/js/vendor/bootstrap.min.js', array('jquery'), false, true);
     wp_enqueue_script('modernizr', get_template_directory_uri().'/js/vendor/modernizr-3.5.0.min.js', array('jquery'), false, true);
     wp_enqueue_script('slick', get_template_directory_uri().'/js/vendor/slick.min.js', array('jquery'), false, true);
     wp_enqueue_script('plugins',get_template_directory_uri().'/js/plugins.js', array('jquery'), false, true);
     wp_enqueue_script('main',get_template_directory_uri().'/js/main.js', array('jquery'), false, true);
+
+    //conditional script loading
+    if(is_product())
+        wp_enqueue_script('stars', get_template_directory_uri().'/js/single-product-stars.js', array('jquery'), false, true);
 
     //styles
     wp_enqueue_style('bootstrap', get_template_directory_uri().'/css/bootstrap.min.css');
