@@ -44,9 +44,6 @@ span.onsale {
   margin-bottom: 10px;
   border-radius: 5px; }
 
-.product {
-  width: 100% !important; }
-
 .woocommerce-product-gallery img {
   max-width: 100% !important;
   height: auto !important;
@@ -202,8 +199,38 @@ span.onsale {
 .woocommerce-Reviews .sewchic-comment-form-content input {
   height: 36px; }
 
-.related.products {
-  clear: both; }
+.related.products ul.products, .upsells.products ul.products {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+  .related.products ul.products li, .upsells.products ul.products li {
+    display: block;
+    padding: 15px 0; }
+    .related.products ul.products li img, .upsells.products ul.products li img {
+      max-width: 100px;
+      width: 100%;
+      height: auto;
+      float: left;
+      margin: 0 10px 7px 0; }
+    .related.products ul.products li h1, .related.products ul.products li h2, .related.products ul.products li h3, .upsells.products ul.products li h1, .upsells.products ul.products li h2, .upsells.products ul.products li h3 {
+      margin: 0 0 10px; }
+    .related.products ul.products li:after, .upsells.products ul.products li:after {
+      content: '.';
+      display: block;
+      height: 0;
+      visibility: hidden;
+      clear: both; }
+.related.products span.onsale, .upsells.products span.onsale {
+  display: initial;
+  text-align: inital;
+  font-size: initial;
+  margin: 0;
+  padding: 3px 5px;
+  position: absolute;
+  opacity: 0.7; }
+.related.products .price, .upsells.products .price {
+  font-weight: bold;
+  color: #00ae00; }
 
 /*product page*/
 @media screen and (min-width: 768px) {
@@ -220,7 +247,25 @@ span.onsale {
       display: inline;
       padding: 15px 12px 17px; }
     .wcsc-cart-add-form .input-text {
-      max-width: 400px; } }
+      max-width: 400px; }
+
+  .related.products, .upsells.products {
+    display: table;
+    width: 100%; }
+    .related.products ul.products, .upsells.products ul.products {
+      display: table-row; }
+      .related.products ul.products li, .upsells.products ul.products li {
+        padding: 0 10px;
+        display: table-cell;
+        width: 25%;
+        text-align: center; }
+        .related.products ul.products li img, .upsells.products ul.products li img {
+          max-width: 200px;
+          float: none;
+          margin: 0 0 10px 0; }
+        .related.products ul.products li .button, .upsells.products ul.products li .button {
+          display: table;
+          margin: 10px auto 0; } }
 @media screen and (min-width: 992px) {
   .woocommerce-product-gallery {
     float: left;

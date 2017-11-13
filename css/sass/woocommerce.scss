@@ -51,9 +51,6 @@ span.onsale{
     border-radius: 5px;
 }
 
-.product{
-    width:100% !important;
-}
 
 $viewportWidth:500px;
 $full-star:'\2605';
@@ -276,8 +273,46 @@ $empty-star:'\2606';
 
 }
 
-.related.products{
-    clear:both;
+.related.products, .upsells.products{
+    ul.products{
+        list-style-type:none;
+        margin:0;
+        padding:0;
+        li{
+            display:block;
+            padding: 15px 0;
+            img{
+                max-width:100px;
+                width:100%;
+                height:auto;
+                float:left;
+                margin: 0 10px 7px 0;
+            }
+            h1,h2,h3{
+                margin:0 0 10px;
+            }
+            &:after{
+                content:'.';
+                display:block;
+                height:0;
+                visibility:hidden;
+                clear:both;
+            }
+        }
+    }
+    span.onsale{
+        display:initial;
+        text-align:inital;
+        font-size:initial;
+        margin:0;
+        padding:3px 5px;
+        position:absolute;
+        opacity:0.7;
+    }
+    .price{
+        font-weight:bold;
+        color:$priceGreen;
+    }
 }
 
 /*product page*/
@@ -298,6 +333,28 @@ $empty-star:'\2606';
         }
         .input-text{
             max-width:400px;
+        }
+    }
+    .related.products, .upsells.products{
+        display:table;
+        width:100%;
+        ul.products{
+            display:table-row;
+            li{
+                padding: 0 10px;
+                display:table-cell;
+                width:25%;
+                text-align:center;
+                img{
+                    max-width:200px;
+                    float:none;
+                    margin: 0 0 10px 0;                
+                }
+                .button{
+                    display:table;
+                    margin:10px auto 0;
+                }
+            }
         }
     }
 }
