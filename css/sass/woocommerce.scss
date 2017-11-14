@@ -89,10 +89,32 @@ $empty-star:'\2606';
         font-weight:bold;
         font-size:24px;
         color:$priceGreen;
+        vertical-align:middle;
     }
 }
 
+/*variations table*/
+table.variations{
+    margin:10px auto;
+    label{
+        color:black;
+        font-size:24px;
+        margin:0;
+        vertical-align:middle;
+    }
+    
+    .bs-inline-hack{
+        margin-top:0;
+        margin-bottom:0;
+        vertical-align:middle;
+        display:inline-block;
+        width:auto;
+    }
+
+}
+
 .wcsc-cart-add-form{
+
 
     .quantity-wrapper{
         padding:10px;
@@ -109,7 +131,7 @@ $empty-star:'\2606';
 
     .input-text{
         width:100%;
-        max-width:150px;
+        max-width:75px;
         height:39px;
         padding:6px 12px;
         font-size:16px;
@@ -320,6 +342,9 @@ $empty-star:'\2606';
 @media screen and (min-width: 768px){
     .woocommerce-breadcrumb{
         display:block;
+    }
+    table.variations{
+        margin:10px 0;
     }
     .wcsc-cart-add-form{
         margin:20px 0;

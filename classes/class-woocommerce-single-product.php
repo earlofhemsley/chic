@@ -14,6 +14,10 @@ class sewchic_content_single_product {
         add_filter('woocommerce_product_get_rating_html', array($this, 'obliterate_normal_star_rating'),100,3);
         add_action('woocommerce_review_meta', array($this, 'star_rating'), 30);
         add_filter('woocommerce_product_review_comment_form_args',array($this, 'replace_comment_form'));
+
+        add_filter('woocommerce_dropdown_variation_attribute_options_args',array($this, 'variation_args_filter'));
+        add_filter('woocommerce_dropdown_variation_attribute_options_html', array($this, 'variation_select_html_filter'), 10, 2);
+        add_filter('woocommerce_reset_variations_link', array($this, 'reset_variations_link_filter'));
         
     }
 
@@ -87,6 +91,27 @@ EOT;
 
         return $comment_args;
         
+    }
+
+    //variation products argument filter
+    public function variation_args_filter($args){
+        if(!isset($args['class'])) $args['class'] = '';
+        $args['class'] .= ' form-control bs-inline-hack';
+        return $args;
+    }
+
+    public function variation_select_html_filter($html, $args){
+        $html = "<div class='form-group bs-inline-hack'>$html</div><!-- .form-group -->";
+        return $html;
+    } 
+
+    public function reset_variations_link_filter($tag){
+        $preg = '/class=\"([^\"]*)\"/';
+        if(preg_match($preg, $tag, $matches)){
+            $replacement = "class='{$matches[1]} btn btn-default'";
+            $tag = preg_replace($preg, $replacement, $tag);
+        }
+        return '&nbsp;&nbsp;'.$tag;
     }
 
 

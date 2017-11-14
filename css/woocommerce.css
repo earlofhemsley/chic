@@ -68,7 +68,23 @@ span.onsale {
   margin: 10px;
   font-weight: bold;
   font-size: 24px;
-  color: #00ae00; }
+  color: #00ae00;
+  vertical-align: middle; }
+
+/*variations table*/
+table.variations {
+  margin: 10px auto; }
+  table.variations label {
+    color: black;
+    font-size: 24px;
+    margin: 0;
+    vertical-align: middle; }
+  table.variations .bs-inline-hack {
+    margin-top: 0;
+    margin-bottom: 0;
+    vertical-align: middle;
+    display: inline-block;
+    width: auto; }
 
 .wcsc-cart-add-form .quantity-wrapper {
   padding: 10px;
@@ -82,7 +98,7 @@ span.onsale {
     display: inline-block; }
 .wcsc-cart-add-form .input-text {
   width: 100%;
-  max-width: 150px;
+  max-width: 75px;
   height: 39px;
   padding: 6px 12px;
   font-size: 16px;
@@ -236,6 +252,9 @@ span.onsale {
 @media screen and (min-width: 768px) {
   .woocommerce-breadcrumb {
     display: block; }
+
+  table.variations {
+    margin: 10px 0; }
 
   .wcsc-cart-add-form {
     margin: 20px 0; }
