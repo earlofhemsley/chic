@@ -86,6 +86,20 @@ table.variations {
     display: inline-block;
     width: auto; }
 
+.wcsc-cart-add-form table.group_table {
+  width: 95%;
+  max-width: 400px;
+  margin: 20px auto; }
+  .wcsc-cart-add-form table.group_table td {
+    padding: 5px;
+    white-space: normal; }
+  .wcsc-cart-add-form table.group_table td.label {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left; }
+    .wcsc-cart-add-form table.group_table td.label label {
+      margin-bottom: 0;
+      font-size: 20px; }
 .wcsc-cart-add-form .quantity-wrapper {
   padding: 10px;
   border: 2px solid #fbdedd;
@@ -99,6 +113,7 @@ table.variations {
 .wcsc-cart-add-form .input-text {
   width: 100%;
   max-width: 75px;
+  min-width: 50px;
   height: 39px;
   padding: 6px 12px;
   font-size: 16px;
@@ -119,7 +134,7 @@ table.variations {
     font-style: italic; }
   .product_meta a {
     text-decoration: underline; }
-  .product_meta::after {
+  .product_meta:after {
     content: ".";
     visibility: hidden;
     clear: both;
@@ -258,6 +273,8 @@ table.variations {
 
   .wcsc-cart-add-form {
     margin: 20px 0; }
+    .wcsc-cart-add-form table.group_table {
+      margin: 20px 0; }
     .wcsc-cart-add-form .quantity-wrapper {
       max-width: initial;
       margin: initial;
@@ -266,7 +283,7 @@ table.variations {
       display: inline;
       padding: 15px 12px 17px; }
     .wcsc-cart-add-form .input-text {
-      max-width: 400px; }
+      max-width: 100px; }
 
   .related.products, .upsells.products {
     display: table;
@@ -289,5 +306,8 @@ table.variations {
   .woocommerce-product-gallery {
     float: left;
     margin: 0 25px 25px 0; } }
+@media screen and (min-width: 1200px) {
+  .wcsc-cart-add-form table.group_table {
+    max-width: 600px; } }
 
 /*# sourceMappingURL=woocommerce.css.map */

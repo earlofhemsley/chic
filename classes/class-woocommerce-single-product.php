@@ -7,6 +7,8 @@ class sewchic_content_single_product {
         //action hooks will be added here
         add_action('woocommerce_before_main_content', array($this, 'before_main_content'));
         add_action('woocommerce_after_main_content', array($this, 'after_main_content'));
+        add_action('woocommerce_before_add_to_cart_form', array($this, 'before_add_to_cart_form'));
+        add_action('woocommerce_after_add_to_cart_form', array($this, 'after_add_to_cart_form'));
         add_action('woocommerce_before_add_to_cart_button', array($this, 'before_add_to_cart_button'));
         add_action('woocommerce_after_add_to_cart_button', array($this, 'after_add_to_cart_button'));
     
@@ -32,16 +34,20 @@ class sewchic_content_single_product {
 
     <?php }
 
-    public function before_single_product(){}
-    
-    public function before_add_to_cart_button(){ ?>
+    public function before_add_to_cart_form(){ ?>
         <div class="wcsc-cart-add-form">
+    <?php }
+    
+    public function after_add_to_cart_form(){ ?>
+        </div><!-- .wcsc-cart-add-form -->    
+    <?php }
+
+    public function before_add_to_cart_button(){ ?>
             <div class="quantity-wrapper">
     <?php }
 
     public function after_add_to_cart_button(){ ?>
             </div><!-- .quantity-wrapper -->
-        </div><!-- .wcsc-cart-add-form -->    
     <?php }
 
     public function obliterate_normal_star_rating($html, $rating, $cout){
