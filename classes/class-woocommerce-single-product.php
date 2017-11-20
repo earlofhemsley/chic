@@ -26,11 +26,10 @@ class sewchic_content_single_product {
 
     public function before_main_content(){ ?>
         <div class="wrap standard-wrap">
-
     <?php }
 
     public function after_main_content(){ ?>
-        </div>
+        </div><!--.wrap standard-wrap -->
 
     <?php }
 

@@ -117,7 +117,7 @@ function sewchic_register_scripts(){
         wp_add_inline_style('core', $style);
     }
 }
-add_action('wp_enqueue_scripts', 'sewchic_register_scripts');
+add_action('wp_enqueue_scripts', 'sewchic_register_scripts',50);
 endif;
 
 //Use a placeholder custom logo if none is uploaded

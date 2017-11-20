@@ -4,11 +4,11 @@
 span.required {
   color: #a00; }
 
-.button, input.submit {
+a.button, input.button, input.submit {
   background-color: #efefef;
   background-repeat: repeat-x;
   border-radius: 4px;
-  background-image: linear-gradient(to bottom, #efefef 0, #aeaeae 100%);
+  background-image: linear-gradient(to bottom, #efefef 0, #aeaeae 100%) !important;
   border: 1px solid transparent;
   color: black;
   padding: 6px 12px;
@@ -26,13 +26,26 @@ span.required {
   -moz-user-select: none;
   -ms-user-select: none; }
 
-/*breadcrumbs*/
-.woocommerce-breadcrumb {
-  display: none;
-  margin: 10px 0;
-  padding: 10px 25px;
-  background: #efefef;
-  border-radius: 5px; }
+a.button.alt, input.button.alt, input.submit.alt {
+  background-color: #ced0ff;
+  background-image: linear-gradient(to bottom, #ced0ff 0, #878ac1 100%) !important;
+  color: #515151; }
+
+.input-text {
+  width: 100%;
+  max-width: 75px;
+  min-width: 50px;
+  height: 39px;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 1em;
+  background-color: white;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.75);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
 
 span.onsale {
   display: block;
@@ -44,6 +57,41 @@ span.onsale {
   margin-bottom: 10px;
   border-radius: 5px; }
 
+/*cart styles*/
+form.woocommerce-cart-form td.product-remove a.remove {
+  width: 100%;
+  font-size: 0;
+  padding: 5px 0 33px; }
+  form.woocommerce-cart-form td.product-remove a.remove:hover {
+    color: red !important;
+    background: white; }
+  form.woocommerce-cart-form td.product-remove a.remove:before {
+    content: attr(aria-label);
+    padding: 5px 7px;
+    color: white;
+    background: red;
+    border-radius: 5px;
+    font-size: 27px;
+    background-image: linear-gradient(to bottom, red 0, #a00 100%); }
+form.woocommerce-cart-form .input-text {
+  height: initial; }
+form.woocommerce-cart-form div.coupon .input-text {
+  max-width: initial;
+  width: 100% !important;
+  min-width: inital;
+  margin: 5px 0; }
+form.woocommerce-cart-form div.coupon .button {
+  width: 100% !important; }
+
+/*breadcrumbs*/
+.woocommerce-breadcrumb {
+  display: none;
+  margin: 10px 0;
+  padding: 10px 25px;
+  background: #efefef;
+  border-radius: 5px; }
+
+/*gallery*/
 .woocommerce-product-gallery img {
   max-width: 100% !important;
   height: auto !important;
@@ -110,21 +158,6 @@ table.variations {
   text-align: center; }
   .wcsc-cart-add-form .quantity-wrapper div, .wcsc-cart-add-form .quantity-wrapper button, .wcsc-cart-add-form .quantity-wrapper input {
     display: inline-block; }
-.wcsc-cart-add-form .input-text {
-  width: 100%;
-  max-width: 75px;
-  min-width: 50px;
-  height: 39px;
-  padding: 6px 12px;
-  font-size: 16px;
-  line-height: 1em;
-  background-color: white;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.75);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.75);
-  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
 
 .product_meta {
   margin: 15px 0 10px;
@@ -271,6 +304,25 @@ table.variations {
   table.variations {
     margin: 10px 0; }
 
+  .input-text {
+    max-width: 100px; }
+
+  form.woocommerce-cart-form td.product-remove a.remove {
+    width: 1em;
+    padding: 0;
+    margin: auto;
+    font-size: 27px; }
+    form.woocommerce-cart-form td.product-remove a.remove:hover {
+      color: white !important;
+      background: red; }
+    form.woocommerce-cart-form td.product-remove a.remove:before {
+      content: none; }
+  form.woocommerce-cart-form div.coupon .input-text {
+    max-width: 195px;
+    margin: 0 5px; }
+  form.woocommerce-cart-form div.coupon .button {
+    width: auto !important; }
+
   .wcsc-cart-add-form {
     margin: 20px 0; }
     .wcsc-cart-add-form table.group_table {
@@ -282,8 +334,6 @@ table.variations {
       text-align: left;
       display: inline;
       padding: 15px 12px 17px; }
-    .wcsc-cart-add-form .input-text {
-      max-width: 100px; }
 
   .related.products, .upsells.products {
     display: table;

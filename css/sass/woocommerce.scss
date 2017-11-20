@@ -6,11 +6,11 @@ span.required{
     color:$requiredRed; 
 }
 
-.button, input.submit{
+a.button, input.button, input.submit{
     background-color: $lighter-grey;
     background-repeat: repeat-x;
     border-radius:4px;
-    background-image: linear-gradient(to bottom, $lighter-grey 0, $light-grey 100%);
+    background-image: linear-gradient(to bottom, $lighter-grey 0, $light-grey 100%) !important; /*TODO: resolve the styles without breaking product page and without having to use !important here*/
     border: 1px solid transparent;
     color:black;
     padding: 6px 12px;
@@ -28,14 +28,27 @@ span.required{
     -moz-user-select:none;
     -ms-user-select:none;
 }
+a.button.alt, input.button.alt, input.submit.alt {
+    background-color:$addToCartBlue;
+    background-image:linear-gradient(to bottom, $addToCartBlue 0, $addToCartBlue2 100%) !important;
+    color:$woobutton-font-color;
+}
 
-/*breadcrumbs*/
-.woocommerce-breadcrumb{
-    display:none;
-    margin: 10px 0;
-    padding: 10px 25px;
-    background: $lighter-grey;
-    border-radius: 5px;
+.input-text{
+    width:100%;
+    max-width:75px;
+    min-width:50px;
+    height:39px;
+    padding:6px 12px;
+    font-size:16px;
+    line-height:1em;
+    background-color:white;
+    background-image:none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.75);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.75);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
 span.onsale{
@@ -49,11 +62,61 @@ span.onsale{
     border-radius: 5px;
 }
 
+/*cart styles*/
+form.woocommerce-cart-form{
+    td.product-remove{
+        a.remove{
+            width:100%;
+            font-size:0;
+            padding: 5px 0 33px;
+            &:hover{
+                color:red !important;
+                background:white;
+            }
+            &:before{
+                content:attr(aria-label);
+                padding:5px 7px;
+                color:white;
+                background:red;
+                border-radius:5px;
+                font-size:27px;
+                background-image:linear-gradient(to bottom, red 0, $requiredRed 100% );
+            } 
+        }
+    }
+    
+    .input-text{
+        height:initial;
+    }
+    div.coupon{
+        .input-text{
+            max-width:initial;
+            width:100% !important;
+            min-width:inital;
+            margin:5px 0;
+        }
+        .button{
+            width:100% !important;
+        }
+    }
+}
+
+
+
+/*breadcrumbs*/
+.woocommerce-breadcrumb{
+    display:none;
+    margin: 10px 0;
+    padding: 10px 25px;
+    background: $lighter-grey;
+    border-radius: 5px;
+}
 
 $viewportWidth:500px;
 $full-star:'\2605';
 $empty-star:'\2606';
 
+/*gallery*/
 .woocommerce-product-gallery{
     img{
         max-width:100% !important;
@@ -145,22 +208,6 @@ table.variations{
         }
     }
 
-    .input-text{
-        width:100%;
-        max-width:75px;
-        min-width:50px;
-        height:39px;
-        padding:6px 12px;
-        font-size:16px;
-        line-height:1em;
-        background-color:white;
-        background-image:none;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.75);
-        box-shadow: inset 0 1px 1px rgba(0,0,0,0.75);
-        -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    }
 
 
 }
@@ -363,6 +410,36 @@ table.variations{
     table.variations{
         margin:10px 0;
     }
+    .input-text{
+        max-width:100px;
+    }
+    form.woocommerce-cart-form{
+        td.product-remove{
+            a.remove{
+                width:1em;
+                padding:0;
+                margin:auto;
+                font-size:27px;
+                &:hover{
+                    color:white !important;
+                    background:red;
+                }
+                &:before{
+                    content:none;
+                }
+            }
+        }
+        div.coupon{
+            .input-text{
+                max-width:195px;
+                margin: 0 5px;
+            }
+            .button{
+                width:auto !important;
+            }
+
+        }
+    }
     .wcsc-cart-add-form{
         margin:20px 0;
         table.group_table{
@@ -375,9 +452,6 @@ table.variations{
             text-align:left;
             display:inline;
             padding: 15px 12px 17px;
-        }
-        .input-text{
-            max-width:100px;
         }
     }
     .related.products, .upsells.products{
