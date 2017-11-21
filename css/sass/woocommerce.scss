@@ -343,7 +343,7 @@ table.variations{
             }
         }
     }
-    .sewchic-comment-form-content{
+    .comment-respond{
         label{
             display:block;
         }
@@ -353,6 +353,26 @@ table.variations{
         }
         input{
             height:36px;
+        }
+    }
+    ul.page-numbers{
+        list-style-type:none;
+        padding:0;
+        margin:20px 0;
+        li{
+            display:inline-block;
+            a, span{
+                padding: 10px 13px;
+                border: solid 1px $light-grey;
+                background-color: $lighter-grey;
+                &:hover{
+                    background-color:white;
+                    text-decoration:none;
+                }
+            }
+            span.current{
+                background-color:white;
+            }
         }
     }
 

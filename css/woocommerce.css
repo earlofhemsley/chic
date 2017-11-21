@@ -9,6 +9,7 @@ a.button, input.button, input.submit {
   background-repeat: repeat-x;
   border-radius: 4px;
   background-image: linear-gradient(to bottom, #efefef 0, #aeaeae 100%) !important;
+  /*TODO: resolve the styles without breaking product page and without having to use !important here*/
   border: 1px solid transparent;
   color: black;
   padding: 6px 12px;
@@ -255,13 +256,28 @@ table.variations {
     visibility: visible;
     content: "☆";
     z-index: 5; }
-.woocommerce-Reviews .sewchic-comment-form-content label {
+.woocommerce-Reviews .comment-respond label {
   display: block; }
-.woocommerce-Reviews .sewchic-comment-form-content input, .woocommerce-Reviews .sewchic-comment-form-content textarea {
+.woocommerce-Reviews .comment-respond input, .woocommerce-Reviews .comment-respond textarea {
   max-width: 400px;
   font-size: 16px; }
-.woocommerce-Reviews .sewchic-comment-form-content input {
+.woocommerce-Reviews .comment-respond input {
   height: 36px; }
+.woocommerce-Reviews ul.page-numbers {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0; }
+  .woocommerce-Reviews ul.page-numbers li {
+    display: inline-block; }
+    .woocommerce-Reviews ul.page-numbers li a, .woocommerce-Reviews ul.page-numbers li span {
+      padding: 10px 13px;
+      border: solid 1px #aeaeae;
+      background-color: #efefef; }
+      .woocommerce-Reviews ul.page-numbers li a:hover, .woocommerce-Reviews ul.page-numbers li span:hover {
+        background-color: white;
+        text-decoration: none; }
+    .woocommerce-Reviews ul.page-numbers li span.current {
+      background-color: white; }
 
 .related.products ul.products, .upsells.products ul.products {
   list-style-type: none;
