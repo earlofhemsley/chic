@@ -146,11 +146,11 @@ form.woocommerce-cart-form div.coupon .button {
   .woocommerce-product-gallery .flex-viewport {
     width: 100%;
     margin: auto;
-    max-width: 500px; }
+    max-width: 300px; }
   .woocommerce-product-gallery ol.flex-control-nav {
     width: 100%;
     margin: auto;
-    max-width: 500px;
+    max-width: 300px;
     list-style-type: none;
     padding: 0;
     text-align: center; }
@@ -394,7 +394,10 @@ table.variations {
     margin: 0 25px 25px 0; } }
 @media screen and (min-width: 1200px) {
   .wcsc-cart-add-form table.group_table {
-    max-width: 570px; } }
+    max-width: 570px; }
+
+  .woocommerce-product-gallery .flex-viewport, .woocommerce-product-gallery ol.flex-control-nav {
+    max-width: 500px; } }
 /*shop page*/
 .woocommerce-products-header, .woocommerce-result-count {
   text-align: center; }
