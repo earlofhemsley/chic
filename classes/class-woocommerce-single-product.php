@@ -1,20 +1,9 @@
 <?php 
 
 //this class utilizes hooks available in wc's single-product and content-single-product theme page
-class sewchic_content_single_product {
+class woocommerce_single_product {
     
     public function __construct(){
-        //reorganize woo hooks
-        remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
-        add_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 3);
-        
-        //action hooks will be added here
-        add_action('woocommerce_before_main_content', array($this, 'wrap_main_content'),2);
-        add_action('woocommerce_before_main_content', array($this, 'before_main_content'),5);
-        add_action('woocommerce_after_main_content', array($this, 'after_main_content'),15);
-        add_action('woocommerce_sidebar', array($this, 'before_sidebar'), 5);
-        add_action('woocommerce_sidebar', array($this, 'after_sidebar'), 15);
-        add_action('woocommerce_sidebar', array($this, 'close_main_wrap'), 20);
         add_action('woocommerce_before_add_to_cart_form', array($this, 'before_add_to_cart_form'));
         add_action('woocommerce_after_add_to_cart_form', array($this, 'after_add_to_cart_form'));
         add_action('woocommerce_before_add_to_cart_button', array($this, 'before_add_to_cart_button'));
@@ -31,33 +20,6 @@ class sewchic_content_single_product {
         
     }
 
-    public function wrap_main_content(){ ?>
-        <div class="wrap standard-wrap container-fluid">    
-    <?php }
-
-    public function before_main_content(){ ?>
-            <div class="row">
-                <div class="col-md-9">
-    <?php }
-
-    public function after_main_content(){ ?>
-                </div><!-- .col-md-8 -->
-    <?php }
-
-
-    public function before_sidebar(){ ?> 
-                <div class="col-md-3">
-    <?php }
-
-    public function after_sidebar(){ ?>
-                </div><!-- .col-md-4 -->
-            </div><!-- .row -->
-
-    <?php }
-
-    public function close_main_wrap(){ ?> 
-        </div><!--.wrap standard-wrap container-fluid -->
-    <?php }
 
     public function before_add_to_cart_form(){ ?>
         <div class="wcsc-cart-add-form">
@@ -149,4 +111,3 @@ EOT;
 
 
 }
-new sewchic_content_single_product();

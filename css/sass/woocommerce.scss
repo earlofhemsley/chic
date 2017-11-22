@@ -421,7 +421,9 @@ table.variations{
     }
 }
 
-/*product page*/
+
+
+
 
 @media screen and (min-width: 768px){
     .woocommerce-breadcrumb{
@@ -513,3 +515,14 @@ table.variations{
         }
     }
 }
+
+
+/*Category pages*/
+
+#content{
+    ul.products{
+        list-style-type:none;
+
+    }
+}
+

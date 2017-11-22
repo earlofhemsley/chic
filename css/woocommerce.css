@@ -312,7 +312,6 @@ table.variations {
   font-weight: bold;
   color: #00ae00; }
 
-/*product page*/
 @media screen and (min-width: 768px) {
   .woocommerce-breadcrumb {
     display: block; }
@@ -342,6 +341,7 @@ table.variations {
   .wcsc-cart-add-form {
     margin: 20px 0; }
     .wcsc-cart-add-form table.group_table {
+      max-width: initial;
       margin: 20px 0; }
     .wcsc-cart-add-form .quantity-wrapper {
       max-width: initial;
@@ -374,6 +374,9 @@ table.variations {
     margin: 0 25px 25px 0; } }
 @media screen and (min-width: 1200px) {
   .wcsc-cart-add-form table.group_table {
-    max-width: 600px; } }
+    max-width: 570px; } }
+/*Category pages*/
+#content ul.products {
+  list-style-type: none; }
 
 /*# sourceMappingURL=woocommerce.css.map */
