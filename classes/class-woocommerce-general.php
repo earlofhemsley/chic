@@ -16,10 +16,12 @@ class woocommerce_general{
         add_action('woocommerce_sidebar', array($this, 'after_sidebar'), 15);
         
         add_action('woocommerce_sidebar', array($this, 'close_main_wrap'), 20);
+        
+        //filters
+        add_filter('woocommerce_show_page_title', array($this, 'show_page_title'));
     }
 
     public function wrap_main_content(){ ?>
-        <!-- <?php echo "IS SHOP: ".is_shop(). ' IS CAT: '. is_product_category(). ' IS TAG: '.is_product_tag(); ?> -->
         <div class="wrap standard-wrap container-fluid">    
     <?php }
 
@@ -65,6 +67,11 @@ class woocommerce_general{
     public function close_main_wrap(){ ?> 
         </div><!--.wrap standard-wrap container-fluid -->
     <?php }
+    
+    public function show_page_title($show){ 
+        if(is_shop() || is_product_category() || is_product_tag()) return false;
+        return true;
+    }
 
 }
 
