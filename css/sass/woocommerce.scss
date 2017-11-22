@@ -463,6 +463,7 @@ table.variations{
     .wcsc-cart-add-form{
         margin:20px 0;
         table.group_table{
+            max-width:initial;
             margin:20px 0;
         }
         .quantity-wrapper{
@@ -508,7 +509,7 @@ table.variations{
 @media screen and (min-width:1200px){
     .wcsc-cart-add-form{
         table.group_table{
-            max-width:600px;
+            max-width:570px;
         }
     }
 }
