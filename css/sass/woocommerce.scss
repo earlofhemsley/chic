@@ -167,7 +167,7 @@ form.woocommerce-cart-form{
     border-radius: 5px;
 }
 
-$viewportWidth:500px;
+$viewportWidth:300px;
 $full-star:'\2605';
 $empty-star:'\2606';
 
@@ -532,6 +532,11 @@ table.variations{
     .wcsc-cart-add-form{
         table.group_table{
             max-width:570px;
+        }
+    }
+    .woocommerce-product-gallery{
+        .flex-viewport, ol.flex-control-nav{
+            max-width:500px;
         }
     }
 }
