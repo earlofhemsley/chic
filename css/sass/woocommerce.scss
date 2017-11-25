@@ -167,7 +167,7 @@ form.woocommerce-cart-form{
     border-radius: 5px;
 }
 
-$viewportWidth:300px;
+$viewportWidth:500px;
 $full-star:'\2605';
 $empty-star:'\2606';
 
@@ -450,7 +450,7 @@ table.variations{
         display:block;
     }
     table.variations{
-        margin:10px 0;
+        margin:10px 0 20px;
     }
     .input-text{
         max-width:100px;
@@ -524,7 +524,17 @@ table.variations{
 @media screen and (min-width: 992px){
     .woocommerce-product-gallery{
         float:left;
-        margin: 0 25px 25px 0;
+        margin: 5px 25px 25px 0;
+        .flex-viewport{
+            max-width:300px;
+        }
+        ol.flex-control-nav{
+            max-width:300px;
+            li{
+                max-width: 75px;
+            }
+        
+        }
     }
 }
 
@@ -535,8 +545,15 @@ table.variations{
         }
     }
     .woocommerce-product-gallery{
-        .flex-viewport, ol.flex-control-nav{
+        .flex-viewport{
             max-width:500px;
+        }
+        ol.flex-control-nav{
+            max-width:500px;
+            li{
+                max-width: 100px;
+            }
+        
         }
     }
 }
@@ -586,6 +603,11 @@ table.variations{
     
     .woocommerce-products-header, .woocommerce-result-count{
         text-align:initial;
+    }
+
+    .woocommerce-result-count, .woocommerce-ordering{
+        display: inline-block;
+        margin-right: 5px;
     }
 
     .wcsc-shop-loop{
@@ -638,7 +660,7 @@ table.variations{
 @media screen and (min-width:1200px){
     .wcsc-shop-loop{
         ul.products li{
-            width:22.6%;
+            width:22.63%;
             margin:0 1%;
             max-width:initial;
             

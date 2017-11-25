@@ -146,11 +146,11 @@ form.woocommerce-cart-form div.coupon .button {
   .woocommerce-product-gallery .flex-viewport {
     width: 100%;
     margin: auto;
-    max-width: 300px; }
+    max-width: 500px; }
   .woocommerce-product-gallery ol.flex-control-nav {
     width: 100%;
     margin: auto;
-    max-width: 300px;
+    max-width: 500px;
     list-style-type: none;
     padding: 0;
     text-align: center; }
@@ -337,7 +337,7 @@ table.variations {
     display: block; }
 
   table.variations {
-    margin: 10px 0; }
+    margin: 10px 0 20px; }
 
   .input-text {
     max-width: 100px; }
@@ -391,13 +391,23 @@ table.variations {
 @media screen and (min-width: 992px) {
   .woocommerce-product-gallery {
     float: left;
-    margin: 0 25px 25px 0; } }
+    margin: 5px 25px 25px 0; }
+    .woocommerce-product-gallery .flex-viewport {
+      max-width: 300px; }
+    .woocommerce-product-gallery ol.flex-control-nav {
+      max-width: 300px; }
+      .woocommerce-product-gallery ol.flex-control-nav li {
+        max-width: 75px; } }
 @media screen and (min-width: 1200px) {
   .wcsc-cart-add-form table.group_table {
     max-width: 570px; }
 
-  .woocommerce-product-gallery .flex-viewport, .woocommerce-product-gallery ol.flex-control-nav {
-    max-width: 500px; } }
+  .woocommerce-product-gallery .flex-viewport {
+    max-width: 500px; }
+  .woocommerce-product-gallery ol.flex-control-nav {
+    max-width: 500px; }
+    .woocommerce-product-gallery ol.flex-control-nav li {
+      max-width: 100px; } }
 /*shop page*/
 .woocommerce-products-header, .woocommerce-result-count {
   text-align: center; }
@@ -431,6 +441,10 @@ table.variations {
   .woocommerce-products-header, .woocommerce-result-count {
     text-align: initial; }
 
+  .woocommerce-result-count, .woocommerce-ordering {
+    display: inline-block;
+    margin-right: 5px; }
+
   .wcsc-shop-loop .orderby {
     max-width: 200px; }
   .wcsc-shop-loop ul.products {
@@ -461,7 +475,7 @@ table.variations {
     max-width: 340px; } }
 @media screen and (min-width: 1200px) {
   .wcsc-shop-loop ul.products li {
-    width: 22.6%;
+    width: 22.63%;
     margin: 0 1%;
     max-width: initial; } }
 
