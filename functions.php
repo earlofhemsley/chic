@@ -144,10 +144,20 @@ function sewchic_widgets_setup(){
     register_sidebar(array(
         'name' => __('Home page body left rail', 'sewchic'),
         'id' => 'home-body-left-rail',
-        'description' => __('Appars in the main body of the home page to the left'),
+        'description' => __('Appears in the main body of the home page to the left'),
         'before_widget' => '',
         'after_widget' => '',
     ));
+
+    foreach(array('one','two','three') as $i => $value){
+        register_sidebar(array(
+            'name' => __("Sidebar $value", 'sewchic'),
+            'id' => 'sewchic-sidebar-'.($i+1),
+            'description' => __('Appears in the right rail of post, product and page content, and at the base of post and product archive feeds'),
+            'before_widget' => '',
+            'after_widget' => '',
+        ));
+    }
 }
 add_action('widgets_init','sewchic_widgets_setup');
 endif;
