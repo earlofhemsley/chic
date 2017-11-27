@@ -158,6 +158,16 @@ function sewchic_widgets_setup(){
             'after_widget' => '',
         ));
     }
+
+    register_sidebar(array(
+        'name' => __('Product archive filter widges', 'sewchic'),
+        'id' => 'product-filter-widgets',
+        'description' => __('If filled, forces appearance of a widget bin to the left of product listings on shop page and product category / tag pages'),
+        'before_widget' => '',
+        'after_widget' => '',
+    ));
+
+
 }
 add_action('widgets_init','sewchic_widgets_setup');
 endif;
