@@ -6,7 +6,7 @@ span.required{
     color:$requiredRed; 
 }
 
-a.button, input.button, input.submit{
+a.button, input.button, input.submit, button.button{
     background-color: $lighter-grey;
     background-repeat: repeat-x;
     border-radius:4px;
@@ -28,7 +28,7 @@ a.button, input.button, input.submit{
     -moz-user-select:none;
     -ms-user-select:none;
 }
-a.button.alt, input.button.alt, input.submit.alt {
+a.button.alt, input.button.alt, input.submit.alt, button.button.alt {
     background-color:$addToCartBlue;
     background-image:linear-gradient(to bottom, $addToCartBlue 0, $addToCartBlue2 100%) !important;
     color:$woobutton-font-color;

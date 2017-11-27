@@ -4,7 +4,7 @@
 span.required {
   color: #a00; }
 
-a.button, input.button, input.submit {
+a.button, input.button, input.submit, button.button {
   background-color: #efefef;
   background-repeat: repeat-x;
   border-radius: 4px;
@@ -27,7 +27,7 @@ a.button, input.button, input.submit {
   -moz-user-select: none;
   -ms-user-select: none; }
 
-a.button.alt, input.button.alt, input.submit.alt {
+a.button.alt, input.button.alt, input.submit.alt, button.button.alt {
   background-color: #ced0ff;
   background-image: linear-gradient(to bottom, #ced0ff 0, #878ac1 100%) !important;
   color: #515151; }
