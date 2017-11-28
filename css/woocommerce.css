@@ -415,29 +415,39 @@ table.variations {
 .woocommerce-products-header {
   margin: 20px 0 10px; }
 
-.wcsc-shop-container {
-  display: table; }
-  .wcsc-shop-container ul.products {
+.wcsc-shop-container .filter-widgets-toggle {
+  margin: 10px auto 0; }
+.wcsc-shop-container #filter_widgets_bin {
+  display: none;
+  text-align: center; }
+  .wcsc-shop-container #filter_widgets_bin ul {
     list-style-type: none;
-    padding: 0;
-    margin: 30px 0; }
-    .wcsc-shop-container ul.products li {
-      text-align: center;
-      padding-bottom: 15px;
-      margin-bottom: 15px;
-      border-bottom: 1px solid #efefef; }
-      .wcsc-shop-container ul.products li h2 {
-        margin: 5px 0; }
-      .wcsc-shop-container ul.products li a {
-        display: block;
-        margin: 5px 0; }
-      .wcsc-shop-container ul.products li img {
-        width: 100%;
-        height: auto;
-        max-height: 100%; }
-      .wcsc-shop-container ul.products li:last-of-type {
-        margin-bottom: 0;
-        border-bottom: none; }
+    padding: 0; }
+  .wcsc-shop-container #filter_widgets_bin .price_slider_wrapper > div {
+    margin: 15px 0; }
+    .wcsc-shop-container #filter_widgets_bin .price_slider_wrapper > div .price_label {
+      margin: 5px 0; }
+.wcsc-shop-container ul.products {
+  list-style-type: none;
+  padding: 0;
+  margin: 30px 0; }
+  .wcsc-shop-container ul.products li {
+    text-align: center;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #efefef; }
+    .wcsc-shop-container ul.products li h2 {
+      margin: 5px 0; }
+    .wcsc-shop-container ul.products li a {
+      display: block;
+      margin: 5px 0; }
+    .wcsc-shop-container ul.products li img {
+      width: 100%;
+      height: auto;
+      max-height: 100%; }
+    .wcsc-shop-container ul.products li:last-of-type {
+      margin-bottom: 0;
+      border-bottom: none; }
 
 @media screen and (min-width: 768px) {
   .woocommerce-products-header, .woocommerce-result-count {
@@ -460,6 +470,11 @@ table.variations {
     vertical-align: top;
     padding-right: 10px;
     min-width: 205px; }
+  .wcsc-shop-container #filter_widgets_bin {
+    display: block;
+    text-align: left; }
+    .wcsc-shop-container #filter_widgets_bin .price_slider_wrapper {
+      width: 80%; }
   .wcsc-shop-container ul.products {
     margin: 10px -10px; }
     .wcsc-shop-container ul.products li {

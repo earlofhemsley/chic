@@ -571,7 +571,24 @@ table.variations{
 
 
 .wcsc-shop-container{
-    display:table;
+    .filter-widgets-toggle{
+        margin: 10px auto 0;
+    }
+    #filter_widgets_bin{
+        display:none;
+        text-align:center;
+        ul{
+            list-style-type:none;
+            padding:0;
+        } 
+        .price_slider_wrapper > div{
+            margin:15px 0;
+            .price_label{
+                margin:5px 0;
+            }
+        }
+    }
+    
     ul.products{
         list-style-type:none;
         padding:0;
@@ -634,6 +651,15 @@ table.variations{
             padding-right:10px;
             min-width:205px;
         }
+
+        #filter_widgets_bin{
+            display:block;
+            text-align:left;
+            .price_slider_wrapper{
+                width:80%;
+            }
+        }
+
         ul.products{
             margin:10px -10px;
 

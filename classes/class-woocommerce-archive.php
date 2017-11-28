@@ -20,7 +20,10 @@ class woocommerce_archive{
             <div class="wcsc-shop-table">
                 <div class="wcsc-shop-row">
                     <div class="wcsc-shop-cell filter-widgets">
-                            <?php dynamic_sidebar('product-filter-widgets');?>
+                            <button class="filter-widgets-toggle wcsc-toggleable visible-xs button" data-target="#filter_widgets_bin" type="button" aria-expanded="false">Show filters</button>
+                            <div id="filter_widgets_bin">
+                                <?php dynamic_sidebar('product-filter-widgets');?>
+                            </div><!-- #filter_widgets_bin --> 
                     </div><!-- .filter-widgets -->
                     <div class="wcsc-shop-cell shop-content">
         <?php }
