@@ -6,12 +6,8 @@ span.required {
 
 a.button, input.button, input.submit, button.button {
   background-color: #efefef;
-  background-repeat: repeat-x;
-  border-radius: 4px;
-  background-image: linear-gradient(to bottom, #efefef 0, #aeaeae 100%) !important;
-  /*TODO: resolve the styles without breaking product page and without having to use !important here*/
-  border: 1px solid transparent;
-  color: black;
+  border: 1px solid #aeaeae;
+  color: #222;
   padding: 6px 12px;
   margin-bottom: 0;
   font-weight: 400;
@@ -26,11 +22,15 @@ a.button, input.button, input.submit, button.button {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none; }
+  a.button:hover, a.button:active, input.button:hover, input.button:active, input.submit:hover, input.submit:active, button.button:hover, button.button:active {
+    background-color: white; }
 
 a.button.alt, input.button.alt, input.submit.alt, button.button.alt {
-  background-color: #ced0ff;
-  background-image: linear-gradient(to bottom, #ced0ff 0, #878ac1 100%) !important;
-  color: #515151; }
+  background-color: #878ac1;
+  color: white; }
+  a.button.alt:hover, a.button.alt:active, input.button.alt:hover, input.button.alt:active, input.submit.alt:hover, input.submit.alt:active, button.button.alt:hover, button.button.alt:active {
+    background-color: #ced0ff;
+    color: #515151; }
 
 .input-text, select.orderby {
   width: 100%;
@@ -476,6 +476,7 @@ table.variations {
   .wcsc-shop-container ul.products {
     margin: 10px -10px; }
     .wcsc-shop-container ul.products li {
+      position: relative;
       display: inline-block;
       width: 45%;
       max-width: 496px;
@@ -493,7 +494,15 @@ table.variations {
         font-size: 18px;
         margin: 0;
         text-align: right;
-        max-width: 260px; } }
+        max-width: 260px; }
+      .wcsc-shop-container ul.products li .added_to_cart {
+        position: absolute;
+        top: 0;
+        z-index: 10;
+        width: 100%;
+        background: #878ac1;
+        color: white;
+        padding: 10px; } }
 @media screen and (min-width: 992px) {
   .wcsc-shop-container ul.products li {
     width: 30%;
@@ -507,12 +516,8 @@ table.variations {
 /*Account page*/
 .wcsc-toggle {
   width: 100%;
-  border: #aeaeae 1px solid;
-  color: #222;
-  background-color: #efefef;
   margin-bottom: 10px;
-  display: block;
-  padding: 10px; }
+  display: block; }
   .wcsc-toggle:active, .wcsc-toggle:hover {
     background-color: white; }
   .wcsc-toggle .icon-bar {

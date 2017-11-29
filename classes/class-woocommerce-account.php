@@ -9,7 +9,7 @@ class woocommerce_account{
     }
 
     public function before_account_nav(){ ?>
-        <button class="wcsc-toggle" type="button" data-target="#wcsc_myaccount_wrap" data-toggle="collapse" aria-expanded="false">
+        <button class="wcsc-toggle button" type="button" data-target="#wcsc_myaccount_wrap" data-toggle="collapse" aria-expanded="false">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>

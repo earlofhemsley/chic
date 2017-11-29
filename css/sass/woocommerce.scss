@@ -8,11 +8,8 @@ span.required{
 
 a.button, input.button, input.submit, button.button{
     background-color: $lighter-grey;
-    background-repeat: repeat-x;
-    border-radius:4px;
-    background-image: linear-gradient(to bottom, $lighter-grey 0, $light-grey 100%) !important; /*TODO: resolve the styles without breaking product page and without having to use !important here*/
-    border: 1px solid transparent;
-    color:black;
+    border: 1px solid $light-grey;
+    color:$black;
     padding: 6px 12px;
     margin-bottom: 0;
     font-weight: 400;
@@ -27,11 +24,17 @@ a.button, input.button, input.submit, button.button{
     -webkit-user-select:none;
     -moz-user-select:none;
     -ms-user-select:none;
+    &:hover, &:active{
+        background-color:white;
+    }
 }
 a.button.alt, input.button.alt, input.submit.alt, button.button.alt {
-    background-color:$addToCartBlue;
-    background-image:linear-gradient(to bottom, $addToCartBlue 0, $addToCartBlue2 100%) !important;
-    color:$woobutton-font-color;
+    background-color:$addToCartBlue2;
+    color:white;
+    &:hover, &:active{
+        background-color:$addToCartBlue;
+        color:$woobutton-font-color;
+    }
 }
 
 .input-text, select.orderby{
@@ -664,6 +667,7 @@ table.variations{
             margin:10px -10px;
 
             li{
+                position:relative;
                 display:inline-block;
                 width:45%;
                 max-width:496px;
@@ -686,6 +690,15 @@ table.variations{
                     margin:0;
                     text-align:right;
                     max-width:260px;
+                }
+                .added_to_cart{
+                    position: absolute;
+                    top: 0;
+                    z-index: 10;
+                    width: 100%;
+                    background: $addToCartBlue2;
+                    color: white;
+                    padding: 10px;
                 }
             }
         }
@@ -717,12 +730,9 @@ table.variations{
 /*Account page*/
 .wcsc-toggle{
     width:100%;
-    border:$light-grey 1px solid;
-    color:$black;
-    background-color:$lighter-grey;
     margin-bottom:10px;
     display:block;
-    padding:10px;
+    //padding:10px;
     &:active, &:hover{
         background-color:white;
     }
