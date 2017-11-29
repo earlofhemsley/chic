@@ -49,10 +49,6 @@ a.button.alt, input.button.alt, input.submit.alt, button.button.alt {
     -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
-.input-text{
-    max-width:75px;
-    min-width:50px;
-}
 
 select.orderby{
     width:100%;
@@ -232,6 +228,10 @@ table.variations{
 
 .wcsc-cart-add-form{
 
+    .input-text{
+        max-width:75px;
+        min-width:50px;
+    }
     table.group_table{
         width:95%;
         max-width:400px;
@@ -452,9 +452,6 @@ table.variations{
     table.variations{
         margin:10px 0 20px;
     }
-    .input-text{
-        max-width:100px;
-    }
     form.woocommerce-cart-form{
         td.product-remove{
             a.remove{
@@ -483,6 +480,9 @@ table.variations{
         }
     }
     .wcsc-cart-add-form{
+        .input-text{
+            max-width:100px;
+        }
         margin:20px 0;
         table.group_table{
             max-width:initial;
@@ -713,3 +713,80 @@ table.variations{
         }
     }
 }
+
+/*Account page*/
+.wcsc-toggle{
+    width:100%;
+    border:$light-grey 1px solid;
+    color:$black;
+    background-color:$lighter-grey;
+    margin-bottom:10px;
+    display:block;
+    padding:10px;
+    &:active, &:hover{
+        background-color:white;
+    }
+    .icon-bar{
+        display:block;
+        margin:4px auto;
+        width:22px;
+        background-color:$black;
+        height:2px;
+        border-radius:1px;
+    }
+}
+nav.woocommerce-MyAccount-navigation{
+    ul{
+        margin:0;
+        padding:0;
+        list-style-type:none;
+        li{
+            text-align:center; 
+            a{
+                display:block;
+                margin-bottom: 10px;
+                padding:10px;
+                border: 1px solid $light-grey;
+                background-color: $lighter-grey;
+                color: $black; 
+            }
+        }
+        li.is-active, li:hover{
+            a {
+                background-color:white;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:768px){
+    .wcsc-toggle{
+        display:none;
+    }
+    .wcsc-collapse{
+        display:block;
+    }
+    #wcsc_myaccount_wrap{
+        height:initial !important;
+    }
+    nav.woocommerce-MyAccount-navigation ul{
+        margin:20px 0;
+        li{
+            display:inline-block;
+            margin-right:10px;
+            a{
+                display:initial;
+                margin:0;
+            }
+        }
+    }   
+}
+
+@media screen and (min-width:992px){
+    /*login*/
+    .woocommerce-form-login{
+        max-width:500px;
+    }
+}
+
+
