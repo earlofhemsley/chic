@@ -139,10 +139,18 @@ form.woocommerce-cart-form div.coupon .button {
     max-width: 100% !important;
     height: auto !important;
     max-height: 100%; }
+  .woocommerce-product-gallery .woocommerce-product-gallery__wrapper {
+    width: 100%;
+    max-width: 500px;
+    margin: auto; }
   .woocommerce-product-gallery .flex-viewport {
     width: 100%;
     margin: auto;
     max-width: 500px; }
+    .woocommerce-product-gallery .flex-viewport .woocommerce-product-gallery__wrapper {
+      width: initial;
+      max-width: initial;
+      margin: initial; }
   .woocommerce-product-gallery ol.flex-control-nav {
     width: 100%;
     margin: auto;
@@ -353,6 +361,8 @@ table.variations {
   .woocommerce-product-gallery {
     float: left;
     margin: 5px 25px 25px 0; }
+    .woocommerce-product-gallery .woocommerce-product-gallery__wrapper {
+      max-width: 300px; }
     .woocommerce-product-gallery .flex-viewport {
       max-width: 300px; }
     .woocommerce-product-gallery ol.flex-control-nav {
@@ -363,6 +373,8 @@ table.variations {
   .wcsc-cart-add-form table.group_table {
     max-width: 570px; }
 
+  .woocommerce-product-gallery .woocommerce-product-gallery__wrapper {
+    max-width: 500px; }
   .woocommerce-product-gallery .flex-viewport {
     max-width: 500px; }
   .woocommerce-product-gallery ol.flex-control-nav {
