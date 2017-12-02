@@ -27,41 +27,30 @@ class woocommerce_general{
 
 
     public function before_main_content(){
-        if(!(is_shop() || is_product_category() || is_product_tag())):
-?>
+        if(!(is_shop() || is_product_category() || is_product_tag())): ?>
             <div class="row">
                 <div class="col-md-9">
-<?php
-        endif;
+        <?php endif;
     }
 
     public function after_main_content(){ 
-        if(!(is_shop() || is_product_category() || is_product_tag())):
-?>
+        if(!(is_shop() || is_product_category() || is_product_tag())): ?>
                 </div><!-- .col-md-9 -->
-<?php 
-        endif;
-    
+        <?php endif;
     }
 
 
     public function before_sidebar(){ 
-        if(!(is_shop() || is_product_category() || is_product_tag())):
-?> 
+        if(!(is_shop() || is_product_category() || is_product_tag())): ?> 
                 <div class="col-md-3">
-<?php 
-        endif;
-    
+        <?php endif;
     }
 
     public function after_sidebar(){ 
-        if(!(is_shop() || is_product_category() || is_product_tag())):
-?>
+        if(!(is_shop() || is_product_category() || is_product_tag())): ?>
                 </div><!-- .col-md-3 -->
             </div><!-- .row -->
-<?php 
-        endif;
-    
+        <?php endif;
     }
 
     public function close_main_wrap(){ ?> 
@@ -72,6 +61,24 @@ class woocommerce_general{
         if(is_shop() || is_product_category() || is_product_tag()) return false;
         return true;
     }
+
+    //displays the header links ... dependent upon woocommerce installation
+    public static function wcsc_header_links(){ 
+        $accountPageId = get_option('woocommerce_myaccount_page_id');
+        $cartPageId = get_option('woocommerce_cart_page_id');
+        if($accountPageId === false || $cartPageId === false) return;
+        $accountText = (is_user_logged_in()) ? __('My Account', 'sewchic') : __('Log in','sewchic');
+?>
+        <div class="sewchic-account-links">
+            <a  href="<?php echo get_permalink($accountPageId);?>" title="<?php echo $accountText; ?>"><?php echo $accountText; ?></a>
+            <span>|</span>
+            <a  href="<?php echo get_permalink($cartPageId);?>"><?php _e('Cart','sewchic'); ?></a>
+            <?php if(is_user_logged_in()): ?>
+            <span>|</span>
+            <a href="<?php echo wp_logout_url( get_permalink($accountPageId)); ?>"><?php _e('Log out', 'sewchic'); ?></a>
+            <?php endif;?>
+        </div>
+    <?php }
 
 }
 

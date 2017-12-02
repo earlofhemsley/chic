@@ -3,7 +3,6 @@
 @import 'colors';
 @import 'bootstrap_overrides';
 @import 'facebook-plugin';
-
 /************************
  * GENERAL STYLES
  * 
@@ -32,8 +31,22 @@ body{
  * HEADER STYLES
  * LOGO AND NAV MENU
  * **********************/
+
+
 .sewchic-header-pink{
     background-color: $headerpink;
+}
+
+.sewchic-account-links{
+    width:100%;
+    text-align:center;
+    padding:10px 0;
+    z-index:10;
+    a{
+        color:$black;
+    }
+    span{
+    }
 }
 
 .sewchic-header-widget-container{
@@ -45,7 +58,6 @@ body{
         max-height: 100%;
     }
     h3{text-align:center;}
-    
     
 }
 
@@ -83,6 +95,16 @@ body{
 
 #sewchic-primary-menu{
     font-size:18px;
+}
+
+@media screen and (min-width:992px){
+    .sewchic-account-links{
+        max-width:250px;
+        text-align:right;
+        position:absolute;
+        top:0;
+        right:0;
+    }
 }
 
 /*********************

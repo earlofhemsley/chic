@@ -18,6 +18,7 @@
             <div class="standard-wrap wrap container">
                 <div class="sewchic-header-widget-container">
                     <?php 
+                        woocommerce_general::wcsc_header_links();
                         sewchic_custom_logo(true);
                     ?>
                     <h3 id="sewchic-tagline"><?php bloginfo('description'); ?></h3>

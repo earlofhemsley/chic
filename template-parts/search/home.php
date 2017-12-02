@@ -3,7 +3,7 @@
         <div class="form-group">
             <label for="sewchic-search-input" class="big-text-sm"><?php _e('Explore', 'sewchic'); ?>:</label>
             <input type="text" id="sewchic-search-input" class="form-control" name="s" />
-            <button class="btn btn-default" type="submit"><?php _e('Submit', 'sewchic'); ?></button>
+            <button class="button" type="submit"><?php _e('Submit', 'sewchic'); ?></button>
         </div>
     </div>
 </form>
