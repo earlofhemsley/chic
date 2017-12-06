@@ -353,39 +353,24 @@ table.variations{
 
 .wc-tabs-wrapper{
     clear:both;
-    padding-top:35px;
     ul.tabs{
         list-style-type:none;
         margin:0;
-        padding:0;
-        padding-bottom:18px;
-        border-bottom:10px $light-grey solid;
-
-     
+        padding:18px 0 0 0;
         li{
-            display:inline;
-            margin:0 5px;
             a{
-                padding:20px 15px;
-                background-color:white;
+                text-align:center;
+                padding: 10px 0;
+                margin: 5px 0;
+                display:block;
+                background-color:$lighter-grey;
                 border:1px solid $light-grey;
-                color:black;
-                border-top-left-radius:5px;
-                border-top-right-radius:5px;
+                color:$black;
             }
-            a:hover{
+            &.active a, a:hover{
+                background-color:white;    
                 text-decoration:none;
-                background-color:$light-grey;
-                color:white;
-            }
-        }
-        li:first-of-type{
-            margin:0 5px 0 0;
-        }
-        li.active{
-            a {
-                background-color: $light-grey;
-                color:white;
+            
             }
         }
     }
@@ -535,6 +520,32 @@ table.variations{
     }
     .related.products, .upsells.products{
         width:100%;
+    }
+    .wc-tabs-wrapper{
+        padding-top:35px;
+        ul.tabs{
+        padding:0 0 18px 0;
+            border-bottom:10px $light-grey solid;
+            li{
+                display:inline;
+                margin:0 5px;
+                a{
+                    display:initial;
+                    text-align:initial;
+                    padding:20px 15px;
+                    margin:0;
+                    background-color:white;
+                    border-top-left-radius:5px;
+                    border-top-right-radius:5px;
+                }
+                &.active a, a:hover{
+                    background-color: $light-grey;
+                    color:white;
+                }
+            
+            }
+        }
+        
     }
 }
 

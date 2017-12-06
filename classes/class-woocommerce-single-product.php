@@ -9,7 +9,8 @@ class woocommerce_single_product {
         add_action('woocommerce_before_add_to_cart_button', array($this, 'before_add_to_cart_button'));
         add_action('woocommerce_after_add_to_cart_button', array($this, 'after_add_to_cart_button'));
     
-        //add_filter('woocommerce_product_review_comment_form_args', array($this, 'comment_form_args_filter'));
+        add_filter('woocommerce_product_tabs', array($this, 'single_product_add_a_tab'),100);
+        
         add_filter('woocommerce_product_get_rating_html', array($this, 'obliterate_normal_star_rating'),100,3);
         add_action('woocommerce_review_meta', array($this, 'star_rating'), 30);
         add_filter('woocommerce_product_review_comment_form_args',array($this, 'replace_comment_form'));
@@ -36,6 +37,26 @@ class woocommerce_single_product {
     public function after_add_to_cart_button(){ ?>
             </div><!-- .quantity-wrapper -->
     <?php }
+
+    public function single_product_add_a_tab($tabs){
+        if(is_active_sidebar('single-product-widget')){
+            $sidebarData = sewchic_get_widget_data_for('single-product-widget');
+            $title = count($sidebarData) == 0 ? 'Extras' : $sidebarData[0]->title;
+            if(count($sidebarData) > 1) $title .= ' &amp; more'; 
+            $newTab = array(
+                'title' => $title,
+                'priority' => 50,
+                'callback' => 'woocommerce_single_product::single_product_widget'
+            );
+            if(is_array($tabs)) $tabs['SizeChart'] = $newTab;
+        }
+        return $tabs;
+    }
+
+    public static function single_product_widget(){
+        dynamic_sidebar('single-product-widget');
+    }
+
 
     public function obliterate_normal_star_rating($html, $rating, $cout){
         return ""; //return nothing here

@@ -268,33 +268,22 @@ table.variations {
     display: block; }
 
 .wc-tabs-wrapper {
-  clear: both;
-  padding-top: 35px; }
+  clear: both; }
   .wc-tabs-wrapper ul.tabs {
     list-style-type: none;
     margin: 0;
-    padding: 0;
-    padding-bottom: 18px;
-    border-bottom: 10px #aeaeae solid; }
-    .wc-tabs-wrapper ul.tabs li {
-      display: inline;
-      margin: 0 5px; }
-      .wc-tabs-wrapper ul.tabs li a {
-        padding: 20px 15px;
-        background-color: white;
-        border: 1px solid #aeaeae;
-        color: black;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px; }
-      .wc-tabs-wrapper ul.tabs li a:hover {
-        text-decoration: none;
-        background-color: #aeaeae;
-        color: white; }
-    .wc-tabs-wrapper ul.tabs li:first-of-type {
-      margin: 0 5px 0 0; }
-    .wc-tabs-wrapper ul.tabs li.active a {
-      background-color: #aeaeae;
-      color: white; }
+    padding: 18px 0 0 0; }
+    .wc-tabs-wrapper ul.tabs li a {
+      text-align: center;
+      padding: 10px 0;
+      margin: 5px 0;
+      display: block;
+      background-color: #efefef;
+      border: 1px solid #aeaeae;
+      color: #222; }
+    .wc-tabs-wrapper ul.tabs li.active a, .wc-tabs-wrapper ul.tabs li a:hover {
+      background-color: white;
+      text-decoration: none; }
 
 .woocommerce-Tabs-panel {
   box-shadow: 0 1px 1px transparent; }
@@ -394,7 +383,27 @@ table.variations {
       padding: 15px 12px 17px; }
 
   .related.products, .upsells.products {
-    width: 100%; } }
+    width: 100%; }
+
+  .wc-tabs-wrapper {
+    padding-top: 35px; }
+    .wc-tabs-wrapper ul.tabs {
+      padding: 0 0 18px 0;
+      border-bottom: 10px #aeaeae solid; }
+      .wc-tabs-wrapper ul.tabs li {
+        display: inline;
+        margin: 0 5px; }
+        .wc-tabs-wrapper ul.tabs li a {
+          display: initial;
+          text-align: initial;
+          padding: 20px 15px;
+          margin: 0;
+          background-color: white;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px; }
+        .wc-tabs-wrapper ul.tabs li.active a, .wc-tabs-wrapper ul.tabs li a:hover {
+          background-color: #aeaeae;
+          color: white; } }
 @media screen and (min-width: 992px) {
   .woocommerce-product-gallery {
     float: left;

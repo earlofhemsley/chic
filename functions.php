@@ -165,9 +165,17 @@ function sewchic_widgets_setup(){
     }
 
     register_sidebar(array(
-        'name' => __('Product archive filter widges', 'sewchic'),
+        'name' => __('Product archive filter widgets', 'sewchic'),
         'id' => 'product-filter-widgets',
         'description' => __('If filled, forces appearance of a widget bin to the left of product listings on shop page and product category / tag pages'),
+        'before_widget' => '',
+        'after_widget' => '',
+    ));
+
+    register_sidebar(array(
+        'name' => __('Single product widget tab', 'sewchic'),
+        'id' => 'single-product-widget',
+        'description' => __('If filled, will add a tab to single product pages containing widget content.'),
         'before_widget' => '',
         'after_widget' => '',
     ));
@@ -336,6 +344,58 @@ function sewchic_set_home_on_custom_queries( $q )
     $q->set( 'post__not_in', $invalid_ids );;
 }
 add_action( 'pre_get_posts', 'sewchic_set_home_on_custom_queries');
+endif;
+
+//programmatically get all the widget data out of a sidebar
+if(!function_exists('sewchic_get_widget_data_for')):
+function sewchic_get_widget_data_for($sidebar_name) {
+	global $wp_registered_sidebars, $wp_registered_widgets;
+	
+	// Holds the final data to return
+	$output = array();
+
+	// Loop over all of the registered sidebars looking for the one with the same name as $sidebar_name
+	$sidebar_id = false;
+    if($wp_registered_sidebars[$sidebar_name] != null) $sidebar_id = $sidebar_name;
+    else{
+        foreach( $wp_registered_sidebars as $sidebar ) {
+            if( $sidebar['name'] == $sidebar_name ) {
+                $sidebar_id = $sidebar['id'];
+                break;
+            }
+        }
+    }
+	
+	if( !$sidebar_id ) {
+		// There is no sidebar registered with the name provided.
+		return $output;
+	} 
+	
+	// A nested array in the format $sidebar_id => array( 'widget_id-1', 'widget_id-2' ... );
+	$sidebars_widgets = wp_get_sidebars_widgets();
+	$widget_ids = $sidebars_widgets[$sidebar_id];
+	
+	if( !$widget_ids ) {
+		// Without proper widget_ids we can't continue. 
+		return array();
+	}
+	
+	// Loop over each widget_id so we can fetch the data out of the wp_options table.
+	foreach( $widget_ids as $id ) {
+		// The name of the option in the database is the name of the widget class.  
+		$option_name = $wp_registered_widgets[$id]['callback'][0]->option_name;
+		
+		// Widget data is stored as an associative array. To get the right data we need to get the right key which is stored in $wp_registered_widgets
+		$key = $wp_registered_widgets[$id]['params'][0]['number'];
+		
+		$widget_data = get_option($option_name);
+		
+		// Add the widget data on to the end of the output array.
+		$output[] = (object) $widget_data[$key];
+	}
+	
+	return $output;
+}
 endif;
 
 ?>
