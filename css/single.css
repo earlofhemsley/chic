@@ -1,13 +1,13 @@
 /*This stylesheet is for single content*/
 /*this is the colors stylesheet*/
 /*HEADER*/
-figure.single-featured-image {
+figure.sewchic-single-featured-image {
   margin: 10px 0 20px; }
-  figure.single-featured-image img {
+  figure.sewchic-single-featured-image img {
     width: 100%;
     height: auto;
     max-height: 100%; }
-  figure.single-featured-image figcaption {
+  figure.sewchic-single-featured-image figcaption {
     background-color: #efefef;
     font-style: italic;
     font-size: 16px;
@@ -15,6 +15,23 @@ figure.single-featured-image {
     text-align: right; }
 
 /*CONTENT*/
+figure.alignleft {
+  float: left;
+  margin: 0 1em 1em 0; }
+
+figure.alignright {
+  float: right;
+  margin: 0 0 1em 1em; }
+  figure.alignright figcaption {
+    text-align: right; }
+
+figure.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+  figure.aligncenter figcaption {
+    text-align: center; }
+
 img.alignright {
   float: right;
   margin: 0 0 1em 1em; }
@@ -40,6 +57,14 @@ a img.aligncenter {
   display: block;
   margin-left: auto;
   margin-right: auto; }
+
+/***********************
+* POSTS
+***********************/
+.sewchic-post-content img {
+  width: 100%;
+  height: auto;
+  max-height: 100%; }
 
 /***********************
 * PAGES

@@ -1,9 +1,9 @@
 <?php
 
-require_once( get_template_directory(). '/woocommerce-integration.php');
-require_once( get_template_directory(). '/includes/carousel-options.php');
-require_once( get_template_directory(). '/classes/class-fb-page-plugin.php');
-require_once( get_template_directory(). '/classes/class-tgm-plugin-activation.php');
+if(!isset($content_width)) $content_width=1200;
+
+$GLOBALS['textdomain'] = 'sewchic';
+
 
 
 if(!function_exists('sewchic_register_required_plugins')):
@@ -40,7 +40,6 @@ add_action( 'tgmpa_register', 'sewchic_register_required_plugins' );
 endif;
 
 
-if(!isset($content_width)) $content_width=1200;
 
 
 //Add basic theme supports
@@ -92,6 +91,8 @@ function sewchic_register_scripts(){
     wp_enqueue_script('plugins',get_template_directory_uri().'/js/plugins.js', array('jquery'), false, true);
     wp_enqueue_script('main',get_template_directory_uri().'/js/main.js', array('jquery'), false, true);
 
+    wp_register_script('photoswipe-render', get_template_directory_uri() . '/common/js/ps-render.js', array('jquery'), false, true);
+
 
     //styles
     wp_enqueue_style('bootstrap', get_template_directory_uri().'/css/vendor/bootstrap.min.css');
@@ -110,6 +111,9 @@ function sewchic_register_scripts(){
     if(is_shop() || is_product_category() || is_product_tag()){
         wp_enqueue_script('jquery-ui-slider');
         wp_enqueue_style('jquery-ui-css', get_template_directory_uri().'/css/vendor/jquery-ui.min.css');
+    }
+    if(is_singular(array('post', 'page'))){
+        
     }
 
     //dynamic styles
@@ -397,5 +401,19 @@ function sewchic_get_widget_data_for($sidebar_name) {
 	return $output;
 }
 endif;
+
+//an override of a function in the common-template-functions
+if(!function_exists('common_photoswipe_element')):
+function common_photoswipe_element(){
+    if(current_theme_supports('wc-product-gallery-lightbox')) wc_get_template('single-product/photoswipe.php');
+}
+endif;
+
+require_once( get_template_directory(). '/woocommerce-integration.php');
+require_once( get_template_directory(). '/includes/carousel-options.php');
+require_once( get_template_directory(). '/common/common-functions.php' );
+require_once( get_template_directory(). '/classes/class-fb-page-plugin.php');
+require_once( get_template_directory(). '/classes/class-tgm-plugin-activation.php');
+
 
 ?>
