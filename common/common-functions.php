@@ -2,6 +2,16 @@
 //common functions I typically use across themes
 if($GLOBALS['textdomain'] == null) $GLOBALS['textdomain'] = 'common';
 
+if(!function_exists('common_enqueue_scripts')):
+function common_enqueue_scripts(){
+    ECHO '<script type="text/javascript>window.alert("it loaded!");</script>';
+    wp_enqueue_style('common-style', get_template_directory_uri().'/common/css/style.css');
+}
+add_action('wp_enqueue_scripts', 'common_enqueue_scripts');
+endif;
+
+
+
 //intended to be used within the loop
 if(!function_exists('common_get_single_post_byline')):
 function common_get_single_post_byline(){
@@ -196,6 +206,19 @@ EOT;
 }
 endif;
 
+
+if(!function_exists('common_ifrm_oembed_filter')):
+function common_ifrm_oembed_filter($cachedHtml, $url, $attr, $post_ID){
+    //regex on html to see if there's an iframe
+    //if there's an iframe, wrap the html in a div such that it can be presented
+    //return it
+    if(1 == preg_match('/^<iframe[^>]*>.*<\/iframe>/', $cachedHtml)){
+        $cachedHtml = '<div class="iframe-responsive">'.$cachedHtml.'</div>';
+    }
+    return $cachedHtml;
+}
+add_filter("embed_oembed_html", 'common_ifrm_oembed_filter', 10, 4);
+endif;
 
 
 

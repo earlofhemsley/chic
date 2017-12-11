@@ -3,6 +3,12 @@
 @import 'colors';
 
 /*HEADER*/
+figcaption{
+    background-color: $lighter-grey;
+    font-style:italic;
+    font-size:16px;
+    padding:5px;
+}
 figure.sewchic-single-featured-image{
     margin:10px 0 20px;
     img{
@@ -10,11 +16,7 @@ figure.sewchic-single-featured-image{
         height: auto;
         max-height:100%;
     }
-    figcaption{
-        background-color: $lighter-grey;
-        font-style:italic;
-        font-size:16px;
-        padding:5px;
+    figcaption {
         text-align:right;
     }
 }

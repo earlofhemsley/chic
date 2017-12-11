@@ -1,6 +1,12 @@
 /*This stylesheet is for single content*/
 /*this is the colors stylesheet*/
 /*HEADER*/
+figcaption {
+  background-color: #efefef;
+  font-style: italic;
+  font-size: 16px;
+  padding: 5px; }
+
 figure.sewchic-single-featured-image {
   margin: 10px 0 20px; }
   figure.sewchic-single-featured-image img {
@@ -8,10 +14,6 @@ figure.sewchic-single-featured-image {
     height: auto;
     max-height: 100%; }
   figure.sewchic-single-featured-image figcaption {
-    background-color: #efefef;
-    font-style: italic;
-    font-size: 16px;
-    padding: 5px;
     text-align: right; }
 
 /*CONTENT*/

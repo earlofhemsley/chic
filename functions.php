@@ -5,7 +5,6 @@ if(!isset($content_width)) $content_width=1200;
 $GLOBALS['textdomain'] = 'sewchic';
 
 
-
 if(!function_exists('sewchic_register_required_plugins')):
 function sewchic_register_required_plugins(){
     $plugins = array(
@@ -40,8 +39,6 @@ add_action( 'tgmpa_register', 'sewchic_register_required_plugins' );
 endif;
 
 
-
-
 //Add basic theme supports
 if(!function_exists('sewchic_setup')):
 function sewchic_setup(){
@@ -49,7 +46,7 @@ function sewchic_setup(){
     add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
     add_theme_support('title-tag');
     add_theme_support('automatic-feed-links');
-    add_theme_support('post-formats', array('gallery','image','video'));
+    //add_theme_support('post-formats', array('gallery','image','video'));
     add_theme_support('custom-logo', array(
         'height' => 200,
         'width' => 400,
@@ -58,7 +55,8 @@ function sewchic_setup(){
     ));
 
     //image sizes
-    add_image_size('post-hero', 1125, 633);
+    add_image_size('post-hero', 1125, 633, true);
+    //add_image_size('post-hero', 800, 450, true);
 
 
     //this theme designed to be used with woocommerce ecommerce plugin
@@ -126,7 +124,7 @@ function sewchic_register_scripts(){
         wp_add_inline_style('core', $style);
     }
 }
-add_action('wp_enqueue_scripts', 'sewchic_register_scripts',100);
+add_action('wp_enqueue_scripts', 'sewchic_register_scripts');
 endif;
 
 //Use a placeholder custom logo if none is uploaded

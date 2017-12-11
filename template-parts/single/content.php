@@ -14,7 +14,7 @@
 <?php
     endif;
     printf('<div class="%s">%s</div>',
-        'sewchic-post-content',
+        'sewchic-single-content sewchic-post',
         apply_filters('the_content', get_the_content())
     );
 
