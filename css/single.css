@@ -63,21 +63,21 @@ figure.sewchic-single-featured-image {
 /***********************
 * POSTS
 ***********************/
-.sewchic-post-content img, .sewchic-post-content figure {
+.sewchic-single-content img, .sewchic-single-content figure {
   width: 100%;
   height: auto;
   max-height: 100%; }
 
 @media screen and (min-width: 768px) {
-  .sewchic-post-content img, .sewchic-post-content figure {
+  .sewchic-single-content img, .sewchic-single-content figure {
     width: auto;
     max-width: 100%; }
-  .sewchic-post-content ul, .sewchic-post-content ol {
+  .sewchic-single-content ul, .sewchic-single-content ol {
     width: auto;
     overflow: hidden;
     padding-left: 25px; } }
 @media screen and (max-width: 768px) {
-  .sewchic-post-content figure {
+  .sewchic-single-content figure {
     max-width: initial !important; } }
 /***********************
 * PAGES

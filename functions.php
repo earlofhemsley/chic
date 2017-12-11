@@ -56,7 +56,6 @@ function sewchic_setup(){
 
     //image sizes
     add_image_size('post-hero', 1125, 633, true);
-    //add_image_size('post-hero', 800, 450, true);
 
 
     //this theme designed to be used with woocommerce ecommerce plugin

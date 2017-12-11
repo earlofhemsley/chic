@@ -4,7 +4,6 @@ if($GLOBALS['textdomain'] == null) $GLOBALS['textdomain'] = 'common';
 
 if(!function_exists('common_enqueue_scripts')):
 function common_enqueue_scripts(){
-    ECHO '<script type="text/javascript>window.alert("it loaded!");</script>';
     wp_enqueue_style('common-style', get_template_directory_uri().'/common/css/style.css');
 }
 add_action('wp_enqueue_scripts', 'common_enqueue_scripts');

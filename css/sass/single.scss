@@ -9,6 +9,7 @@ figcaption{
     font-size:16px;
     padding:5px;
 }
+
 figure.sewchic-single-featured-image{
     margin:10px 0 20px;
     img{
@@ -54,7 +55,7 @@ figure.sewchic-single-featured-image{
 /***********************
 * POSTS
 ***********************/
-.sewchic-post-content{
+.sewchic-single-content{
     img, figure{
         width: 100%;
         height: auto;
@@ -63,7 +64,7 @@ figure.sewchic-single-featured-image{
 }
 
 @media screen and (min-width: 768px){
-    .sewchic-post-content{
+    .sewchic-single-content{
         img, figure{
             width:auto;
             max-width:100%;
@@ -77,7 +78,7 @@ figure.sewchic-single-featured-image{
 }
 
 @media screen and (max-width:768px){
-    .sewchic-post-content{
+    .sewchic-single-content{
         figure{
             max-width:initial !important;
         }
