@@ -15,57 +15,68 @@ figure.sewchic-single-featured-image {
     text-align: right; }
 
 /*CONTENT*/
-figure.alignleft {
-  float: left;
-  margin: 0 1em 1em 0; }
+@media screen and (min-width: 768px) {
+  figure.alignleft {
+    float: left;
+    margin: 0 1em 1em 0; }
 
-figure.alignright {
-  float: right;
-  margin: 0 0 1em 1em; }
-  figure.alignright figcaption {
-    text-align: right; }
+  figure.alignright {
+    float: right;
+    margin: 0 0 1em 1em; }
+    figure.alignright figcaption {
+      text-align: right; }
 
-figure.aligncenter {
-  display: block;
-  margin-left: auto;
-  margin-right: auto; }
-  figure.aligncenter figcaption {
-    text-align: center; }
+  figure.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+    figure.aligncenter figcaption {
+      text-align: center; }
 
-img.alignright {
-  float: right;
-  margin: 0 0 1em 1em; }
+  img.alignright {
+    float: right;
+    margin: 0 0 1em 1em; }
 
-img.alignleft {
-  float: left;
-  margin: 0 1em 1em 0; }
+  img.alignleft {
+    float: left;
+    margin: 0 1em 1em 0; }
 
-img.aligncenter {
-  display: block;
-  margin-left: auto;
-  margin-right: auto; }
+  img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
 
-a img.alignright {
-  float: right;
-  margin: 0 0 1em 1em; }
+  a img.alignright {
+    float: right;
+    margin: 0 0 1em 1em; }
 
-a img.alignleft {
-  float: left;
-  margin: 0 1em 1em 0; }
+  a img.alignleft {
+    float: left;
+    margin: 0 1em 1em 0; }
 
-a img.aligncenter {
-  display: block;
-  margin-left: auto;
-  margin-right: auto; }
-
+  a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; } }
 /***********************
 * POSTS
 ***********************/
-.sewchic-post-content img {
+.sewchic-post-content img, .sewchic-post-content figure {
   width: 100%;
   height: auto;
   max-height: 100%; }
 
+@media screen and (min-width: 768px) {
+  .sewchic-post-content img, .sewchic-post-content figure {
+    width: auto;
+    max-width: 100%; }
+  .sewchic-post-content ul, .sewchic-post-content ol {
+    width: auto;
+    overflow: hidden;
+    padding-left: 25px; } }
+@media screen and (max-width: 768px) {
+  .sewchic-post-content figure {
+    max-width: initial !important; } }
 /***********************
 * PAGES
 ***********************/
