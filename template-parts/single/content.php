@@ -1,7 +1,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(array('sewchic-single', 'post-type-default')); ?> >
-    <h1 class="sewchic-post-title"><?php echo get_the_title(); ?></h1>
+    <h1 class="sewchic-single-title"><?php echo get_the_title(); ?></h1>
 <?php 
-    echo common_get_single_post_byline(); 
+    echo common_get_single_meta(); 
     if(has_post_thumbnail(get_the_ID()) && common_is_on_page_one() ): 
 ?>            
         <figure class="sewchic-single-featured-image">

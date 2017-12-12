@@ -12,26 +12,31 @@ endif;
 
 
 //intended to be used within the loop
-if(!function_exists('common_get_single_post_byline')):
-function common_get_single_post_byline(){
+if(!function_exists('common_get_single_meta')):
+function common_get_single_meta(){
     global $multipage, $textdomain;
-    $editLink = "";
-    if(current_user_can('edit_post', get_the_ID())) { 
-        $editLink = sprintf('&nbsp;|&nbsp;<a href="%s" target="_blank"><span class="glyphicon glyphicon-pencil"></span></a>',  
-            get_edit_post_link());
-    }
-    $commentLink = "<a class='scrollable' data-destination='#{$textdomain}-comments-area' href='#'>" . (get_comments_number() > 0 ? get_comments_number() . _n(' comment', ' comments', get_comments_number(), $textdomain) : 'Leave a comment') . '</a>';
+    
+    $commentLink = "<span class='separate'><a class='scrollable' data-destination='#{$textdomain}-comments-area' href='#'>" . (get_comments_number() > 0 ? get_comments_number() . _n(' comment', ' comments', get_comments_number(), $textdomain) : 'Leave a comment') . '</a></span>';
 
     $pagesLink = '';
     if($multipage){
-        $pagesLink = '&nbsp;|&nbsp;' . wp_link_pages(array(
-            'before'    =>  "<span class='{$textdomain}-link-pages'>".__('Pages:', $textdomain),
+        $pagesLink = wp_link_pages(array(
+            'before'    =>  "<span class='{$textdomain}-link-pages separate'>".__('Pages:', $textdomain),
             'after'     =>  "</span>",
             'echo'      =>  0
         ));
     }
+    
+    $editLink = "";
+    if(current_user_can('edit_post', get_the_ID())) { 
+        $editLink = sprintf('<span class="separate"><a href="%s" target="_blank"><span class="glyphicon glyphicon-pencil"></span></a></span>',  
+            get_edit_post_link());
+    }
 
-    return sprintf('<div class="'.$textdomain.'-single-meta">%s <a href="%s" target="_blank">%s</a> | %s | %s%s%s</div>',
+    $return = "<div class='$textdomain-single-meta'>";
+
+
+    $return .= sprintf('<p><span class="separate">%s <a href="%s" target="_blank">%s</a></span><span class="separate">%s</span>%s%s%s</p>',
         __('by', $textdomain),
         get_author_posts_url( get_the_author_meta( 'ID' ) ),
         get_the_author(),
@@ -40,6 +45,37 @@ function common_get_single_post_byline(){
         $editLink,
         $pagesLink
     );
+
+    $return .= '<p class='.$textdomain.'-single-meta-links>';
+    
+    $return .= '<span class="'.$textdomain.'-single-categories separate">'. __('Filed under', $textdomain) . ': ';
+    $categories = wp_get_post_categories(get_the_ID(), array('fields' => 'all'));
+    $keys = array_keys($categories);
+    $last = array_pop($keys);
+   
+    foreach($categories as $key => $cat){
+        $comma = ($last != $key) ? ', ' : '';
+        $url = get_category_link($cat->term_id);
+        $return .= "<a href='$url'>{$cat->name}</a>$comma";
+    }
+    $return .= '</span>';
+    
+    $tags = get_the_tags();
+    if($tags){
+        $return .= '<span class="'.$textdomain.'-single-tags separate">'.__('Tagged as', $textdomain) . ': ';
+        $keys = array_keys($tags);
+        $last = array_pop($keys);
+        foreach(get_the_tags() as $key => $tag){
+            $comma = ($key != $last) ? ', ' : '';
+            $return .= "<a href=".get_tag_link($tag->id).">{$tag->name}</a>$comma ";
+        } 
+        $return .= "</span>";
+    }
+    $return .= '</p><!-- '.$textdomain.'single-single-meta-links -->';
+    
+    $return .= "</div><!-- $textdomain-single-meta -->";
+
+    return $return;
 }
 endif;
 

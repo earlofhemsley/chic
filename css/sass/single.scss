@@ -55,6 +55,23 @@ figure.sewchic-single-featured-image{
 /***********************
 * POSTS
 ***********************/
+.sewchic-single-meta{
+    font-size: 16px;
+    span.separate + span.separate{
+        margin-left:7px;
+        &:before{
+            content: '|';
+            margin-right: 7px;
+            font-size:20px;
+        }
+    }
+    .sewchic-single-meta-links{
+        &, & a{
+            color: $light-grey;
+        }
+    }
+}
+
 .sewchic-single-content{
     img, figure{
         width: 100%;
@@ -64,6 +81,10 @@ figure.sewchic-single-featured-image{
 }
 
 @media screen and (min-width: 768px){
+    .sewchic-single-meta{
+        font-size:inherit;
+    }
+    
     .sewchic-single-content{
         img, figure{
             width:auto;
@@ -78,6 +99,20 @@ figure.sewchic-single-featured-image{
 }
 
 @media screen and (max-width:768px){
+    .sewchic-single-meta-links{
+        span.separate{
+            display:block;
+            & + span.separate{
+                margin-top:7px;
+                margin-left:0;
+                &:before{
+                    content:none;
+                    margin:0;
+                }
+            }
+        }
+    }
+    
     .sewchic-single-content{
         figure{
             max-width:initial !important;

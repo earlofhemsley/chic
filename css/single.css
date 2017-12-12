@@ -63,12 +63,26 @@ figure.sewchic-single-featured-image {
 /***********************
 * POSTS
 ***********************/
+.sewchic-single-meta {
+  font-size: 16px; }
+  .sewchic-single-meta span.separate + span.separate {
+    margin-left: 7px; }
+    .sewchic-single-meta span.separate + span.separate:before {
+      content: '|';
+      margin-right: 7px;
+      font-size: 20px; }
+  .sewchic-single-meta .sewchic-single-meta-links, .sewchic-single-meta .sewchic-single-meta-links a {
+    color: #aeaeae; }
+
 .sewchic-single-content img, .sewchic-single-content figure {
   width: 100%;
   height: auto;
   max-height: 100%; }
 
 @media screen and (min-width: 768px) {
+  .sewchic-single-meta {
+    font-size: inherit; }
+
   .sewchic-single-content img, .sewchic-single-content figure {
     width: auto;
     max-width: 100%; }
@@ -77,6 +91,15 @@ figure.sewchic-single-featured-image {
     overflow: hidden;
     padding-left: 25px; } }
 @media screen and (max-width: 768px) {
+  .sewchic-single-meta-links span.separate {
+    display: block; }
+    .sewchic-single-meta-links span.separate + span.separate {
+      margin-top: 7px;
+      margin-left: 0; }
+      .sewchic-single-meta-links span.separate + span.separate:before {
+        content: none;
+        margin: 0; }
+
   .sewchic-single-content figure {
     max-width: initial !important; } }
 /***********************
