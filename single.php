@@ -7,6 +7,7 @@
                 the_post();
                 
                 get_template_part('template-parts/single/content', get_post_format(get_the_ID()));
+                if(comments_open() || get_comments_number()) comments_template();
             }
         ?>
         </div>

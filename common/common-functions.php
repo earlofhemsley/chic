@@ -1,4 +1,7 @@
 <?php 
+
+require_once('class-common-comment-walker.php');
+
 //common functions I typically use across themes
 if($GLOBALS['textdomain'] == null) $GLOBALS['textdomain'] = 'common';
 
@@ -255,6 +258,75 @@ function common_ifrm_oembed_filter($cachedHtml, $url, $attr, $post_ID){
 add_filter("embed_oembed_html", 'common_ifrm_oembed_filter', 10, 4);
 endif;
 
+if(!function_exists('common_comments')):
+function common_comments(){
+    global $textdomain;
+
+    ob_start();
+
+    if(post_password_required()) return;
+    
+    echo '<div id="'.$textdomain.'-comments-area">';
+
+    if(have_comments()){
+        echo sprintf('<h3 class="%s-comments-title">%s</h3>', $textdomain, __('Comments', $textdomain));
+    }
+
+    wp_list_comments(array(
+        'walker' => new Common_Comment_Walker($textdomain),
+        'style' => 'div',
+        'format' => 'html5',
+        'avatar_size' => 40,
+        'max_depth' => '3',
+    ));
+
+    $comments_links = paginate_comments_links(array(
+        'type'          => 'array',
+        'add_fragment'  => '#'.$textdomain.'-comments-area',
+        'prev_text'     => '&laquo;',
+        'next_text'     => '&raquo;',
+        'echo'          => false
+    ));
+
+    if($comments_links){
+        echo "<div class='$textdomain-comments-pagination'>";
+        foreach($comments_links as $link){
+            echo "<span class='$textdomain-comments-page-link'>$link</span>";
+        }
+        echo "</div><!-- $textdomain-comments-pagination -->";
+    }
+
+    $commenter = wp_get_current_commenter();
+    $req = get_option('require_name_email');
+
+    comment_form(array(
+        'fields' => array(
+            'author' => 
+                '<div class="form-group col-xs-12">
+                    <label for="'.$textdomain.'-comment-form-author">'.__('Your name ', $textdomain).($req ? '<span class="'.$textdomain.'-comment-form-required">*</span>' : '' ).'</label>
+                    <input id="'.$textdomain.'-comment-form-author" class="form-control" name="author" type="text" value="'. esc_attr($commenter['comment_author']) .'" />
+                </div>', 
+            'email' => 
+                '<div class="form-group col-xs-12">
+                    <label for="'.$textdomain.'-comment-form-email">'.__('Your email ', $textdomain).($req ? '<span class="'.$textdomain.'-comment-form-required">*</span>':'') .'</label>
+                    <input id="'.$textdomain.'-comment-form-email" class="form-control" name="email" value="'. esc_attr($commenter['comment_author_email']) .'" />
+                </div>', 
+        ),
+        'comment_notes_before' => '<p>'.__('Your email address will not be published. Required fields are marked',$textdomain).'<span class="'.$textdomain.'-comment-form-required">*</span></p>',
+        'comment_field' => '<div class="form-group col-xs-12"><label for="'.$textdomain.'-comment">'.__('Comment text ',$textdomain) . ($req ? '<span class="'.$textdomain.'-comment-form-required">*</span>':'') .'</label><textarea id="'.$textdomain.'-comment" class="form-control" name="comment"></textarea></div>',
+        'class_form' => 'form-horizontal '.$textdomain.'-comment-form',
+        'submit_field' => '<div class="form-group col-xs-12"><button type="submit" class="btn btn-primary">'.__('Submit',$textdomain).'</button>%2$s</div>',
+        'title_reply' => 'Leave a comment',
+        'format' => 'html5'
+
+    ));
+    
+    echo '</div>';
+
+    return ob_get_clean();
+}
+    
+endif;
 
 
 ?>
