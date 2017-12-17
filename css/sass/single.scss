@@ -55,6 +55,16 @@ figure.sewchic-single-featured-image{
 /***********************
 * POSTS
 ***********************/
+.sewchic-single:after{
+    //clearfix on the article content
+    clear:both;
+    content:' ';
+    display:block;
+    font-size:0;
+    height:0;
+    visibility:hidden;
+}
+
 .sewchic-single-meta{
     font-size: 16px;
     span.separate + span.separate{
@@ -79,6 +89,8 @@ figure.sewchic-single-featured-image{
         max-height:100%;
     }
 }
+
+
 
 @media screen and (min-width: 768px){
     .sewchic-single-meta{
@@ -121,6 +133,73 @@ figure.sewchic-single-featured-image{
 }
 
 /***********************
-* PAGES
+* COMMENTS
 ***********************/
+#sewchic_comments_area{
+    margin-top:20px;
+    padding-bottom: 20px;
+    border-top:1px solid $light-grey;
+    border-bottom:1px solid $light-grey;
+
+    .sewchic-comments-title{
+        margin: 20px 0;
+    }
+
+    .sewchic-comment{
+        margin: 20px 0;
+        .sewchic-comment-author-avatar{
+            float:left;
+            margin: 8px 7px 2px 0;
+        }
+
+        .sewchic-comment-time-posted{
+            color:$light-grey;
+        }
+
+        .sewchic-comment-actions a{
+            display:block;
+        }
+    }
+
+    .comment-respond{
+        textarea#sewchic_comment_respond{
+            height:80px;
+        }
+
+        .sewchic-comment-respond-section{
+            margin:20px 0;
+            input, textarea{
+                display:block;
+            }
+        }
+        .sewchic-comment-submit{
+            display:block;
+            width:100%;
+        }
+    }
+}
+
+@media screen and (min-width:768px){
+    #sewchic_comments_area{
+        .sewchic-comment{
+            .sewchic-comment-child{
+                margin-left:30px;
+            }
+            .sewchic-comment-actions a {
+                display: initial;
+            }
+        }
+
+        .comment-respond{
+            .sewchic-comment-respond-section{
+                input, textarea{
+                    max-width:700px;
+                }
+            }
+            .sewchic-comment-submit{
+                width:auto;
+            }
+        }
+    }
+}
 

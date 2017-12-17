@@ -120,7 +120,8 @@ ul.page-numbers {
   padding: 0;
   margin: 20px 0; }
   ul.page-numbers li {
-    display: inline-block; }
+    display: inline-block;
+    padding: 10px 0; }
     ul.page-numbers li a, ul.page-numbers li span {
       padding: 10px 13px;
       border: solid 1px #aeaeae;

@@ -63,6 +63,14 @@ figure.sewchic-single-featured-image {
 /***********************
 * POSTS
 ***********************/
+.sewchic-single:after {
+  clear: both;
+  content: ' ';
+  display: block;
+  font-size: 0;
+  height: 0;
+  visibility: hidden; }
+
 .sewchic-single-meta {
   font-size: 16px; }
   .sewchic-single-meta span.separate + span.separate {
@@ -103,7 +111,42 @@ figure.sewchic-single-featured-image {
   .sewchic-single-content figure {
     max-width: initial !important; } }
 /***********************
-* PAGES
+* COMMENTS
 ***********************/
+#sewchic_comments_area {
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid #aeaeae;
+  border-bottom: 1px solid #aeaeae; }
+  #sewchic_comments_area .sewchic-comments-title {
+    margin: 20px 0; }
+  #sewchic_comments_area .sewchic-comment {
+    margin: 20px 0; }
+    #sewchic_comments_area .sewchic-comment .sewchic-comment-author-avatar {
+      float: left;
+      margin: 8px 7px 2px 0; }
+    #sewchic_comments_area .sewchic-comment .sewchic-comment-time-posted {
+      color: #aeaeae; }
+    #sewchic_comments_area .sewchic-comment .sewchic-comment-actions a {
+      display: block; }
+  #sewchic_comments_area .comment-respond textarea#sewchic_comment_respond {
+    height: 80px; }
+  #sewchic_comments_area .comment-respond .sewchic-comment-respond-section {
+    margin: 20px 0; }
+    #sewchic_comments_area .comment-respond .sewchic-comment-respond-section input, #sewchic_comments_area .comment-respond .sewchic-comment-respond-section textarea {
+      display: block; }
+  #sewchic_comments_area .comment-respond .sewchic-comment-submit {
+    display: block;
+    width: 100%; }
+
+@media screen and (min-width: 768px) {
+  #sewchic_comments_area .sewchic-comment .sewchic-comment-child {
+    margin-left: 30px; }
+  #sewchic_comments_area .sewchic-comment .sewchic-comment-actions a {
+    display: initial; }
+  #sewchic_comments_area .comment-respond .sewchic-comment-respond-section input, #sewchic_comments_area .comment-respond .sewchic-comment-respond-section textarea {
+    max-width: 700px; }
+  #sewchic_comments_area .comment-respond .sewchic-comment-submit {
+    width: auto; } }
 
 /*# sourceMappingURL=single.css.map */

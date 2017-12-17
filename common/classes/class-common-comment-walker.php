@@ -5,6 +5,7 @@ class Common_Comment_Walker extends Walker_Comment{
 
     public function __construct($textdomain = 'common'){
         $this->textdomain = $textdomain;
+        add_filter('comment_reply_link', array($this, 'add_to_comment_reply_link_class'), 10, 4);
     }
 
     public function paged_walk($elements, $max_depth, $page_num, $per_page){
@@ -28,7 +29,6 @@ class Common_Comment_Walker extends Walker_Comment{
                 <p class="{$this->textdomain}-comment-author-meta">{$props['author_meta']}</p>
                 <p class="{$this->textdomain}-comment-content">{$props['comment_text']}</p>
                 <div class="{$this->textdomain}-comment-actions">
-                    &nbsp;
                     {$props['edit_link']}
                     {$props['reply_link']}
                 </div>
@@ -49,7 +49,6 @@ EOT;
                 </footer>
                 <p class="{$this->textdomain}-comment-content">{$props['comment_text']}</p>
                 <div class="{$this->textdomain}-comment-actions">
-                    &nbsp;
                     {$props['edit_link']}
                     {$props['reply_link']}
                 </div>
@@ -103,8 +102,8 @@ EOT;
             'login_text' => 'Log in',
             'max_depth' => $args['max_depth'],
             'depth' => $depth,
-            'before' => '<span class="'.$this->textdomain.'-comment-action">',
-            'after' => '</span><!-- '.$this->textdomain.'-comment-action -->'
+            //'before' => '<span class="'.$this->textdomain.'-comment-action">',
+            //'after' => '</span><!-- '.$this->textdomain.'-comment-action -->'
         ));
 
         $temp_edit_link =  get_edit_comment_link($comment);
@@ -112,6 +111,17 @@ EOT;
                 '<span class="'.$this->textdomain.'-comment-action"><a class="btn btn-xs btn-default" href="'.$temp_edit_link.'" target="_blank">Edit</a></span>' : '';
 
         return $props;
+    }
+
+    public function add_to_comment_reply_link_class($html, $args, $comment, $post){
+        $pattern = '/class=[\"\']([^\"\']*)[\"\']/i';
+        $result = preg_match($pattern, $html);
+        if(preg_match($pattern, $html)){
+            $html = preg_replace_callback($pattern, function($matches){
+                return "class=\"$matches[1] comment-link button\"";
+            }, $html);
+        }
+        return $html;
     }
 
 }

@@ -1,6 +1,6 @@
 <?php 
 
-require_once('class-common-comment-walker.php');
+require_once('classes/class-common-comment-walker.php');
 
 //common functions I typically use across themes
 if($GLOBALS['textdomain'] == null) $GLOBALS['textdomain'] = 'common';
@@ -266,7 +266,7 @@ function common_comments(){
 
     if(post_password_required()) return;
     
-    echo '<div id="'.$textdomain.'-comments-area">';
+    echo '<div id="'.$textdomain.'_comments_area">';
 
     if(have_comments()){
         echo sprintf('<h3 class="%s-comments-title">%s</h3>', $textdomain, __('Comments', $textdomain));
@@ -283,17 +283,17 @@ function common_comments(){
     $comments_links = paginate_comments_links(array(
         'type'          => 'array',
         'add_fragment'  => '#'.$textdomain.'-comments-area',
-        'prev_text'     => '&laquo;',
-        'next_text'     => '&raquo;',
+        'prev_text'     => '&larr;',
+        'next_text'     => '&rarr;',
         'echo'          => false
     ));
 
     if($comments_links){
-        echo "<div class='$textdomain-comments-pagination'>";
+        echo "<ul class='$textdomain-comments-pagination page-numbers'>\r\n";
         foreach($comments_links as $link){
-            echo "<span class='$textdomain-comments-page-link'>$link</span>";
+            echo "<li class='$textdomain-comments-page-link'>$link</li>\r\n";
         }
-        echo "</div><!-- $textdomain-comments-pagination -->";
+        echo "</ul><!-- $textdomain-comments-pagination -->\r\n";
     }
 
     $commenter = wp_get_current_commenter();
@@ -302,20 +302,20 @@ function common_comments(){
     comment_form(array(
         'fields' => array(
             'author' => 
-                '<div class="form-group col-xs-12">
+                '<div class="'.$textdomain.'-comment-respond-section">
                     <label for="'.$textdomain.'-comment-form-author">'.__('Your name ', $textdomain).($req ? '<span class="'.$textdomain.'-comment-form-required">*</span>' : '' ).'</label>
-                    <input id="'.$textdomain.'-comment-form-author" class="form-control" name="author" type="text" value="'. esc_attr($commenter['comment_author']) .'" />
+                    <input id="'.$textdomain.'-comment-form-author" class="input-text" name="author" type="text" value="'. esc_attr($commenter['comment_author']) .'" />
                 </div>', 
             'email' => 
-                '<div class="form-group col-xs-12">
+                '<div class="'.$textdomain.'-comment-respond-section">
                     <label for="'.$textdomain.'-comment-form-email">'.__('Your email ', $textdomain).($req ? '<span class="'.$textdomain.'-comment-form-required">*</span>':'') .'</label>
-                    <input id="'.$textdomain.'-comment-form-email" class="form-control" name="email" value="'. esc_attr($commenter['comment_author_email']) .'" />
+                    <input id="'.$textdomain.'-comment-form-email" class="input-text" name="email" value="'. esc_attr($commenter['comment_author_email']) .'" />
                 </div>', 
         ),
         'comment_notes_before' => '<p>'.__('Your email address will not be published. Required fields are marked',$textdomain).'<span class="'.$textdomain.'-comment-form-required">*</span></p>',
-        'comment_field' => '<div class="form-group col-xs-12"><label for="'.$textdomain.'-comment">'.__('Comment text ',$textdomain) . ($req ? '<span class="'.$textdomain.'-comment-form-required">*</span>':'') .'</label><textarea id="'.$textdomain.'-comment" class="form-control" name="comment"></textarea></div>',
-        'class_form' => 'form-horizontal '.$textdomain.'-comment-form',
-        'submit_field' => '<div class="form-group col-xs-12"><button type="submit" class="btn btn-primary">'.__('Submit',$textdomain).'</button>%2$s</div>',
+        'comment_field' => '<div class="'.$textdomain.'-comment-respond-section"><label for="'.$textdomain.'-comment">'.__('Comment text ',$textdomain) . ($req ? '<span class="'.$textdomain.'-comment-form-required">*</span>':'') .'</label><textarea id="'.$textdomain.'_comment_respond" class="input-text" name="comment"></textarea></div>',
+        'class_form' => $textdomain.'-comment-form',
+        'submit_field' => '<button type="submit" class="'.$textdomain.'-comment-submit button">'.__('Submit',$textdomain).'</button>%2$s',
         'title_reply' => 'Leave a comment',
         'format' => 'html5'
 
