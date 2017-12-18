@@ -148,5 +148,8 @@ figure.sewchic-single-featured-image {
     max-width: 700px; }
   #sewchic_comments_area .comment-respond .sewchic-comment-submit {
     width: auto; } }
+@media screen and (min-width: 992px) {
+  #sewchic_comments_area {
+    border-bottom: 0; } }
 
 /*# sourceMappingURL=single.css.map */
