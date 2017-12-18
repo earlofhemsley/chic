@@ -20,17 +20,17 @@
     <div class="sewchic-home-post-container row">
         <h2><a href="<?php echo get_term_link($catObj); ?>"><?php echo $catObj->name;  ?></a></h2>
         <div class="col-sm-8">
-            <a href="<?php the_permalink(); ?>" class="sewchic-home-post sewchic-home-post-large" style="background-image: url('<?php echo sewchic_get_feed_image_url(); ?>');">
+            <a href="<?php the_permalink(); ?>" class="sewchic-home-post sewchic-home-post-large" style="background-image: url('<?php echo common_get_feed_image_url(); ?>');">
                 <div class="sewchic-home-post-title"><?php the_title(); ?></div>
             </a>
         </div>
         <div class="col-sm-4">
             <?php if($query->have_posts()) $query->the_post();?>
-            <a href="<?php the_permalink(); ?>" class="sewchic-home-post sewchic-home-post-small" style="background-image: url('<?php echo sewchic_get_feed_image_url(); ?>');">
+            <a href="<?php the_permalink(); ?>" class="sewchic-home-post sewchic-home-post-small" style="background-image: url('<?php echo common_get_feed_image_url(); ?>');">
                 <div class="sewchic-home-post-title"><?php the_title(); ?></div>
             </a>
             <?php if($query->have_posts()) $query->the_post();?>
-            <a href="<?php the_permalink(); ?>" class="sewchic-home-post sewchic-home-post-small" style="background-image: url('<?php echo sewchic_get_feed_image_url(); ?>');">
+            <a href="<?php the_permalink(); ?>" class="sewchic-home-post sewchic-home-post-small" style="background-image: url('<?php echo common_get_feed_image_url(); ?>');">
                 <div class="sewchic-home-post-title"><?php the_title(); ?></div>
             </a>
         </div>

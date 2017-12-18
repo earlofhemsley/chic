@@ -353,7 +353,7 @@ function common_get_feed_image_url(){
                 }
             }
             //else return default image, based on post type
-            $filename = get_post_format($post->ID) ? 'feed-default' : 'feed-'.get_post_format($post->ID);
+            $filename = get_post_format($post->ID) ? 'feed-'.get_post_format($post->ID) : 'feed-default';
             return get_template_directory_uri()."/assets/img/$filename.png";
         }
     }
