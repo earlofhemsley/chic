@@ -46,7 +46,7 @@ function sewchic_setup(){
     add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
     add_theme_support('title-tag');
     add_theme_support('automatic-feed-links');
-    //add_theme_support('post-formats', array('gallery','image','video'));
+    add_theme_support('post-formats', array('link'));
     add_theme_support('custom-logo', array(
         'height' => 200,
         'width' => 400,
@@ -83,31 +83,31 @@ if(!function_exists('sewchic_register_scripts')):
 function sewchic_register_scripts(){
     //scripts
     wp_enqueue_script('jquery');
-    wp_enqueue_script('bootstrap-js', get_template_directory_uri().'/js/vendor/bootstrap.min.js', array('jquery'), false, true);
-    wp_enqueue_script('modernizr', get_template_directory_uri().'/js/vendor/modernizr-3.5.0.min.js', array('jquery'), false, true);
-    wp_enqueue_script('plugins',get_template_directory_uri().'/js/plugins.js', array('jquery'), false, true);
-    wp_enqueue_script('main',get_template_directory_uri().'/js/main.js', array('jquery'), false, true);
+    wp_enqueue_script('bootstrap-js', get_template_directory_uri().'/assets/js/vendor/bootstrap.min.js', array('jquery'), false, true);
+    wp_enqueue_script('modernizr', get_template_directory_uri().'/assets/js/vendor/modernizr-3.5.0.min.js', array('jquery'), false, true);
+    wp_enqueue_script('plugins',get_template_directory_uri().'/assets/js/plugins.js', array('jquery'), false, true);
+    wp_enqueue_script('main',get_template_directory_uri().'/assets/js/main.js', array('jquery'), false, true);
 
     wp_register_script('photoswipe-render', get_template_directory_uri() . '/common/js/ps-render.js', array('jquery'), false, true);
 
 
     //styles
-    wp_enqueue_style('bootstrap', get_template_directory_uri().'/css/vendor/bootstrap.min.css');
-    wp_enqueue_style('bootstrap-theme', get_template_directory_uri().'/css/vendor/bootstrap-theme.min.css');
-    wp_enqueue_style('h5bp', get_template_directory_uri().'/css/vendor/h5bp.css');
+    wp_enqueue_style('bootstrap', get_template_directory_uri().'/assets/css/vendor/bootstrap.min.css');
+    wp_enqueue_style('bootstrap-theme', get_template_directory_uri().'/assets/css/vendor/bootstrap-theme.min.css');
+    wp_enqueue_style('h5bp', get_template_directory_uri().'/assets/css/vendor/h5bp.css');
     wp_enqueue_style('core', get_stylesheet_uri(), array('bootstrap','bootstrap-theme','h5bp'));
 
     //conditional script/style loading
     if(is_home() || is_front_page()){
-        wp_enqueue_script('slick', get_template_directory_uri().'/js/vendor/slick.min.js', array('jquery'), false, true);
-        wp_enqueue_style('slick', get_template_directory_uri().'/css/slick.min.css');
-        wp_enqueue_style('slick-theme', get_template_directory_uri().'/css/slick-theme.min.css', array('slick'));
+        wp_enqueue_script('slick', get_template_directory_uri().'/assets/js/vendor/slick.min.js', array('jquery'), false, true);
+        wp_enqueue_style('slick', get_template_directory_uri().'/assets/css/slick.min.css');
+        wp_enqueue_style('slick-theme', get_template_directory_uri().'/assets/css/slick-theme.min.css', array('slick'));
     }
     if(is_product())
-        wp_enqueue_script('wcsc-single', get_template_directory_uri().'/js/woocommerce-single.js', array('jquery'), false, true);
+        wp_enqueue_script('wcsc-single', get_template_directory_uri().'/assets/js/woocommerce-single.js', array('jquery'), false, true);
     if(is_shop() || is_product_category() || is_product_tag()){
         wp_enqueue_script('jquery-ui-slider');
-        wp_enqueue_style('jquery-ui-css', get_template_directory_uri().'/css/vendor/jquery-ui.min.css');
+        wp_enqueue_style('jquery-ui-css', get_template_directory_uri().'/assets/css/vendor/jquery-ui.min.css');
     }
     if(is_singular(array('post', 'page'))){
         
@@ -130,7 +130,7 @@ endif;
 if(!function_exists('sewchic_custom_logo')):
 function sewchic_custom_logo($echo = true){
     if(function_exists('get_custom_logo') && has_custom_logo()) $logo = get_custom_logo();
-    else $logo = '<img src="'.get_template_directory_uri().'/img/templogo.png" alt="Sew Chic Pattern Company" class="custom-logo">';
+    else $logo = '<img src="'.get_template_directory_uri().'/assets/img/templogo.png" alt="Sew Chic Pattern Company" class="custom-logo">';
 
     if($echo) echo $logo;
     else return $logo;
@@ -273,39 +273,6 @@ function sewchic_customizer_setup($wp_customizer){
 add_action('customize_register', 'sewchic_customizer_setup');
 endif;
 
-//get the image url to be associated with a post. For use on feed pages in the context of the loop
-if(!function_exists('sewchic_get_feed_image_url')):
-function sewchic_get_feed_image_url(){
-    global $post;
-    //if has defined thumbnail, return url of thumbnail
-    if(has_post_thumbnail($post)) return get_the_post_thumbnail_url($post, 'medium');
-    else{
-        $dom = new DOMDocument();
-        libxml_use_internal_errors(true);
-        $dom->loadHTML(apply_filters('the_content',$post->post_content));
-        libxml_clear_errors();
-        $images = $dom->getElementsByTagName('img');
-        if($images->length >= 1){
-            //else if content has img tag, return url of image
-            return $images->item(0)->getAttribute('src');
-        }
-        else{
-            //else if content has youtube video, return url of youtube preview img
-            $iframes = $dom->getElementsByTagName('iframe');
-            foreach($iframes as $iframe){
-                $src = $iframe->getAttribute('src');
-                if(preg_match('/youtube\.com\/embed\/(\w+)/', $src, $matches)){
-                    return "https://img.youtube.com/vi/{$matches[1]}/0.jpg";
-                }
-            }
-            //else return custom logo
-            //return get_template_directory_uri().'/assets/img/feed-default-'.get_post_format($post->ID).'.png';
-            $image = wp_get_attachment_image_src(get_theme_mod('custom_logo'), 'medium');
-            return $image[0];
-        }
-    }
-}
-endif;
 
 if(!function_exists('sewchic_set_home_on_custom_queries')):
 function sewchic_set_home_on_custom_queries( $q )
