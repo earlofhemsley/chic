@@ -593,6 +593,11 @@ nav.woocommerce-MyAccount-navigation ul {
   margin-top: 5px;
   width: 100%; }
 
+@media screen and (min-width: 768px) {
+  .wcsc-shop-footer-widgets .wcsc-shop-footer-widget ul, .wcsc-shop-footer-widgets .wcsc-shop-footer-widget li {
+    display: inline; }
+  .wcsc-shop-footer-widgets .wcsc-shop-footer-widget a {
+    margin-right: 5px; } }
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .woocommerce-product-search input {
     max-width: 700px; }

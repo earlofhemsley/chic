@@ -186,7 +186,7 @@ function sewchic_widgets_setup(){
         'name' => __('Post & product archive footer'),
         'id' => 'shop-sidebar-widget',
         'description' => __('Widgets in this area occupy the bottom of category and tag pages for products and posts','sewchic'),
-        'before_widget' => '<div class="shop-sidebar-widget-container">',
+        'before_widget' => '<div class="wcsc-shop-footer-widget">',
         'after_widget' => '</div>',
     ));
 
