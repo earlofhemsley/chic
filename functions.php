@@ -151,7 +151,7 @@ function sewchic_widgets_setup(){
     register_sidebar(array(
         'name' => __('Home page body left rail', 'sewchic'),
         'id' => 'home-body-left-rail',
-        'description' => __('Appears in the main body of the home page to the left'),
+        'description' => __('Appears in the main body of the home page to the left','sewchic'),
         'before_widget' => '',
         'after_widget' => '',
     ));
@@ -160,7 +160,7 @@ function sewchic_widgets_setup(){
         register_sidebar(array(
             'name' => __("Sidebar $value", 'sewchic'),
             'id' => 'sewchic-sidebar-'.($i+1),
-            'description' => __('Appears in the right rail of post, product and page content, and at the base of post and product archive feeds'),
+            'description' => __('Appears in the right rail of post, product and page content, and at the base of post and product archive feeds','sewchic'),
             'before_widget' => '',
             'after_widget' => '',
         ));
@@ -169,7 +169,7 @@ function sewchic_widgets_setup(){
     register_sidebar(array(
         'name' => __('Product archive filter widgets', 'sewchic'),
         'id' => 'product-filter-widgets',
-        'description' => __('If filled, forces appearance of a widget bin to the left of product listings on shop page and product category / tag pages'),
+        'description' => __('If filled, forces appearance of a widget bin to the left of product listings on shop page and product category / tag pages','sewchic'),
         'before_widget' => '',
         'after_widget' => '',
     ));
@@ -177,9 +177,17 @@ function sewchic_widgets_setup(){
     register_sidebar(array(
         'name' => __('Single product widget tab', 'sewchic'),
         'id' => 'single-product-widget',
-        'description' => __('If filled, will add a tab to single product pages containing widget content.'),
+        'description' => __('If filled, will add a tab to single product pages containing widget content.','sewchic'),
         'before_widget' => '',
         'after_widget' => '',
+    ));
+
+    register_sidebar(array(
+        'name' => __('Post & product archive footer'),
+        'id' => 'shop-sidebar-widget',
+        'description' => __('Widgets in this area occupy the bottom of category and tag pages for products and posts','sewchic'),
+        'before_widget' => '<div class="shop-sidebar-widget-container">',
+        'after_widget' => '</div>',
     ));
 
 

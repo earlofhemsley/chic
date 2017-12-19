@@ -1,3 +1,7 @@
 <div class="wcsc-sidebar-shop">
-    Sidebar shop template
+    <?php
+        if(is_active_sidebar('shop-sidebar-widget')){
+            dynamic_sidebar('shop-sidebar-widget');
+        }
+    ?>
 </div> 
