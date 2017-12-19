@@ -70,7 +70,7 @@ function common_get_single_meta(){
         $last = array_pop($keys);
         foreach(get_the_tags() as $key => $tag){
             $comma = ($key != $last) ? ', ' : '';
-            $return .= "<a href=".get_tag_link($tag->id).">{$tag->name}</a>$comma ";
+            $return .= "<a href=".get_tag_link($tag->term_id).">{$tag->name}</a>$comma ";
         } 
         $return .= "</span>";
     }
