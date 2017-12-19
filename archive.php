@@ -1,5 +1,11 @@
 <?php get_header(); ?>
 <div class="wrap standard-wrap container-fluid">
+    <?php
+        $wpq = $GLOBALS['wp_query'];
+        if(is_category()) $headline = 'Category: '.$wpq->queried_object->name;
+        if(is_tag()) $headline = 'Tag: '.$wpq->queried_object->name;
+        if(!empty($headline)) echo "<h1>$headline</h1>";
+    ?>
     <ul class="sewchic-loop-posts">
         <?php 
             while(have_posts()){
