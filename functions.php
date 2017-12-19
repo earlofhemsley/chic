@@ -56,6 +56,7 @@ function sewchic_setup(){
 
     //image sizes
     add_image_size('post-hero', 1125, 633, true);
+    add_image_size('feednail', 300, 300, true);
 
 
     //this theme designed to be used with woocommerce ecommerce plugin
@@ -366,12 +367,45 @@ function sewchic_get_widget_data_for($sidebar_name) {
 }
 endif;
 
+//generate archive feed pagination links
+function get_archive_pagination_links(){
+    global $wp_query;
+    //var_dump($wp_query);
+    $current = isset($wp_query->query['paged']) ? $wp_query->query['paged'] : 1;
+    $min = ($wp_query->max_num_page <= 5 || $current - 2 < 1) ? 1 : $current - 2;
+    $max =  ($wp_query->max_num_pages <= 5 || $current + 2 >= $wp_query->max_num_pages ) ? $wp_query->max_num_pages : $current + 2;
+
+
+    if($max == 1) return '';
+
+    ob_start();
+
+    echo '<ul class="page-numbers">'."\r\n";
+    if($current > 1) echo "<li><a class='page-numbers' href='".get_previous_posts_page_link()."'>&larr;</a></li>\r\n";
+    for($i = $min; $i<=$max; $i++){
+        $page_num_link = get_pagenum_link($i);
+        echo '<li>';
+        if($i == $current){
+            echo "<span area-current='page' class='page-numbers current'>$i</span>";
+        }
+        else{
+            echo "<a class='page-numbers' href='$page_num_link'>$i</a>";
+        }
+        echo "</li>\r\n";
+    }
+    if($current < $max) echo "<li><a class='page-numbers' href='".get_next_posts_page_link()."'>&rarr;</a></li>\r\n";
+    echo '</ul>'."\r\n";
+
+    return ob_get_clean();
+}
+
 //an override of a function in the common-template-functions
 if(!function_exists('common_photoswipe_element')):
 function common_photoswipe_element(){
     if(current_theme_supports('wc-product-gallery-lightbox')) wc_get_template('single-product/photoswipe.php');
 }
 endif;
+
 
 require_once( get_template_directory(). '/woocommerce-integration.php');
 require_once( get_template_directory(). '/includes/carousel-options.php');

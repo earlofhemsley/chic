@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="wrap standard-wrap">
+<div class="wrap standard-wrap container-fluid">
     <ul class="sewchic-loop-posts">
         <?php 
             while(have_posts()){
@@ -8,6 +8,7 @@
             }
         ?>
     </ul>
+    <?php echo get_archive_pagination_links();?>
     <div>
         <?php get_sidebar(); ?>
     </div>

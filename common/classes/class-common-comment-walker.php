@@ -108,7 +108,7 @@ EOT;
 
         $temp_edit_link =  get_edit_comment_link($comment);
         $props['edit_link'] = ($temp_edit_link) ? 
-                '<span class="'.$this->textdomain.'-comment-action"><a class="btn btn-xs btn-default" href="'.$temp_edit_link.'" target="_blank">Edit</a></span>' : '';
+                '<span class="'.$this->textdomain.'-comment-action"><a class="comment-link button" href="'.$temp_edit_link.'" target="_blank">Edit</a></span>' : '';
 
         return $props;
     }

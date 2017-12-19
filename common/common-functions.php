@@ -329,10 +329,10 @@ function common_comments(){
 endif;
 
 if(!function_exists('common_get_feed_image_url')):
-function common_get_feed_image_url(){
+function common_get_feed_image_url($size = 'thumbnail'){
     global $post;
     //if has defined thumbnail, return url of thumbnail
-    if(has_post_thumbnail($post)) return get_the_post_thumbnail_url($post, 'thumbnail');
+    if(has_post_thumbnail($post)) return get_the_post_thumbnail_url($post, $size);
     else{
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
