@@ -610,5 +610,28 @@ nav.woocommerce-MyAccount-navigation ul {
 
   .woocommerce-product-search input[type="submit"] {
     width: auto; } }
+.woocommerce-order .woocommerce-notice {
+  margin-bottom: 25px; }
+.woocommerce-order ul.order_details {
+  padding: 0;
+  margin-bottom: 20px; }
+  .woocommerce-order ul.order_details li {
+    float: none;
+    margin: 7px 0;
+    border-right: 0;
+    border-bottom: 1px solid #aeaeae;
+    padding: 7px 0; }
+    .woocommerce-order ul.order_details li:last-of-type {
+      border: none; }
+
+@media screen and (min-width: 768px) {
+  .woocommerce-order ul.order_details li {
+    display: inline-block;
+    border: none;
+    margin: 7px 14px 7px 0;
+    padding: 7px 14px 7px 0; }
+    .woocommerce-order ul.order_details li:last-of-type {
+      margin: 7px 0;
+      padding: 7px 0; } }
 
 /*# sourceMappingURL=woocommerce.css.map */

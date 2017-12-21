@@ -883,3 +883,44 @@ nav.woocommerce-MyAccount-navigation{
     }
 
 }
+
+
+//receipt page
+.woocommerce-order{
+    .woocommerce-notice{
+        margin-bottom:25px;
+    }
+
+    ul.order_details{
+        padding:0;
+        margin-bottom:20px;
+        li{
+            float:none;
+            margin: 7px 0;
+            border-right:0;
+            border-bottom:1px solid $light-grey;
+            padding: 7px 0;
+            &:last-of-type{
+                border:none;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:768px){
+    .woocommerce-order{
+        ul.order_details{
+            li{
+                display:inline-block;
+                border:none;
+                margin: 7px 14px 7px 0;
+                padding: 7px 14px 7px 0;
+                &:last-of-type{
+                    margin: 7px 0;
+                    padding: 7px 0;
+                }
+            }
+        }
+    }
+}
+
