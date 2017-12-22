@@ -407,6 +407,46 @@ function get_archive_pagination_links(){
     return ob_get_clean();
 }
 
+//#region single-pagination
+if(!function_exists('sewchic_link_pages_link')):
+function sewchic_link_pages_link($link, $i){
+    if(!preg_match('/^<a[^>]*>.*<\/a>$/', $link)){
+        $link = "<span class='current'>$link</span>";
+    }
+    return $link;
+
+}
+add_filter('wp_link_pages_link', 'sewchic_link_pages_link', 10, 2);
+endif;
+
+if(!function_exists('sewchic_link_pages_before')):
+function sewchic_link_pages_before(){
+    global $page, $numpages;
+    $before = "<ul class='page-numbers sewchic-single-pagination'>\r\n<li>";
+
+    if($page > 1 && $numpages > 1){
+        $before .=  _wp_link_page($page - 1) . "&larr;</a></li>\r\n<li>";
+    } 
+    return $before;
+}
+endif;
+
+if(!function_exists('sewchic_link_pages_after')):
+function sewchic_link_pages_after(){
+    global $page, $numpages;
+    $after = '';
+
+    if($page < $numpages){
+        $after .= "</li>\r\n<li>" . _wp_link_page($page + 1). "&rarr;</a>";
+    }
+
+    $after .= "</li>\r\n</ul><!-- .sewchic-single-pagination -->";
+    return $after;
+}
+endif;
+//#endregion
+
+
 //an override of a function in the common-template-functions
 if(!function_exists('common_photoswipe_element')):
 function common_photoswipe_element(){

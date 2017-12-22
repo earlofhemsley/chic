@@ -19,9 +19,10 @@
     );
 
     wp_link_pages(array(
-        'before'            =>  '<p class="elegance-single-pagination">',
-        'after'             =>  '</p>',
-        'next_or_number'    =>  'number'
+        'before'            =>  sewchic_link_pages_before(),
+        'after'             =>  sewchic_link_pages_after(),
+        'next_or_number'    =>  'number',
+        'separator'         =>  "</li>\r\n<li>"
     ));
 ?>
 </article>
