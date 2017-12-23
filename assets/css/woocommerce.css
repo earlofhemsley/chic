@@ -545,7 +545,8 @@ ul.products {
 nav.woocommerce-MyAccount-navigation ul {
   margin: 0;
   padding: 0;
-  list-style-type: none; }
+  list-style-type: none;
+  overflow: visible; }
   nav.woocommerce-MyAccount-navigation ul li {
     text-align: center; }
     nav.woocommerce-MyAccount-navigation ul li a {

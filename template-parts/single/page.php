@@ -13,11 +13,12 @@ This template part is for single page, non-post content. It is a trimmed down, b
             if($caption) echo sprintf('<figcaption>%s</figcaption>', $caption);
 ?>
         </figure>
-<?php
-    endif;
+<?php endif; 
+    
     printf('<div class="%s">%s</div>',
-        'sewchic-single-content sewchic-post',
+        'sewchic-single-content sewchic-page',
         apply_filters('the_content', get_the_content())
     );
+
 ?>
 </article>
