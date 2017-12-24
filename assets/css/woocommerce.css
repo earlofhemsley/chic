@@ -87,6 +87,27 @@ button.wcsc-toggle.button {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.75);
   -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
 
+.input-checkbox {
+  display: none; }
+  .input-checkbox + .input-checkbox-label {
+    position: relative;
+    display: inline-block;
+    background-color: #efefef;
+    border: 1px solid #aeaeae;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.75);
+    padding: 10px;
+    border-radius: 3px;
+    position: relative;
+    vertical-align: middle;
+    margin-right: 7px; }
+
+.input-checkbox:checked + .input-checkbox-label:before, .input-checkbox:active + .input-checkbox-label:before {
+  content: '\2714';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  font-size: 15px; }
+
 select.orderby {
   margin-bottom: 5px; }
 

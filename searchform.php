@@ -1,3 +1,4 @@
+<?php if(!is_search()): ?>
 <form action="<?php echo get_home_url(); ?>" method="get" role="search">
     <div class="form-inline">
         <div class="form-group">
@@ -7,3 +8,4 @@
         </div>
     </div>
 </form>
+<?php endif; ?>

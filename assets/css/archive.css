@@ -23,21 +23,23 @@ ul.sewchic-loop-posts {
       font-size: 30px; }
 
 @media screen and (min-width: 768px) {
-  ul.sewchic-loop-posts li {
-    display: inline-block;
-    width: 45%;
-    max-width: 496px;
-    margin: 0 2%;
-    border: none; }
-    ul.sewchic-loop-posts li .sewchic-loop-post__title {
-      position: absolute;
-      bottom: 15px;
-      right: 10px;
-      padding: 10px;
-      background-color: white;
-      opacity: 0.8;
-      max-width: 94%;
-      font-size: 20px; } }
+  ul.sewchic-loop-posts {
+    margin: 30px -10px; }
+    ul.sewchic-loop-posts li {
+      display: inline-block;
+      width: 45%;
+      max-width: 496px;
+      margin: 0 2%;
+      border: none; }
+      ul.sewchic-loop-posts li .sewchic-loop-post__title {
+        position: absolute;
+        bottom: 15px;
+        right: 10px;
+        padding: 10px;
+        background-color: white;
+        opacity: 0.8;
+        max-width: 94%;
+        font-size: 20px; } }
 @media screen and (min-width: 992px) {
   ul.sewchic-loop-posts li {
     width: 30%;
@@ -48,5 +50,34 @@ ul.sewchic-loop-posts {
     width: 22.5%;
     margin: 0 1%;
     max-width: initial; } }
+.sewchic-form-group {
+  margin: 15px 0;
+  padding: 15px 0; }
+  .sewchic-form-group:first-of-type {
+    margin-top: 0;
+    padding-top: 0; }
+  .sewchic-form-group + .sewchic-form-group {
+    border-top: 1px solid #aeaeae; }
+    .sewchic-form-group + .sewchic-form-group:last-of-type {
+      border: none; }
+
+@media screen and (min-width: 768px) {
+  .sewchic-search-table {
+    display: table; }
+
+  .sewchic-search-row {
+    display: table-row; }
+
+  .sewchic-search-cell {
+    display: table-cell; }
+
+  .sewchic-search-options {
+    width: 17%;
+    vertical-align: top;
+    padding-right: 30px;
+    min-width: 205px; }
+
+  #sewchic_search_form_wrapper {
+    margin: 30px 0; } }
 
 /*# sourceMappingURL=archive.css.map */

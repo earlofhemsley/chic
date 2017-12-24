@@ -2,6 +2,7 @@
 
 require_once('classes/class-common-comment-walker.php');
 
+
 //common functions I typically use across themes
 if($GLOBALS['textdomain'] == null) $GLOBALS['textdomain'] = 'common';
 
@@ -11,8 +12,6 @@ function common_enqueue_scripts(){
 }
 add_action('wp_enqueue_scripts', 'common_enqueue_scripts');
 endif;
-
-
 
 //intended to be used within the loop
 if(!function_exists('common_get_single_meta')):

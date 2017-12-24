@@ -1,4 +1,4 @@
-//styles for post archives
+//styles for post archives and searches
 @import 'colors';
 
 ul.sewchic-loop-posts{
@@ -32,6 +32,7 @@ ul.sewchic-loop-posts{
 
 @media screen and (min-width:768px){
     ul.sewchic-loop-posts{
+        margin:30px -10px;
         li{
             display: inline-block;
             width: 45%;
@@ -70,3 +71,46 @@ ul.sewchic-loop-posts{
     }
 }
 
+
+//search things
+.sewchic-form-group{
+    margin:15px 0;
+    padding:15px 0;
+    &:first-of-type{
+        margin-top:0;
+        padding-top:0;
+    }
+    & + .sewchic-form-group{
+        border-top: 1px solid $light-grey;
+        &:last-of-type{
+            border:none;
+        }
+    }
+}
+
+
+@media screen and (min-width:768px){
+    .sewchic-search-table{
+        display:table;
+    }
+    .sewchic-search-row{
+        display:table-row;
+    }
+    .sewchic-search-cell{
+        display:table-cell;
+    }
+    
+    .sewchic-search-options{
+        width: 17%;
+        vertical-align: top;
+        padding-right: 30px;
+        min-width: 205px;
+    }
+
+    #sewchic_search_form_wrapper{
+        margin:30px 0;
+    }
+
+
+
+}

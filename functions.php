@@ -110,6 +110,10 @@ function sewchic_register_scripts(){
         wp_enqueue_script('jquery-ui-slider');
         wp_enqueue_style('jquery-ui-css', get_template_directory_uri().'/assets/css/vendor/jquery-ui.min.css');
     }
+    if(is_search()){
+        wp_enqueue_script('jquery-ui-datepicker');
+        wp_enqueue_style('jquery-ui-css', get_template_directory_uri().'/assets/css/vendor/jquery-ui.min.css');
+    }
     if(is_singular(array('post', 'page'))){
         
     }
@@ -446,6 +450,169 @@ function sewchic_link_pages_after(){
 endif;
 //#endregion
 
+if(!function_exists('sewchic_search_again_form')):
+function sewchic_search_again_form($echo = true){
+    global $wp_query;
+    //echo '<pre>'; var_dump($wp_query->query_vars['tax_query']); echo '</pre>';
+    $home_url = get_home_url();
+    $tax_struct = array(
+        'category' => array(
+            'form_name' => 'post_cat_ids',
+            'title' => 'Blog post categories',
+        ),
+        'product_cat' => array(
+            'form_name' => 'product_cat_ids',
+            'title' => 'Product categories'
+        )
+    );
+
+    //start result and include search term
+    $result = <<< EOT
+        <form action="$home_url" method="GET">
+            <div class="sewchic-form-group">
+                <h4><label for="s">Search term</label></h4>
+                <input class="input-text" type="text" id="s" name="s" placeholder="search term" value="{$wp_query->query_vars['s']}" />
+            </div>
+EOT;
+
+    //taxonomies
+    foreach($tax_struct as $term => $values){
+        $result .= <<< EOT
+            <div class="sewchic-form-group">
+                <h4>{$values['title']}</h4>
+EOT;
+        //get taxonomy's terms array
+        $terms_array = null;
+        if(isset($wp_query->query_vars['tax_query']) && is_array($wp_query->query_vars['tax_query'])){
+            foreach($wp_query->query_vars['tax_query'] as $tax_query_el){
+                if(isset($tax_query_el['taxonomy']) && $tax_query_el['taxonomy'] == $term){
+                    $terms_array = $tax_query_el['terms'];
+                    break;
+                }
+            }
+        }
+
+        $taxonomical = get_terms(array(
+                'taxonomy' => $term,
+                'hide_empty' => true,
+                'fields' => 'id=>name'
+            ));
+        foreach($taxonomical as $id => $name){
+            //checkbox logic
+            //if the id up for conideration is in the terms array, then set the checked
+            $checked = (is_array($terms_array) && in_array($id, $terms_array)) ? 'checked' : '';
+            $result .=  "<div><input class='input-checkbox' type='checkbox' name='{$values['form_name']}[]' id='cb$id' value='$id' $checked /><label for='cb$id' class='input-checkbox-label'></label>$name</div>";
+        }
+        $result .= '</div>';
+
+    }
+
+
+    //dates
+    //get value of strings if any and make them the values of the inputs
+    $start_value = isset($wp_query->query_vars['date_query']['after']) ? implode('/',$wp_query->query_vars['date_query']['after']) : '';
+    $end_value = isset($wp_query->query_vars['date_query']['before']) ? implode('/',$wp_query->query_vars['date_query']['before']) : '';
+
+    $result .= <<< EOT
+        <div class="sewchic-form-group">
+            <div style="margin-bottom:10px;">
+                <label for="dqstart">Start Date</label>
+                <input class="input-text datepicker" type="text" id="dqstart" name="date_query_start" value="$start_value"/>
+            </div>
+            <div>
+                <label for="dqend">End Date</label>
+                <input class="input-text datepicker" type="text" id="dqend" name="date_query_end" value="$end_value"/>
+            </div>
+        </div>
+EOT;
+
+    //end result
+    $result .= <<< EOT
+        <div class="sewchic-form-group">
+            <button type="submit" class="button">Search again</button>
+        </div>
+    </form>
+EOT;
+
+    if($echo) echo $result;
+    return $result;
+}
+endif;
+
+if(!function_exists('integrate_custom_search_taxonomies')):
+function integrate_custom_search_taxonomies($query){
+    $qvar_mapping = array(
+        'post_cat_ids'      =>  'category',
+        'product_cat_ids'   =>  'product_cat'
+    );
+    if($query->is_search()){
+        foreach($qvar_mapping as $qvar => $term){
+            if(!isset($_GET[$qvar])) continue;
+            $terms_array = array();
+            if(!is_array($_GET[$qvar])) $terms_array[] = $_GET[$qvar];
+            else $terms_array = $_GET[$qvar];
+            //echo '<pre>'; var_dump($qvar); var_dump($_GET[$qvar]); echo '</pre>';
+            $tax_query[] = array(
+                'taxonomy'  =>  $term,
+                'field'     =>  'term_id',
+                'terms'     =>  $terms_array,
+            );
+        }
+        if(!empty($tax_query)){
+            $tax_query['relation'] = 'OR';
+            //echo '<pre>'; var_dump($tax_query); echo '</pre>';
+            $query->set('tax_query', $tax_query);
+        }
+    }
+    return $query;
+}
+add_action('pre_get_posts','integrate_custom_search_taxonomies');
+endif;
+
+if(!function_exists('integrate_custom_search_dates')):
+function integrate_custom_search_dates($query){
+    if($query->is_search()){
+        $date_mapping = array(
+            'after'     =>  'date_query_start',
+            'before'    =>  'date_query_end'
+        );
+       
+        $date_query = array();
+        foreach($date_mapping as $index => $qvar){
+            if(isset($_GET[$qvar])){
+                $temp_array = explode('/', $_GET[$qvar]);
+                $date_query[$index] = array(
+                    'month' =>  $temp_array[0],
+                    'day'   =>  $temp_array[1],
+                    'year'  =>  $temp_array[2],
+                );
+            }
+        }
+        if(!empty($date_query))
+            $query->set('date_query', $date_query);
+    }
+    return $query;
+}
+add_action('pre_get_posts','integrate_custom_search_dates');
+endif;
+
+if(!function_exists('sewchic_activate_search_datepickers')):
+function sewchic_activate_search_datepickers(){
+    if(is_search()){
+        echo <<< EOT
+            <script type="text/javascript">
+                jQuery( function(){
+                    jQuery('.datepicker').datepicker({
+                        "dateFormat" : "mm/dd/yy"
+                    });
+                });
+            </script>
+EOT;
+    }
+}
+add_action('wp_footer', 'sewchic_activate_search_datepickers');
+endif;
+
 
 //an override of a function in the common-template-functions
 if(!function_exists('common_photoswipe_element')):
@@ -453,6 +620,7 @@ function common_photoswipe_element(){
     if(current_theme_supports('wc-product-gallery-lightbox')) wc_get_template('single-product/photoswipe.php');
 }
 endif;
+
 
 
 require_once( get_template_directory(). '/woocommerce-integration.php');
