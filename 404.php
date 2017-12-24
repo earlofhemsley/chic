@@ -1,60 +1,25 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Page Not Found</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-
-        * {
-            line-height: 1.2;
-            margin: 0;
+<?php get_header(); ?>
+<div class="sewchic-home-body-wrapper">
+    <div class="standard-wrap wrap container-fluid">
+        <div class="sewchic-home-body-content row">
+            <div class="col-xs-12">
+                <h2>Well, this is awkward.</h2>
+                <p>The page you're looking for cannot be found. Oops!</p>
+                <a href="<?php echo site_url(); ?>" class="btn btn-default">Go back to the home page</a>
+            </div>
+        </div>
+    </div>
+    <?php
+        if(is_active_sidebar('home-body-social')){
+            dynamic_sidebar('home-body-social');
         }
-
-        html {
-            color: #888;
-            display: table;
-            font-family: sans-serif;
-            height: 100%;
-            text-align: center;
-            width: 100%;
-        }
-
-        body {
-            display: table-cell;
-            vertical-align: middle;
-            margin: 2em auto;
-        }
-
-        h1 {
-            color: #555;
-            font-size: 2em;
-            font-weight: 400;
-        }
-
-        p {
-            margin: 0 auto;
-            width: 280px;
-        }
-
-        @media only screen and (max-width: 280px) {
-
-            body, p {
-                width: 95%;
-            }
-
-            h1 {
-                font-size: 1.5em;
-                margin: 0 0 0.3em;
-            }
-
-        }
-
-    </style>
-</head>
-<body>
-    <h1>Page Not Found</h1>
-    <p>Sorry, but the page you were trying to view does not exist.</p>
-</body>
-</html>
-<!-- IE needs 512+ bytes: https://blogs.msdn.microsoft.com/ieinternals/2010/08/18/friendly-http-error-pages/ -->
+    ?>
+    <?php if(!empty(get_theme_mod('sewchic_secondary_tagline'))): ?>
+    <h2 id="sewchic-secondary-tagline" class="text-center">
+        <?php echo get_theme_mod('sewchic_secondary_tagline'); ?>
+    </h2>
+    <?php endif; ?>
+</div>
+<?php
+get_footer();
+?>

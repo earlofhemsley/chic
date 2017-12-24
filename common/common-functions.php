@@ -18,7 +18,7 @@ if(!function_exists('common_get_single_meta')):
 function common_get_single_meta(){
     global $multipage, $textdomain;
     
-    $commentLink = "<span class='separate'><a class='scrollable' data-destination='#{$textdomain}-comments-area' href='#'>" . (get_comments_number() > 0 ? get_comments_number() . _n(' comment', ' comments', get_comments_number(), $textdomain) : 'Leave a comment') . '</a></span>';
+    $commentLink = "<span class='separate'><a class='scrollable' data-destination='#{$textdomain}_comments_area' href='#'>" . (get_comments_number() > 0 ? get_comments_number() . _n(' comment', ' comments', get_comments_number(), $textdomain) : 'Leave a comment') . '</a></span>';
 
     $pagesLink = '';
     if($multipage){
@@ -79,6 +79,24 @@ function common_get_single_meta(){
 
     return $return;
 }
+endif;
+
+if(!function_exists('common_slide_to_comments_js')):
+function common_slide_to_comments_js(){
+    if(is_single() && have_comments()){
+        echo <<< EOT
+            <script type="text/javascript">
+                jQuery(".scrollable").on("click",function(){
+                    var destination = jQuery(jQuery(this).data('destination'));
+                    jQuery("html, body").animate({
+                        scrollTop: destination.offset().top - 20,
+                    }, 1000); 
+                }); 
+            </script>
+EOT;
+    }
+}
+add_action('wp_footer', 'common_slide_to_comments_js');
 endif;
 
 

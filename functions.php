@@ -114,8 +114,8 @@ function sewchic_register_scripts(){
         wp_enqueue_script('jquery-ui-datepicker');
         wp_enqueue_style('jquery-ui-css', get_template_directory_uri().'/assets/css/vendor/jquery-ui.min.css');
     }
-    if(is_singular(array('post', 'page'))){
-        
+    if(is_singular(array('post'))){
+        wp_enqueue_script('comment-reply');
     }
 
     //dynamic styles
@@ -162,7 +162,7 @@ function sewchic_widgets_setup(){
 
     foreach(array('one','two','three') as $i => $value){
         register_sidebar(array(
-            'name' => __("Sidebar $value", 'sewchic'),
+            'name' => __("Sidebar ", 'sewchic') . $value,
             'id' => 'sewchic-sidebar-'.($i+1),
             'description' => __('Appears in the right rail of post, product and page content, and at the base of post and product archive feeds','sewchic'),
             'before_widget' => '',
