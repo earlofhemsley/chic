@@ -450,6 +450,8 @@ function sewchic_link_pages_after(){
 endif;
 //#endregion
 
+
+//#region custom searching
 if(!function_exists('sewchic_search_again_form')):
 function sewchic_search_again_form($echo = true){
     global $wp_query;
@@ -579,7 +581,7 @@ function integrate_custom_search_dates($query){
        
         $date_query = array();
         foreach($date_mapping as $index => $qvar){
-            if(isset($_GET[$qvar])){
+            if(isset($_GET[$qvar]) && !empty($_GET[$qvar])){
                 $temp_array = explode('/', $_GET[$qvar]);
                 $date_query[$index] = array(
                     'month' =>  $temp_array[0],
@@ -612,7 +614,7 @@ EOT;
 }
 add_action('wp_footer', 'sewchic_activate_search_datepickers');
 endif;
-
+//#endregion custom searching
 
 //an override of a function in the common-template-functions
 if(!function_exists('common_photoswipe_element')):
