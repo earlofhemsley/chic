@@ -359,4 +359,31 @@ function common_get_feed_image_url($size = 'thumbnail'){
 }
 endif;
 
+//#region getting a link for link type posts out of the content
+if(!function_exists('common_first_link_in_link_posts')):
+function common_first_link_in_link_posts($url){
+    global $post;
+    if(get_post_format($post->ID) !== 'link') return $url;
+    $candidate = common_parse_content_for_link(apply_filters('the_content', $post->post_content));
+    return empty($candidate) ? $url : $candidate;
+}
+add_filter('the_permalink', 'common_first_link_in_link_posts');
+endif;
+
+if(!function_exists('common_parse_content_for_link')):
+function common_parse_content_for_link($content_to_parse){
+    $dom = new DOMDocument;
+    $dom->loadHTML($content_to_parse);
+    $anchors = $dom->getElementsByTagName('a');
+    if($anchors->length <= 0) return '';
+    return $anchors->item(0)->getAttribute('href');
+}
+endif;
+
+
+//#endregion getting a link for link type post out of the content
+
+
+
+
 ?>
