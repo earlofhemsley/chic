@@ -91,7 +91,6 @@ function sewchic_register_scripts(){
 
     wp_register_script('photoswipe-render', get_template_directory_uri() . '/common/js/ps-render.js', array('jquery'), false, true);
 
-
     //styles
     wp_enqueue_style('bootstrap', get_template_directory_uri().'/assets/css/vendor/bootstrap.min.css');
     wp_enqueue_style('bootstrap-theme', get_template_directory_uri().'/assets/css/vendor/bootstrap-theme.min.css');
@@ -129,6 +128,8 @@ function sewchic_register_scripts(){
     }
 }
 add_action('wp_enqueue_scripts', 'sewchic_register_scripts');
+//remove woocommerce stylesheets completely
+add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 endif;
 
 //Use a placeholder custom logo if none is uploaded
