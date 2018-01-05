@@ -4,6 +4,38 @@
 span.required {
   color: #a00; }
 
+.woocommerce-message,
+.woocommerce-error,
+.woocommerce-info {
+  padding: 1em 2em 1em 3.5em;
+  margin: 0 0 2em;
+  position: relative;
+  background-color: #f7f6f7;
+  color: #515151;
+  border-top: 3px solid #a46497;
+  list-style: none outside;
+  width: auto;
+  word-wrap: break-word; }
+  .woocommerce-message::before,
+  .woocommerce-error::before,
+  .woocommerce-info::before {
+    content: '\26a0';
+    display: inline-block;
+    position: absolute;
+    top: .1em;
+    left: .6em;
+    font-size: 2em; }
+  .woocommerce-message .button,
+  .woocommerce-error .button,
+  .woocommerce-info .button {
+    float: right; }
+  .woocommerce-message li,
+  .woocommerce-error li,
+  .woocommerce-info li {
+    list-style: none outside !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important; }
+
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
@@ -143,41 +175,41 @@ ul.page-numbers {
     height: initial !important; } }
 /*end generics and overrides*/
 /*cart styles*/
-table.shop_table_responsive {
+table.shop_table {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px; }
-  table.shop_table_responsive thead {
+  table.shop_table thead {
     display: none; }
-  table.shop_table_responsive, table.shop_table_responsive tbody, table.shop_table_responsive tr, table.shop_table_responsive td {
+  table.shop_table, table.shop_table tbody, table.shop_table tr, table.shop_table td {
     display: block; }
-  table.shop_table_responsive tr:nth-child(2n) td, table.shop_table_responsive tr:nth-child(2n) th {
+  table.shop_table tr:nth-child(2n) td, table.shop_table tr:nth-child(2n) th {
     background-color: rgba(0, 0, 0, 0.025); }
-  table.shop_table_responsive tr + tr, table.shop_table_responsive tr td + td, table.shop_table_responsive tr th + th {
+  table.shop_table tr + tr, table.shop_table tr td + td, table.shop_table tr th + th {
     border-top: 1px solid rgba(0, 0, 0, 0.1); }
-  table.shop_table_responsive tr > th {
+  table.shop_table tr > th {
     display: none; }
-  table.shop_table_responsive td, table.shop_table_responsive th {
+  table.shop_table td, table.shop_table th {
     padding: 6px 12px;
     vertical-align: middle;
     text-align: right; }
-    table.shop_table_responsive td:before, table.shop_table_responsive th:before {
+    table.shop_table td:before, table.shop_table th:before {
       content: attr(data-title);
       font-weight: 700;
       float: left; }
-    table.shop_table_responsive td.product-thumbnail, table.shop_table_responsive th.product-thumbnail {
+    table.shop_table td.product-thumbnail, table.shop_table th.product-thumbnail {
       display: none; }
-    table.shop_table_responsive td.product-remove, table.shop_table_responsive th.product-remove {
+    table.shop_table td.product-remove, table.shop_table th.product-remove {
       width: 100%;
       text-align: center; }
-      table.shop_table_responsive td.product-remove a.remove, table.shop_table_responsive th.product-remove a.remove {
+      table.shop_table td.product-remove a.remove, table.shop_table th.product-remove a.remove {
         width: 100%;
         font-size: 0;
         padding: 5px 0 33px; }
-        table.shop_table_responsive td.product-remove a.remove:hover, table.shop_table_responsive td.product-remove a.remove:active, table.shop_table_responsive th.product-remove a.remove:hover, table.shop_table_responsive th.product-remove a.remove:active {
+        table.shop_table td.product-remove a.remove:hover, table.shop_table td.product-remove a.remove:active, table.shop_table th.product-remove a.remove:hover, table.shop_table th.product-remove a.remove:active {
           text-decoration: none; }
-          table.shop_table_responsive td.product-remove a.remove:hover:before, table.shop_table_responsive td.product-remove a.remove:active:before, table.shop_table_responsive th.product-remove a.remove:hover:before, table.shop_table_responsive th.product-remove a.remove:active:before {
+          table.shop_table td.product-remove a.remove:hover:before, table.shop_table td.product-remove a.remove:active:before, table.shop_table th.product-remove a.remove:hover:before, table.shop_table th.product-remove a.remove:active:before {
             background-image: linear-gradient(to bottom, #a00 0, #700 100%); }
-        table.shop_table_responsive td.product-remove a.remove:before, table.shop_table_responsive th.product-remove a.remove:before {
+        table.shop_table td.product-remove a.remove:before, table.shop_table th.product-remove a.remove:before {
           content: attr(aria-label);
           padding: 5px 7px;
           color: white;
@@ -185,21 +217,21 @@ table.shop_table_responsive {
           border-radius: 5px;
           font-size: 27px;
           background-image: linear-gradient(to bottom, red 0, #a00 100%); }
-    table.shop_table_responsive td.product-thumbnail, table.shop_table_responsive th.product-thumbnail {
+    table.shop_table td.product-thumbnail, table.shop_table th.product-thumbnail {
       display: none; }
-    table.shop_table_responsive td.product-quantity .qty, table.shop_table_responsive th.product-quantity .qty {
+    table.shop_table td.product-quantity .qty, table.shop_table th.product-quantity .qty {
       width: 3.5em;
       height: 1.6em;
       text-align: center; }
-    table.shop_table_responsive td.actions, table.shop_table_responsive th.actions {
+    table.shop_table td.actions, table.shop_table th.actions {
       text-align: left; }
-      table.shop_table_responsive td.actions .input-text, table.shop_table_responsive th.actions .input-text {
+      table.shop_table td.actions .input-text, table.shop_table th.actions .input-text {
         max-width: initial;
         width: 100%;
         min-width: inital; }
-      table.shop_table_responsive td.actions .button, table.shop_table_responsive th.actions .button {
+      table.shop_table td.actions .button, table.shop_table th.actions .button {
         width: 100%; }
-      table.shop_table_responsive td.actions div.coupon, table.shop_table_responsive th.actions div.coupon {
+      table.shop_table td.actions div.coupon, table.shop_table th.actions div.coupon {
         padding-bottom: 5px; }
 
 .wc-proceed-to-checkout {
@@ -209,26 +241,26 @@ table.shop_table_responsive {
     padding: 1em; }
 
 @media screen and (min-width: 768px) {
-  table.shop_table_responsive {
+  table.shop_table {
     display: table;
     width: 100%; }
-    table.shop_table_responsive thead {
+    table.shop_table thead {
       display: table-row-group; }
-    table.shop_table_responsive tbody {
+    table.shop_table tbody {
       display: table-row-group; }
-    table.shop_table_responsive tr {
+    table.shop_table tr {
       display: table-row; }
-    table.shop_table_responsive tr > th {
+    table.shop_table tr > th {
       display: table-cell; }
-    table.shop_table_responsive td, table.shop_table_responsive th {
+    table.shop_table td, table.shop_table th {
       display: table-cell;
       text-align: right; }
-      table.shop_table_responsive td:before, table.shop_table_responsive th:before {
+      table.shop_table td:before, table.shop_table th:before {
         content: none; }
-      table.shop_table_responsive td.product-remove, table.shop_table_responsive th.product-remove {
+      table.shop_table td.product-remove, table.shop_table th.product-remove {
         border-top: 1px solid rgba(0, 0, 0, 0.1);
         width: auto; }
-        table.shop_table_responsive td.product-remove a.remove, table.shop_table_responsive th.product-remove a.remove {
+        table.shop_table td.product-remove a.remove, table.shop_table th.product-remove a.remove {
           width: auto;
           font-size: 20px;
           font-weight: 700;
@@ -236,29 +268,29 @@ table.shop_table_responsive {
           color: red;
           padding: 5px 10px;
           border-radius: 20px; }
-          table.shop_table_responsive td.product-remove a.remove:hover, table.shop_table_responsive td.product-remove a.remove:active, table.shop_table_responsive th.product-remove a.remove:hover, table.shop_table_responsive th.product-remove a.remove:active {
+          table.shop_table td.product-remove a.remove:hover, table.shop_table td.product-remove a.remove:active, table.shop_table th.product-remove a.remove:hover, table.shop_table th.product-remove a.remove:active {
             color: white;
             background: #a00; }
-          table.shop_table_responsive td.product-remove a.remove:before, table.shop_table_responsive th.product-remove a.remove:before {
+          table.shop_table td.product-remove a.remove:before, table.shop_table th.product-remove a.remove:before {
             content: none; }
-      table.shop_table_responsive td.product-thumbnail, table.shop_table_responsive th.product-thumbnail {
+      table.shop_table td.product-thumbnail, table.shop_table th.product-thumbnail {
         display: table-cell;
         min-width: 32px; }
-        table.shop_table_responsive td.product-thumbnail img, table.shop_table_responsive th.product-thumbnail img {
+        table.shop_table td.product-thumbnail img, table.shop_table th.product-thumbnail img {
           width: 32px; }
-      table.shop_table_responsive td.product-quantity .qty, table.shop_table_responsive th.product-quantity .qty {
+      table.shop_table td.product-quantity .qty, table.shop_table th.product-quantity .qty {
         width: 4em;
         height: 2em;
         text-align: right; }
-      table.shop_table_responsive td.actions, table.shop_table_responsive th.actions {
+      table.shop_table td.actions, table.shop_table th.actions {
         position: relative; }
-        table.shop_table_responsive td.actions .input-text, table.shop_table_responsive th.actions .input-text {
+        table.shop_table td.actions .input-text, table.shop_table th.actions .input-text {
           width: auto; }
-        table.shop_table_responsive td.actions .button, table.shop_table_responsive th.actions .button {
+        table.shop_table td.actions .button, table.shop_table th.actions .button {
           width: auto; }
-        table.shop_table_responsive td.actions div.coupon, table.shop_table_responsive th.actions div.coupon {
+        table.shop_table td.actions div.coupon, table.shop_table th.actions div.coupon {
           padding-top: 5px; }
-        table.shop_table_responsive td.actions > input[type="submit"], table.shop_table_responsive th.actions > input[type="submit"] {
+        table.shop_table td.actions > input[type="submit"], table.shop_table th.actions > input[type="submit"] {
           position: absolute;
           top: 11px;
           right: 7px; }
@@ -274,7 +306,7 @@ table.shop_table_responsive {
   .cart-collaterals .cart_totals {
     float: right;
     width: 66%; }
-    .cart-collaterals .cart_totals table.shop_table_responsive th {
+    .cart-collaterals .cart_totals table.shop_table th {
       text-align: left; }
   .cart-collaterals:after {
     content: '.';

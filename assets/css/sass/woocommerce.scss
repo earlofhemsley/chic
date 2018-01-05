@@ -39,6 +39,39 @@ span.required{
 //    }
 //} 
 
+//stright out of woo
+.woocommerce-message,
+.woocommerce-error,
+.woocommerce-info {
+    padding: 1em 2em 1em 3.5em;
+	margin: 0 0 2em;
+    position:relative;
+	background-color: lighten($secondary, 5%);
+	color: $secondarytext;
+	border-top: 3px solid $primary;
+	list-style: none outside;
+	width: auto;
+	word-wrap: break-word;
+    &::before {
+		content: '\26a0';
+		display: inline-block;
+		position: absolute;
+		top: .1em;
+		left: .6em;
+        font-size:2em;
+	}
+
+    .button {
+        float: right;
+    }
+
+    li {
+		list-style: none outside !important; // Required for default theme compatibility
+		padding-left: 0 !important; // Required for default theme compatibility
+		margin-left: 0 !important; // Required for default theme compatibility
+	}
+}
+
 .screen-reader-text{
     clip: rect(1px,1px,1px,1px);
     height: 1px;
@@ -210,7 +243,8 @@ ul.page-numbers{
 /*end generics and overrides*/
 
 /*cart styles*/
-table.shop_table_responsive{
+//TODO: generalize shop_table and apply specific cells to .shop_table.cart
+table.shop_table{
     border: 1px solid $cart-grey;
     border-radius: 8px;
     thead{display:none;}
@@ -296,7 +330,7 @@ table.shop_table_responsive{
 
 
 @media screen and (min-width:768px){
-    table.shop_table_responsive{
+    table.shop_table{
         display:table;
         width: 100%;
         thead { display: table-row-group; }
@@ -379,7 +413,7 @@ table.shop_table_responsive{
         .cart_totals{ 
             float:right;
             width:66%;
-            table.shop_table_responsive{
+            table.shop_table{
                 th { text-align:left; }
             } 
         }
