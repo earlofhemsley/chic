@@ -1,5 +1,6 @@
 
 @import 'colors';
+@import 'mixins';
 
 /*generics and overrides*/
 span.required{
@@ -240,35 +241,66 @@ ul.page-numbers{
         height:initial !important;
     }
 }
-/*end generics and overrides*/
 
-/*cart styles*/
-//TODO: generalize shop_table and apply specific cells to .shop_table.cart
-table.shop_table{
+table.shop_table, table.shop_attributes{
+    width: 100%;
     border: 1px solid $cart-grey;
-    border-radius: 8px;
-    thead{display:none;}
-    &, tbody, tr, td{display:block;}
-
-    tr:nth-child(2n) td, tr:nth-child(2n) th,{
-        background-color: rgba(0,0,0,0.025);
+    thead{
+       background-color:$lighter-grey; 
     }
-
-    tr + tr, tr td + td, tr th + th{ 
-        border-top: 1px solid $cart-grey;
+    tr{ 
+        border-bottom: 1px solid $cart-grey;
     }
-
-    tr > th {display:none;}
-
-    td,th{
+    
+    td, th{
         padding:6px 12px;
         vertical-align:middle;
-        text-align:right;
-        &:before{
+    }
+
+    tfoot tr:last-child{ background-color: $lighter-grey; }
+
+}
+
+table.shop_attributes{
+    max-width:500px;
+}
+
+@media screen and (min-width:768px){
+    .col2-set{
+        .col-1, .col-2 {width:48%;}
+        .col-1 {float:left;}
+        .col-2 {float:right;}
+        @include clearfix();
+    }
+
+}
+
+
+/*end generics and overrides*/
+
+/*cart page styles*/
+.cart_totals > table.shop_table, table.shop_table.cart{
+    tr > th {display:none;}
+    td:before, th:before{
             content:attr(data-title);
             font-weight:700;
             float:left;
         }
+    tr, th{
+        text-align:right;
+    }
+}
+
+table.shop_table.cart{
+    &, tbody, tr, td{display:block;}
+    tr:nth-child(2n) td, tr:nth-child(2n) th,{
+        background-color: rgba(0,0,0,0.025);
+    }
+    tr:last-child{border:none;}
+    thead{display:none;}
+    td,th{
+        border-bottom:1px solid $cart-grey;
+        &:last-child{ border:none; }
         &.product-thumbnail{ display:none; }
         &.product-remove{
             width:100%;
@@ -320,6 +352,7 @@ table.shop_table{
     }
 }
 
+
 .wc-proceed-to-checkout{
     padding: 1em 0;
     a.button.checkout-button{
@@ -330,7 +363,7 @@ table.shop_table{
 
 
 @media screen and (min-width:768px){
-    table.shop_table{
+    table.shop_table.cart{
         display:table;
         width: 100%;
         thead { display: table-row-group; }
@@ -417,14 +450,69 @@ table.shop_table{
                 th { text-align:left; }
             } 
         }
-        &:after{
-            content:'.';
-            font-size:0;
-            display:block;
-            clear:both;
+        @include clearfix();
+    }
+}
+/*cart page styles*/
+
+/*checkout page styles*/
+
+#order_comments{
+    min-height:100px;
+}
+
+table.shop_table.woocommerce-checkout-review-order-table{
+    thead, tbody, tfoot{
+        td, th{
+            text-align:right;
+        }
+        td:first-child, th:first-child{
+            float:left;
         }
     }
 }
+.woocommerce-checkout-payment{
+    border: 3px solid $highlight;
+    margin: 10px 0;
+    padding: 7px 12px;
+
+    ul.payment_methods{
+        list-style-type:none;
+        padding:0;
+        li{
+            margin-bottom:10px;
+        }
+        img{
+            display:none;
+        }
+        .about_paypal{
+            margin-left:15px;
+        }
+    }
+    .payment_box{
+        margin-left:20px;
+    }
+    div.place-order{
+        text-align:right;
+        padding: 0 1em;
+        .button{
+            width: 100%;
+            display: block;
+            font-size: 2em;
+            font-weight: 700;
+        }
+    }
+}
+
+@media screen and (min-width:768px){
+    #order_comments{
+        min-height:500px;
+    }
+    .woocommerce-checkout-payment ul.payment_methods img{ display:inline; }
+}
+
+
+/*end checkout page styles*/
 
 /*breadcrumbs*/
 .woocommerce-breadcrumb{
@@ -557,14 +645,7 @@ table.variations{
     a{
         text-decoration:underline;
     }
-    &:after{
-        content:".";
-        visibility:hidden;
-        clear:both;
-        line-height:0;
-        height:0;
-        display:block;
-    }
+    @include clearfix();
 }
 
 .wc-tabs-wrapper{
@@ -678,8 +759,6 @@ table.variations{
 
 
 }
-
-
 
 
 @media screen and (min-width: 768px){
