@@ -568,9 +568,6 @@ table.variations {
 .woocommerce-Reviews .comment-respond input {
   height: 36px; }
 
-table.shop_attributes {
-  min-width: 330px; }
-
 @media screen and (min-width: 768px) {
   .woocommerce-breadcrumb {
     display: block; }
@@ -821,6 +818,7 @@ nav.woocommerce-MyAccount-navigation ul {
 .woocommerce-order .woocommerce-notice {
   margin-bottom: 25px; }
 .woocommerce-order ul.order_details {
+  list-style-type: none;
   padding: 0;
   margin-bottom: 20px; }
   .woocommerce-order ul.order_details li {
@@ -831,6 +829,11 @@ nav.woocommerce-MyAccount-navigation ul {
     padding: 7px 0; }
     .woocommerce-order ul.order_details li:last-of-type {
       border: none; }
+
+table.shop_table.order_details td, table.shop_table.order_details th {
+  text-align: right; }
+table.shop_table.order_details td:first-child, table.shop_table.order_details th:first-child {
+  text-align: left; }
 
 @media screen and (min-width: 768px) {
   .woocommerce-order ul.order_details li {

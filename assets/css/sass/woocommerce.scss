@@ -1156,6 +1156,7 @@ nav.woocommerce-MyAccount-navigation{
     }
 
     ul.order_details{
+        list-style-type:none;
         padding:0;
         margin-bottom:20px;
         li{
@@ -1168,6 +1169,15 @@ nav.woocommerce-MyAccount-navigation{
                 border:none;
             }
         }
+    }
+}
+
+table.shop_table.order_details{
+    td, th{
+        text-align:right;
+    }
+    td:first-child, th:first-child{
+        text-align:left;
     }
 }
 
