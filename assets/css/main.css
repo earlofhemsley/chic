@@ -64,27 +64,23 @@ body {
   margin-bottom: 0; }
   .sewchic-navbar-default a {
     color: #222; }
-  .sewchic-navbar-default .navbar-toggle .icon-bar {
-    background-color: #ddd; }
 
-#sewchic-primary-menu .sub-menu {
-  list-style-type: none; }
-  #sewchic-primary-menu .sub-menu li.menu-item {
-    padding: 10px;
-    line-height: 20px; }
-  #sewchic-primary-menu .sub-menu li.menu-item:hover {
-    background: #eee; }
-    #sewchic-primary-menu .sub-menu li.menu-item:hover a {
-      text-decoration: none; }
-
-.sewchic-navbar-toggle {
-  float: none;
-  display: block;
-  margin: 8px auto;
-  background-color: #bbb; }
-
-#sewchic-primary-menu {
-  font-size: 18px; }
+#sewchic_primary_menu {
+  display: none;
+  font-size: 24px;
+  padding: 0 10px; }
+  #sewchic_primary_menu a {
+    text-decoration: none;
+    display: block;
+    padding: 5px 0; }
+  #sewchic_primary_menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px 0; }
+  #sewchic_primary_menu .sub-menu {
+    display: none;
+    padding: 0 0 0 20px;
+    list-style-type: none; }
 
 @media screen and (min-width: 992px) {
   .sewchic-account-links {
@@ -140,6 +136,8 @@ body {
   margin: 20px 0; }
   #sewchic-home-search input, #sewchic-home-search label, #sewchic-home-search button {
     margin: 5px 0; }
+  #sewchic-home-search input {
+    height: auto; }
 
 .sewchic-home-menu-title {
   text-decoration: underline;
@@ -200,17 +198,24 @@ body {
   .sewchic-carousel-outer-wrapper {
     padding: 50px; }
 
-  #sewchic-primary-menu {
+  #sewchic_primary_menu {
+    display: block !important;
     padding: 0; }
-    #sewchic-primary-menu li.menu-item {
+    #sewchic_primary_menu a {
+      padding: 5px 8px; }
+    #sewchic_primary_menu li.menu-item {
+      display: inline-block;
       margin-right: 10px;
       position: relative; }
-      #sewchic-primary-menu li.menu-item ul.sub-menu {
+      #sewchic_primary_menu li.menu-item ul.sub-menu {
+        display: block;
         position: absolute;
         left: -99999px; }
-      #sewchic-primary-menu li.menu-item:hover a {
+      #sewchic_primary_menu li.menu-item:hover {
+        background: #eee; }
+      #sewchic_primary_menu li.menu-item:hover a {
         text-decoration: none; }
-      #sewchic-primary-menu li.menu-item:hover ul.sub-menu {
+      #sewchic_primary_menu li.menu-item:hover ul.sub-menu {
         left: 0px;
         background: #fbdedd;
         margin: -5px 0 0 0;
@@ -232,7 +237,7 @@ body {
   .sewchic-home-post.sewchic-home-post-small:first-of-type {
     margin-top: 0px; } }
 @media screen and (min-width: 992px) {
-  #sewchic-primary-menu {
+  #sewchic_primary_menu {
     font-size: 28px;
     font-weight: bold; }
 

@@ -2,6 +2,60 @@
 * COMMON STYLES ... part of the common codebase
 **************************/
 
+
+/**************************
+* NAVIGATION STYLES
+**************************/
+
+button.navbar-toggle{
+    float:none;
+    display:block;
+    //margin: 8px auto;
+    background:transparent;
+    border:none;
+    font-size:24px;
+    font-weight:inherit;
+    font-variant:inherit;
+    font-family:inherit;
+    padding: 10px;
+    position:relative;
+    width:100%;
+    text-align:left;
+    span.toggle-arrow{
+        width:0;
+        height:0;
+        display:block;
+        position:absolute;
+        right:10px;
+        top:40%;
+        border: 10px solid transparent;
+        border-top-color:#222;
+    }
+    &:active, &:focus{
+        border:none;
+        outline:none;
+    }
+
+    &.activated{
+        border-bottom: 1px solid #bdbdbd;
+        span.toggle-arrow{
+            top:18%;
+            border-top-color:transparent;
+            border-bottom-color:#222;
+        }
+    }
+}
+
+@media screen and (min-width:768px){
+    button.navbar-toggle{
+        display:none;
+    }
+}
+
+/**************************
+* WORDPRESS GALLERY STYLES
+**************************/
+
 .gallery{
     width:100%;
     text-align:center;

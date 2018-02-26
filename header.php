@@ -29,21 +29,18 @@
             </div>
             <div class="sewchic-header-pink">
                 <div class="standard-wrap wrap">
-                    <nav class="navbar sewchic-navbar-default">
-                        <div class="container-fluid">
-                        <button type="button" class="navbar-toggle sewchic-navbar-toggle collapsed" data-toggle="collapse" data-target="#sewchic-primary-menu" aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle Navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
+                    <nav class="sewchic-navbar-default">
+                        <div>
+                        <button type="button" class="toggle navbar-toggle" data-toggle="slide" data-target="#sewchic_primary_menu" aria-expanded="false" aria-controls="navbar">
+                            Menu <span class="toggle-arrow"></span>
                         </button>
                             <?php
                                 wp_nav_menu(array(
                                     'theme_location' => 'primary',
-                                    'menu_class' => 'nav navbar-nav',
+                                    'menu_class' => '',
                                     'container' => 'div',
-                                    'container_class' => 'collapse navbar-collapse',
-                                    'container_id' => 'sewchic-primary-menu'
+                                    'container_class' => '',
+                                    'container_id' => 'sewchic_primary_menu'
                                 ));
                             ?>
                         </div>

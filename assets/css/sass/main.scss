@@ -64,38 +64,28 @@ body{
 .sewchic-navbar-default{
     a{color:$black;}
     margin-bottom:0;
-    .navbar-toggle{
-        .icon-bar{
-            background-color:$navbarToggleBg;
-        }
-    }
 }
-#sewchic-primary-menu{
-    .sub-menu{
+#sewchic_primary_menu{
+    display:none;
+    font-size:24px;
+    padding:0 10px;
+    a{
+        text-decoration:none;
+        display:block;
+        padding:5px 0;
+    }
+    ul{
         list-style-type:none;
-        li.menu-item{
-            padding: 10px;
-            line-height:20px;
-        }
-        li.menu-item:hover{
-            a{
-                text-decoration:none;
-            }
-            background: #eee;
-        }
+        margin:0;
+        padding:10px 0;
+    }
+    .sub-menu{
+        display:none;
+        padding:0 0 0 20px;
+        list-style-type:none;
     }
 }
 
-.sewchic-navbar-toggle{
-    float:none;
-    display:block;
-    margin: 8px auto;
-    background-color:$navbarIconBars;
-}
-
-#sewchic-primary-menu{
-    font-size:18px;
-}
 
 @media screen and (min-width:992px){
     .sewchic-account-links{
@@ -170,6 +160,9 @@ body{
     margin: 20px 0;
     input,label,button{
         margin:5px 0;
+    }
+    input{
+        height:auto;
     }
 
 }
@@ -252,14 +245,23 @@ body{
         padding:50px;
     }
 
-    #sewchic-primary-menu{
+    #sewchic_primary_menu{
+        display:block !important;
         padding:0;
+        a{
+            padding: 5px 8px;
+        }
         li.menu-item{
+            display: inline-block;
             margin-right: 10px;
             position:relative;
             ul.sub-menu{
+                display:block;
                 position:absolute;
                 left: -99999px;
+            }
+            &:hover{
+                background: #eee;
             }
             &:hover a{
                 text-decoration:none;
@@ -297,7 +299,7 @@ body{
 }
 
 @media screen and (min-width: 992px){
-    #sewchic-primary-menu{
+    #sewchic_primary_menu{
         font-size:28px;
         font-weight:bold;
     }

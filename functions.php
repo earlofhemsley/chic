@@ -84,18 +84,17 @@ if(!function_exists('sewchic_register_scripts')):
 function sewchic_register_scripts(){
     //scripts
     wp_enqueue_script('jquery');
-    wp_enqueue_script('bootstrap-js', get_template_directory_uri().'/assets/js/vendor/bootstrap.min.js', array('jquery'), false, true);
     wp_enqueue_script('modernizr', get_template_directory_uri().'/assets/js/vendor/modernizr-3.5.0.min.js', array('jquery'), false, true);
     wp_enqueue_script('plugins',get_template_directory_uri().'/assets/js/plugins.js', array('jquery'), false, true);
     wp_enqueue_script('main',get_template_directory_uri().'/assets/js/main.js', array('jquery'), false, true);
+    wp_enqueue_script('navbar',get_template_directory_uri().'/assets/js/navbar.js', array('jquery'), false, true);
 
     wp_register_script('photoswipe-render', get_template_directory_uri() . '/common/js/ps-render.js', array('jquery'), false, true);
+    wp_enqueue_script('common-toggle', get_template_directory_uri() . '/common/js/toggle.js', array('jquery'), false, true);
 
     //styles
-    wp_enqueue_style('bootstrap', get_template_directory_uri().'/assets/css/vendor/bootstrap.min.css');
-    wp_enqueue_style('bootstrap-theme', get_template_directory_uri().'/assets/css/vendor/bootstrap-theme.min.css');
     wp_enqueue_style('h5bp', get_template_directory_uri().'/assets/css/vendor/h5bp.css');
-    wp_enqueue_style('core', get_stylesheet_uri(), array('bootstrap','bootstrap-theme','h5bp'));
+    wp_enqueue_style('core', get_stylesheet_uri(), array('h5bp'));
 
     //conditional script/style loading
     if(is_home() || is_front_page()){
@@ -153,14 +152,6 @@ function sewchic_widgets_setup(){
         'before_widget' => '',
         'after_widget' => '',
     ));
-    register_sidebar(array(
-        'name' => __('Home page body left rail', 'sewchic'),
-        'id' => 'home-body-left-rail',
-        'description' => __('Appears in the main body of the home page to the left','sewchic'),
-        'before_widget' => '',
-        'after_widget' => '',
-    ));
-
     foreach(array('one','two','three') as $i => $value){
         register_sidebar(array(
             'name' => __("Sidebar ", 'sewchic') . $value,
@@ -629,7 +620,6 @@ endif;
 require_once( get_template_directory(). '/woocommerce-integration.php');
 require_once( get_template_directory(). '/includes/carousel-options.php');
 require_once( get_template_directory(). '/common/common-functions.php' );
-require_once( get_template_directory(). '/classes/class-fb-page-plugin.php');
 require_once( get_template_directory(). '/classes/class-tgm-plugin-activation.php');
 
 
