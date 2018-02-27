@@ -9,12 +9,12 @@
  * **********************/
 body{
     font-family:"Trebuchet MS","Garamond","Times New Roman", serif, sans-serif;
-    font-size:18px;
+    font-size:16px;
     font-variant: small-caps;
 }
 
 .standard-wrap{
-    max-width: 1500px;
+    max-width: 1200px;
 }
 
 .tight-wrap{
@@ -67,7 +67,7 @@ body{
 }
 #sewchic_primary_menu{
     display:none;
-    font-size:24px;
+    font-size:20px;
     padding:0 10px;
     a{
         text-decoration:none;
@@ -173,7 +173,7 @@ body{
 }
 
 .sewchic-menu{
-    font-size:24px;
+    font-size:20px;
     a{color:$black}
 }
 
@@ -276,7 +276,7 @@ body{
         }
     }
     .big-text-sm{
-        font-size:28px;
+        font-size:24px;
         font-weight:bold;
     }
 
@@ -300,7 +300,7 @@ body{
 
 @media screen and (min-width: 992px){
     #sewchic_primary_menu{
-        font-size:28px;
+        font-size:24px;
         font-weight:bold;
     }
     

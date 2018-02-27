@@ -22,11 +22,11 @@
  * **********************/
 body {
   font-family: "Trebuchet MS","Garamond","Times New Roman", serif, sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-variant: small-caps; }
 
 .standard-wrap {
-  max-width: 1500px; }
+  max-width: 1200px; }
 
 .tight-wrap {
   max-width: 992px; }
@@ -67,7 +67,7 @@ body {
 
 #sewchic_primary_menu {
   display: none;
-  font-size: 24px;
+  font-size: 20px;
   padding: 0 10px; }
   #sewchic_primary_menu a {
     text-decoration: none;
@@ -144,7 +144,7 @@ body {
   font-weight: bold; }
 
 .sewchic-menu {
-  font-size: 24px; }
+  font-size: 20px; }
   .sewchic-menu a {
     color: #222; }
 
@@ -223,7 +223,7 @@ body {
         z-index: 10; }
 
   .big-text-sm {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold; }
 
   #sewchic-home-search input, #sewchic-home-search label, #sewchic-home-search button {
@@ -238,7 +238,7 @@ body {
     margin-top: 0px; } }
 @media screen and (min-width: 992px) {
   #sewchic_primary_menu {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold; }
 
   .sewchic-header-widget-container {
