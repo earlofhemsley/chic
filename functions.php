@@ -634,7 +634,6 @@ endif;
 
 
 require_once( get_template_directory(). '/woocommerce-integration.php');
-//require_once( get_template_directory(). '/includes/carousel-options.php');
 require_once( get_template_directory(). '/common/common-functions.php' );
 require_once( get_template_directory(). '/classes/class-tgm-plugin-activation.php');
 
