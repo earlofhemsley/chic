@@ -104,6 +104,8 @@ body{
 }
 
 
+
+
 @media screen and (min-width:992px){
     .sewchic-account-links{
         max-width:250px;
@@ -111,6 +113,37 @@ body{
         position:absolute;
         top:0;
         right:0;
+    }
+}
+
+/********************
+  HEADER STYLES
+  SEARCH FORM
+*********************/
+
+#sewchic_home_search{
+    margin: 20px 0;
+    input,label,button{
+        margin:5px 0;
+    }
+    input{
+        height:auto;
+    }
+
+}
+
+@media screen and (min-width: 768px){
+    #sewchic_home_search{
+        input,label,button{
+            margin: 0 10px;
+        }
+        label{
+            position:relative;
+            top:4px;
+        }
+        input{
+            width: 250px;
+        }
     }
 }
 
@@ -135,19 +168,6 @@ body{
     background-repeat: no-repeat;
 }
 
-#sewchic-carousel-height-block{
-    height: 600px;
-    position:relative;
-}
-
-.sewchic-carousel-outer-wrapper{
-    width:100%;
-    padding:30px;
-    position:absolute;
-    top:50%;
-    transform: translateY(-50%);
-}
-
 .sewchic-carousel-item{
     text-align:center;
     img{
@@ -168,25 +188,6 @@ body{
     display:table-cell;
 }
 
-#sewchic-home-tower-container{
-    display:none;
-}
-
-#sewchic-home-tower-img{
-    max-width:100%;
-    height:auto;
-}
-
-#sewchic-home-search{
-    margin: 20px 0;
-    input,label,button{
-        margin:5px 0;
-    }
-    input{
-        height:auto;
-    }
-
-}
 
 .sewchic-home-menu-title{
     text-decoration:underline;
@@ -262,10 +263,6 @@ body{
         display:none;
     }
 
-    .sewchic-carousel-outer-wrapper{
-        padding:50px;
-    }
-
     #sewchic_primary_menu{
         display:block !important;
         padding:0;
@@ -301,18 +298,6 @@ body{
         font-weight:bold;
     }
 
-    #sewchic-home-search{
-        input,label,button{
-            margin: 0 10px;
-        }
-        label{
-            position:relative;
-            top:4px;
-        }
-        input{
-            width: 250px;
-        }
-    }
 
     .sewchic-home-post.sewchic-home-post-small:first-of-type{
         margin-top:0px;
@@ -346,9 +331,6 @@ body{
 
 @media screen and (min-width: 1200px){
 
-    #sewchic-carousel-height-block{
-        height: 725px;
-    }
 
     #sewchic-home-tower-img{
         margin-top: -75px;

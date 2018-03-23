@@ -97,10 +97,18 @@ function sewchic_register_scripts(){
     wp_enqueue_style('core', get_stylesheet_uri(), array('h5bp'));
 
     //conditional script/style loading
-    if(is_home() || is_front_page()){
-        wp_enqueue_script('slick', get_template_directory_uri().'/assets/js/vendor/slick.min.js', array('jquery'), false, true);
-        wp_enqueue_style('slick', get_template_directory_uri().'/assets/css/slick.min.css');
-        wp_enqueue_style('slick-theme', get_template_directory_uri().'/assets/css/slick-theme.min.css', array('slick'));
+    $img_src = get_theme_mod('front_page_tower_img');
+    if((is_home() || is_front_page()) && $img_src){
+        $hero_background_style = <<< EOT
+            @media screen and (min-width:768px){
+                .sewchic-hero-body{
+                    background-image: url("{$img_src}");
+                }
+            }
+EOT;
+        error_log("hero background inline style: " . $hero_background_style);
+        wp_add_inline_style('core',$hero_background_style);
+
     }
     if(is_product())
         wp_enqueue_script('wcsc-single', get_template_directory_uri().'/assets/js/woocommerce-single.js', array('jquery'), false, true);
@@ -145,6 +153,14 @@ endif;
 //Widget area setup
 if(!function_exists('sewchic_widgets_setup')):
 function sewchic_widgets_setup(){
+    register_sidebar(array(
+        'name' => __('Home page hero', 'sewchic'),
+        'id' => 'home-page-hero',
+        'description' => __('Renders front and center on the home page','sewchic'),
+        'before_widget' => '',
+        'after_widget' => '',
+    ));
+    
     register_sidebar(array(
         'name' => __('Home page body social widget area', 'sewchic'),
         'id' => 'home-body-social',
@@ -230,8 +246,8 @@ function sewchic_customizer_setup($wp_customizer){
         array(
             'section' => 'front_page_customization',
             'settings' => 'front_page_tower_img' ,
-            'label' => __('Front Page Tower Image','sewchic'),
-            'description' => __('An image placed on the far right side of the center of the home page. It\'s meant to be very tall. In the largest view, it will be forced to 800px tall, so recommended height is 800px','sewchic')
+            'label' => __('Front Page Hero Background','sewchic'),
+            'description' => __('An image placed as the background of the hero area of the home page. Disappears when the screen shrinks. Recommended size: 1200px x 800px','sewchic')
         )
     ));
 
@@ -618,7 +634,7 @@ endif;
 
 
 require_once( get_template_directory(). '/woocommerce-integration.php');
-require_once( get_template_directory(). '/includes/carousel-options.php');
+//require_once( get_template_directory(). '/includes/carousel-options.php');
 require_once( get_template_directory(). '/common/common-functions.php' );
 require_once( get_template_directory(). '/classes/class-tgm-plugin-activation.php');
 

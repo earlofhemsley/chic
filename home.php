@@ -1,33 +1,11 @@
 <?php get_header(); ?>
 
 <div class="sewchic-home-hero-wrapper">
-    <div class="standard-wrap wrap sewchic-hero-body">
-        <div class="sewchic-table">
-            <div class="sewchic-row">
-                <!--<div class="sewchic-cell" id="sewchic-carousel-height-block">
-                    <div class="sewchic-carousel-outer-wrapper">
-                        <div class="sewchic-carousel-inner-wrapper">
-                        <?php
-                           // $carousel = wp_nav_menu(array(
-                           //     'theme_location' => 'carousel',
-                           //     'container_class' => 'sewchic-carousel',
-                           //     'echo' => false,
-                           //     'items_wrap' => '%3$s', 
-                           // ));
-                           // $carousel = preg_replace('/<li[^>]*>/', '<div class="sewchic-carousel-item">', $carousel);
-                           // $carousel = preg_replace('/<\/li>/', '</div>', $carousel);
-                           // echo $carousel;
-                        ?> 
-                        </div>
-                        <?php //sewchic_carousel_script(); ?>
-                    </div>
-                </div> -->
-                <!-- 
-                <div class="sewchic-cell text-center" id="sewchic-home-tower-container">
-                    <img id="sewchic-home-tower-img" src="<?php echo get_theme_mod('front_page_tower_img'); ?>" />
-                </div>
-                -->
-            </div>
+    <div class="stepped-wrap wrap sewchic-hero-body">
+        <div class="sewchic-home-page-hero"> 
+            <?php 
+                if(is_active_sidebar('home-page-hero')){ dynamic_sidebar('home-page-hero'); }
+            ?>    
         </div>
     </div> 
 </div>
