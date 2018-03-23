@@ -26,6 +26,23 @@ body{
     width:95%;
 }
 
+@media screen and (min-width: 768px){
+    .stepped-wrap{
+        max-width: 768px;
+    }
+}
+
+@media screen and (min-width: 992px){
+    .stepped-wrap{
+        max-width: 992px;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .stepped-wrap{
+        max-width: 1200px;
+    }
+}
 
 /************************
  * HEADER STYLES
@@ -112,6 +129,10 @@ body{
 }
 .sewchic-hero-body{
     padding:20px 0;
+    background-image: none;
+    background-position:center top;
+    background-size:contain;
+    background-repeat: no-repeat;
 }
 
 #sewchic-carousel-height-block{
