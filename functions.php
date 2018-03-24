@@ -14,10 +14,23 @@ function sewchic_register_required_plugins(){
 			'required'  => true,
         ),
         array(
-            'name'      => 'Menu Image',
-            'slug'      => 'menu-image',
-            'required'  => true,
+            'name' => 'Slicky Carousel',
+            'slug' => 'slicky-carousel',
+            'source' => get_stylesheet_directory() . '/lib/slicky-carousel.zip',
+            'version' => '1.0.0',
+            'required' => false,
+            'force_activation' => true,
+            'force_deactivation' => false
         ),
+        array(
+            'name' => 'Simple Social Menu',
+            'slug' => 'simple-social-menu',
+            'source' => get_stylesheet_directory() . '/lib/simple-social-menu.zip',
+            'version' => '1.0.0',
+            'required' => false,    
+            'force_activation' => true,
+            'force_deactivation' => false
+        )
     );
 
     $config = array(
