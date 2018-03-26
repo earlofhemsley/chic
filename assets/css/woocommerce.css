@@ -44,7 +44,7 @@ span.required {
   width: 1px;
   word-wrap: normal !important; }
 
-a.button, input.button, input.submit, button.button, input[type="submit"] {
+a.button, input.button, input.submit, button.button, input[type="submit"], button[type="submit"] {
   background-color: #efefef;
   border: 1px solid #aeaeae;
   color: #222;
@@ -62,7 +62,7 @@ a.button, input.button, input.submit, button.button, input[type="submit"] {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none; }
-  a.button:hover, a.button:active, input.button:hover, input.button:active, input.submit:hover, input.submit:active, button.button:hover, button.button:active, input[type="submit"]:hover, input[type="submit"]:active {
+  a.button:hover, a.button:active, input.button:hover, input.button:active, input.submit:hover, input.submit:active, button.button:hover, button.button:active, input[type="submit"]:hover, input[type="submit"]:active, button[type="submit"]:hover, button[type="submit"]:active {
     background-color: white; }
 
 a.button.alt, input.button.alt, input.submit.alt, button.button.alt {
@@ -88,7 +88,6 @@ button.wcsc-toggle.button {
 
 .input-text, select.orderby, input.search-field {
   width: 100%;
-  height: 39px;
   padding: 6px 12px;
   font-size: 16px;
   line-height: 1em;

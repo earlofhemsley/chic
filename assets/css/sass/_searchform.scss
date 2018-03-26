@@ -1,0 +1,36 @@
+/********************
+  HEADER STYLES
+  SEARCH FORM
+*********************/
+
+#sewchic_home_search{
+    margin: 20px 0;
+    input,label,button{
+        margin:5px 0;
+    }
+    input{
+        height:auto;
+    }
+
+}
+
+@media screen and (max-width: 768px){
+    #sewchic_home_search input{
+        padding: 6px 0;
+    }
+}
+
+@media screen and (min-width: 768px){
+    #sewchic_home_search{
+        input,label,button{
+            margin: 0 10px;
+        }
+        label{
+            position:relative;
+            top:4px;
+        }
+        input{
+            width: 250px;
+        }
+    }
+}

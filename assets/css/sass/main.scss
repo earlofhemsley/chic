@@ -1,151 +1,10 @@
 /* This is the theme's principal scss stylesheet */
 
 @import 'colors';
-@import 'bootstrap_overrides';
-@import 'facebook-plugin';
-/************************
- * GENERAL STYLES
- * 
- * **********************/
-body{
-    font-family:"Trebuchet MS","Garamond","Times New Roman", serif, sans-serif;
-    font-size:16px;
-    font-variant: small-caps;
-}
+@import 'general';
+@import 'header_logo_nav';
+@import 'searchform';
 
-.standard-wrap{
-    max-width: 1200px;
-}
-
-.tight-wrap{
-    max-width: 992px;
-}
-
-.wrap{
-    margin:auto;
-    width:95%;
-}
-
-@media screen and (min-width: 768px){
-    .stepped-wrap{
-        max-width: 768px;
-    }
-}
-
-@media screen and (min-width: 992px){
-    .stepped-wrap{
-        max-width: 992px;
-    }
-}
-
-@media screen and (min-width: 1200px){
-    .stepped-wrap{
-        max-width: 1200px;
-    }
-}
-
-/************************
- * HEADER STYLES
- * LOGO AND NAV MENU
- * **********************/
-
-
-.sewchic-header-pink{
-    background-color: $headerpink;
-}
-
-.sewchic-account-links{
-    width:100%;
-    text-align:center;
-    padding:10px 0;
-    z-index:10;
-    a{
-        color:$black;
-    }
-    span{
-    }
-}
-
-.sewchic-header-widget-container{
-    position: relative;
-    text-align:center;
-    .custom-logo{
-        max-width: 100%;
-        height: auto;
-        max-height: 100%;
-    }
-    h3{text-align:center;}
-    
-}
-
-.sewchic-navbar-default{
-    a{color:$black;}
-    margin-bottom:0;
-}
-#sewchic_primary_menu{
-    display:none;
-    font-size:20px;
-    padding:0 10px;
-    a{
-        text-decoration:none;
-        display:block;
-        padding:5px 0;
-    }
-    ul{
-        list-style-type:none;
-        margin:0;
-        padding:10px 0;
-    }
-    .sub-menu{
-        display:none;
-        padding:0 0 0 20px;
-        list-style-type:none;
-    }
-}
-
-
-
-
-@media screen and (min-width:992px){
-    .sewchic-account-links{
-        max-width:250px;
-        text-align:right;
-        position:absolute;
-        top:0;
-        right:0;
-    }
-}
-
-/********************
-  HEADER STYLES
-  SEARCH FORM
-*********************/
-
-#sewchic_home_search{
-    margin: 20px 0;
-    input,label,button{
-        margin:5px 0;
-    }
-    input{
-        height:auto;
-    }
-
-}
-
-@media screen and (min-width: 768px){
-    #sewchic_home_search{
-        input,label,button{
-            margin: 0 10px;
-        }
-        label{
-            position:relative;
-            top:4px;
-        }
-        input{
-            width: 250px;
-        }
-    }
-}
 
 /*********************
   HOME PAGE STYLES
@@ -253,46 +112,11 @@ body{
 
 
 @media screen and (min-width: 768px){
-    .sewchic-header-widget-container{
-        h3{
-            margin: 3px auto;
-        }
-    }
 
     .sewchic-navbar-toggle{
         display:none;
     }
 
-    #sewchic_primary_menu{
-        display:block !important;
-        padding:0;
-        a{
-            padding: 5px 8px;
-        }
-        li.menu-item{
-            display: inline-block;
-            margin-right: 10px;
-            position:relative;
-            ul.sub-menu{
-                display:block;
-                position:absolute;
-                left: -99999px;
-            }
-            &:hover{
-                background: #eee;
-            }
-            &:hover a{
-                text-decoration:none;
-            }
-            &:hover ul.sub-menu{
-                left:0px;
-                background:$headerpink;
-                margin:-5px 0 0 0;
-                padding:10px;
-                z-index:10;
-            }
-        }
-    }
     .big-text-sm{
         font-size:24px;
         font-weight:bold;
@@ -305,24 +129,7 @@ body{
 }
 
 @media screen and (min-width: 992px){
-    #sewchic_primary_menu{
-        font-size:24px;
-        font-weight:bold;
-    }
     
-    .sewchic-header-widget-container{
-        text-align:left;
-
-        .sewchic-header-widget-element{
-            position:absolute;
-            bottom: 0;    
-            right:0;
-        }
-        h3{
-            margin: 3px 0 0 0;
-            padding-bottom:15px;
-        }
-    }
     #sewchic-home-tower-container{
         display:table-cell;
         width:33.3%
