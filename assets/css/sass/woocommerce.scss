@@ -7,39 +7,6 @@ span.required{
     color:$requiredRed; 
 }
 
-//.woocommerce{
-//    a.button, input.button, input.submit, button.button{
-//        background-color: $lighter-grey;
-//        border: 1px solid $light-grey;
-//        color:$black;
-//        padding: 6px 12px;
-//        margin-bottom: 0;
-//        font-weight: 400;
-//        line-height: 1.42857143;
-//        text-align: center;
-//        white-space: nowrap;
-//        vertical-align: middle;
-//        touch-action: manipulation;
-//        -ms-touch-action: manipulation;
-//        cursor:pointer;
-//        user-select:none;
-//        -webkit-user-select:none;
-//        -moz-user-select:none;
-//        -ms-user-select:none;
-//        &:hover, &:active{
-//            background-color:white;
-//        }
-//    }
-//    a.button.alt, input.button.alt, input.submit.alt, button.button.alt {
-//        background-color:$addToCartBlue2;
-//        color:white;
-//        &:hover, &:active{
-//            background-color:$addToCartBlue;
-//            color:$woobutton-font-color;
-//        }
-//    }
-//} 
-
 //stright out of woo
 .woocommerce-message,
 .woocommerce-error,
@@ -136,7 +103,8 @@ button.wcsc-toggle.button{
 .input-text, select.orderby, input.search-field{
     width:100%;
     //height:39px;
-    padding:6px 12px;
+    padding:10px 12px 8px;
+    box-sizing:border-box;
     font-size:16px;
     line-height:1em;
     background-color:white;
@@ -1013,7 +981,7 @@ ul.products{
         }
 
         #filter_widgets_bin{
-            display:block;
+            display:block !important;
             text-align:left;
             .price_slider_wrapper{
                 width:80%;
@@ -1061,19 +1029,32 @@ nav.woocommerce-MyAccount-navigation{
         margin:20px 0;
         li{
             display:inline-block;
-            margin-right:10px;
+            margin-right:7px;
+            &:last-of-type{
+                margin-right:0;
+            }
             a{
                 display:initial;
                 margin:0;
             }
         }
     }   
-}
-
-@media screen and (min-width:992px){
+    
     /*login*/
     .woocommerce-form-login{
         max-width:500px;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:992px){
+    nav.woocommerce-MyAccount-navigation ul li a{
+        padding:6px;
+    }
+}
+
+@media screen and (min-width:992px){
+    nav.woocommerce-MyAccount-navigation ul li{
+        margin-right:10px;
     }
 }
 

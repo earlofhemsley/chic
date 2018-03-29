@@ -22,39 +22,41 @@ class woocommerce_general{
     }
 
     public function wrap_main_content(){ ?>
-        <div class="wrap standard-wrap container-fluid">    
+        <div class="wrap standard-wrap ">    
     <?php }
 
 
     public function before_main_content(){
         if(!(is_shop() || is_product_category() || is_product_tag())): ?>
-            <div class="row">
-                <div class="col-md-9">
+            <div class="sewchic-table">
+                <div class="sewchic-row">
+                    <div class="sewchic-cell">
         <?php endif;
     }
 
     public function after_main_content(){ 
         if(!(is_shop() || is_product_category() || is_product_tag())): ?>
-                </div><!-- .col-md-9 -->
+                </div><!-- .sewchic-cell -->
         <?php endif;
     }
 
 
     public function before_sidebar(){ 
         if(!(is_shop() || is_product_category() || is_product_tag())): ?> 
-                <div class="col-md-3">
+                <div class="sewchic-cell sewchic-right-rail">
         <?php endif;
     }
 
     public function after_sidebar(){ 
         if(!(is_shop() || is_product_category() || is_product_tag())): ?>
-                </div><!-- .col-md-3 -->
-            </div><!-- .row -->
+                    </div><!-- .sewchic-cell.sewchic-right-rail -->
+                </div><!-- .sewchic-row -->
+            </div><!-- .sewchic-table -->
         <?php endif;
     }
 
     public function close_main_wrap(){ ?> 
-        </div><!--.wrap standard-wrap container-fluid -->
+        </div><!--.wrap.standard-wrap -->
     <?php }
     
     public function show_page_title($show){ 

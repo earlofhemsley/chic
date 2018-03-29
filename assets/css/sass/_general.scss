@@ -33,9 +33,29 @@ body{
     text-align:left;
 }
 
+
 @media screen and (min-width: 768px){
     .stepped-wrap{
         max-width: 768px;
+    }
+    
+    .sewchic-table{
+        display:table;
+        width:100%;
+    }
+
+    .sewchic-row{
+        display:table-row;
+    }
+
+    .sewchic-cell{
+        display:table-cell;
+        padding:0 15px;
+    }
+
+    .sewchic-right-rail{
+        width:25%;
+        max-width:300px;
     }
 }
 

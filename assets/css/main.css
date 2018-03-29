@@ -30,7 +30,22 @@ body {
 
 @media screen and (min-width: 768px) {
   .stepped-wrap {
-    max-width: 768px; } }
+    max-width: 768px; }
+
+  .sewchic-table {
+    display: table;
+    width: 100%; }
+
+  .sewchic-row {
+    display: table-row; }
+
+  .sewchic-cell {
+    display: table-cell;
+    padding: 0 15px; }
+
+  .sewchic-right-rail {
+    width: 25%;
+    max-width: 300px; } }
 @media screen and (min-width: 992px) {
   .stepped-wrap {
     max-width: 992px; } }
@@ -172,16 +187,6 @@ body {
   text-align: center; }
   .sewchic-carousel-item img {
     margin: auto; }
-
-.sewchic-table {
-  display: table;
-  width: 100%; }
-
-.sewchic-row {
-  display: table-row; }
-
-.sewchic-cell {
-  display: table-cell; }
 
 .sewchic-home-menu-title {
   text-decoration: underline;
