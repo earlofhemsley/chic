@@ -4,6 +4,7 @@
 @import 'general';
 @import 'header_logo_nav';
 @import 'searchform';
+@import 'mixins';
 
 
 /*********************
@@ -45,45 +46,149 @@
 }
 
 .sewchic-home-post-container{
-    h1, h2, h3, h4, h5, h6{
-        margin-top:30px;
+    display:flex;
+    flex-flow:column nowrap;
+    justify-content:space-between;
+    &>*{
+        margin:10px;
+        flex: 1 50%;
     }
+    & * {
+        box-sizing:border-box;
+    }
+
+    .sewchic-home-post-category{
+        .sewchic-home-post{
+            background-position: left center;
+        }
+    }
+    .sewchic-home-post-products{
+        .sewchic-home-post{
+            background-position: center center;
+        }
+    }
+    
+    .sewchic-home-post{
+        display:block;
+        background-repeat: no-repeat;
+        background-size:cover;
+        background-origin:border-box;
+        position:relative;
+        text-decoration:none;
+        text-align:center;
+        &.sewchic-home-post-large{
+            height:500px;    
+        }
+        &.sewchic-home-post-small{
+            height:242px;
+            margin-bottom:18px;
+            &:last-of-type{
+                margin-bottom:0;
+            }
+        }
+        .sewchic-home-post-category-title{
+            margin:0;
+            padding: 10px;
+            color: $black;
+            font-size:30px;
+             
+        }
+        .sewchic-home-button-text{
+            border:transparent solid 5px;
+            background-color: $white;
+            color: $black;
+            padding: 5px 10px;
+            position: absolute;
+            bottom: 10px;
+            right: 50%;
+            margin-right:-100px;
+            font-size:20px;
+            width:200px;
+            max-width: 84%;
+        }
+        &:hover{
+            .sewchic-home-button-text{
+                border: $light-purple solid 5px;
+                background-color: $black;
+                color: $white;
+            }
+        }
+
+    }
+
 }
 
-.sewchic-home-post{
-    display:block;
-    background-color: $light-purple;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size:cover;
-    background-origin:border-box;
-    opacity:1;
-    transition:opacity .5s;
-    -webkit-transition:opacity .5s;
 
-    text-align:right;
-    position:relative;
-    &.sewchic-home-post-large{
-        height:500px;    
-    }
-    &.sewchic-home-post-small{
-        height:242px;
-        margin-top:16px;
-    }
-    &:hover{
-        opacity:0.5;
-        filter: alpha(opacity=50);
-    }
-    .sewchic-home-post-title{
-        border:white solid 1px;
-        background-color:rgba(255,255,255,0.75);
-        padding:10px 15px;
-        position:absolute;
-        bottom: 10px;
-        right:10px;
-        max-width:89%;
+
+
+
+@media screen and (min-width: 768px){
+    .big-text-sm{
+        font-size:24px;
+        font-weight:bold;
     }
 
+    .sewchic-home-post-container{
+        flex-flow: row nowrap;
+        .sewchic-home-post-category {
+            flex: 100 auto;
+        }
+        .sewchic-home-post-products{
+            flex: 1 33%;
+        }
+        
+        .sewchic-home-post{
+            text-align:left;
+            .sewchic-home-button-text{
+                width:auto;
+                margin-right:auto;
+                right:15px;
+            }
+            .sewchic-home-post-category-title{
+                font-size:48px;
+                position:absolute;
+                top:10px;
+                right:30px;
+            }
+        }
+
+        &.inverted{
+            flex-flow:row-reverse nowrap;
+            
+            .sewchic-home-post-category{
+                .sewchic-home-post{
+                    background-position: right center;
+                }
+            }
+            .sewchic-home-post{
+                text-align:right;
+                .sewchic-home-button-text{
+                    left:15px;
+                    right:initial;
+                }
+                .sewchic-home-post-category-title{
+                    left:30px;
+                    right:initial;
+                }
+            }
+
+        }
+    }
+
+
+    
+}
+
+@media screen and (min-width: 992px){
+    .sewchic-home-post-container{
+        .sewchic-home-post-products{
+            flex: 1 20%;
+        }
+    }
+
+}
+
+@media screen and (min-width: 1200px){
 }
 
 .sewchic-copyright{
@@ -94,40 +199,4 @@
     a{
         color:$light-grey;
     }
-}
-
-
-@media screen and (min-width: 768px){
-
-    .sewchic-navbar-toggle{
-        display:none;
-    }
-
-    .big-text-sm{
-        font-size:24px;
-        font-weight:bold;
-    }
-
-
-    .sewchic-home-post.sewchic-home-post-small:first-of-type{
-        margin-top:0px;
-    }
-}
-
-@media screen and (min-width: 992px){
-    
-    #sewchic-home-tower-container{
-        display:table-cell;
-        width:33.3%
-    }
-}
-
-@media screen and (min-width: 1200px){
-
-
-    #sewchic-home-tower-img{
-        margin-top: -75px;
-        height: 800px;
-    }
-
 }

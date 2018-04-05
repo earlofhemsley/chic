@@ -4,6 +4,7 @@ if(!isset($content_width)) $content_width=1200;
 
 $GLOBALS['textdomain'] = 'sewchic';
 
+include_once get_template_directory() . '/classes/models/class-front-page-pair.php';
 
 if(!function_exists('sewchic_register_required_plugins')):
 function sewchic_register_required_plugins(){
@@ -119,7 +120,6 @@ function sewchic_register_scripts(){
                 }
             }
 EOT;
-        error_log("hero background inline style: " . $hero_background_style);
         wp_add_inline_style('core',$hero_background_style);
 
     }
@@ -151,6 +151,11 @@ add_action('wp_enqueue_scripts', 'sewchic_register_scripts');
 //remove woocommerce stylesheets completely
 add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 endif;
+
+//enqueue customizer scripts
+add_action('customize_controls_enqueue_scripts', function(){
+    wp_enqueue_script('sewchic-context-controls', get_template_directory_uri() . '/assets/js/customizer-context-controls.js', array('customize-controls','jquery'), false, true );
+});
 
 //Use a placeholder custom logo if none is uploaded
 if(!function_exists('sewchic_custom_logo')):
@@ -277,7 +282,7 @@ function sewchic_customizer_setup($wp_customizer){
         'priority' => 100
     ));
     
-    $allCats = array();
+    $allCats = array( -1 => 'Do Not Display' );
     foreach(array('product_cat', 'category') as $term){
         $allCats += get_terms(array(
             'taxonomy' => $term,
@@ -287,19 +292,35 @@ function sewchic_customizer_setup($wp_customizer){
         ));
     }
 
+    //TODO: figure out why the image controls aren't working
     foreach(array(1 => 'first',2 => 'second',3 => 'third') as $num => $ordinal){
         $wp_customizer->add_setting("sewchic_home_category_$num", array(
-            'sanitize_callback' => function($input){return $input;} //TODO: make sure this is a product / blog post category
+            'sanitize_callback' => function($input){return $input;} //TODO: validation: make sure this is a product / blog post category or -1
         ));
+
+        $wp_customizer->add_setting("sewchic_home_category_{$num}_image",array(
+            'sanitize_callback' => function($input){return $input;} //TODO: make sure this is a valid image
+        ));
+
         $wp_customizer->add_control("sewchic_home_category_$num", array(
             'section' => 'front_page_customization',
-            'priority' => 10 + $num,
+            'priority' => 10 + (($num -1)*2),
             'label' => "Home page catagory no. $num",
             'description' => "This is the $ordinal home page category",
             'type' => 'select',
             'choices' => $allCats,
         ));
-        
+
+        $wp_customizer->add_control(new WP_Customize_Image_Control(
+            $wp_customizer,
+            "sewchic_home_category_{$num}_image",
+            array(
+                'section' => 'front_page_customization',
+                'priority' => 10 + (($num -1)*2) + 1,
+                'label' => __("Category {$num} Image", 'sewchic'),
+                'description' => __("The featured image for the category defined &uarr;", 'sewchic')
+            )
+        ));
     }
 
 

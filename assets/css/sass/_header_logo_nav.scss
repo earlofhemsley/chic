@@ -58,6 +58,11 @@
     }
 }
 @media screen and (min-width:768px){
+    
+    .sewchic-navbar-toggle{
+        display:none;
+    }
+
     .sewchic-header-widget-container{
         h3{
             margin: 3px auto;
