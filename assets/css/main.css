@@ -213,6 +213,8 @@ body {
     background-position: left center; }
   .sewchic-home-post-container .sewchic-home-post-products .sewchic-home-post {
     background-position: center center; }
+  .sewchic-home-post-container.inverted .sewchic-home-post-category .sewchic-home-post {
+    background-position: right center; }
   .sewchic-home-post-container .sewchic-home-post {
     display: block;
     background-repeat: no-repeat;
@@ -274,8 +276,6 @@ body {
         right: 30px; }
     .sewchic-home-post-container.inverted {
       flex-flow: row-reverse nowrap; }
-      .sewchic-home-post-container.inverted .sewchic-home-post-category .sewchic-home-post {
-        background-position: right center; }
       .sewchic-home-post-container.inverted .sewchic-home-post {
         text-align: right; }
         .sewchic-home-post-container.inverted .sewchic-home-post .sewchic-home-button-text {

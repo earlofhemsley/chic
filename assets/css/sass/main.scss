@@ -67,6 +67,13 @@
             background-position: center center;
         }
     }
+    &.inverted{
+        .sewchic-home-post-category{
+            .sewchic-home-post{
+                background-position: right center;
+            }
+        }
+    }
     
     .sewchic-home-post{
         display:block;
@@ -155,11 +162,6 @@
         &.inverted{
             flex-flow:row-reverse nowrap;
             
-            .sewchic-home-post-category{
-                .sewchic-home-post{
-                    background-position: right center;
-                }
-            }
             .sewchic-home-post{
                 text-align:right;
                 .sewchic-home-button-text{
