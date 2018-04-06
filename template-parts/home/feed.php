@@ -18,6 +18,7 @@
                     'terms' => $cat_obj->term_id
                 ),
             ),
+            'orderby' => 'rand',
             'sewchic_is_home' => true
         ));
 
@@ -27,27 +28,23 @@
         
         //map necessary variables
         $link = null;
-        $img_url = null;
         $is_product_cat = $cat_obj->taxonomy == 'product_cat';
         $button_text = $is_product_cat ? __('Shop Now','sewchic') : __('Read the blog', 'sewchic');
         if($img_url_option){
-            $link = get_term_link($cat_obj);
             $img_url = $img_url_option;
         } else {
             if(!$query->have_posts()) 
                 throw new Exception("Could not load posts for this category");
             $query->the_post();
-            $link = get_the_permalink();
             $img_url = common_get_feed_image_url();
         }
 
-        //error_log(var_export($cat_obj, true));
 
         //render template
 ?>
     <div class="sewchic-home-post-container <?php echo $alignment_class; ?>">
         <div class="sewchic-home-post-category">
-            <a href="<?php echo $link; ?>" class="sewchic-home-post sewchic-home-post-large" style="background-image: url('<?php echo $img_url; ?>');">
+            <a href="<?php echo get_term_link($cat_obj); ?>" class="sewchic-home-post sewchic-home-post-large" style="background-image: url('<?php echo $img_url; ?>');">
                 <h1 class="sewchic-home-post-category-title"><?php echo $cat_obj->name; ?></h1>
                 <div class="sewchic-home-button-text"><?php echo $button_text; ?></div>
             </a>
