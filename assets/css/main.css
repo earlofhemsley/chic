@@ -233,8 +233,10 @@ body {
     .sewchic-home-post-container .sewchic-home-post .sewchic-home-post-category-title {
       margin: 0;
       padding: 10px;
-      color: #222;
-      font-size: 30px; }
+      color: white;
+      font-size: 30px;
+      -webkit-text-stroke: 1px #222;
+      text-shadow: 2px 2px #222, 1px 1px #222, 1px -1px #222, -1px 1px #222, -1px -1px #222; }
     .sewchic-home-post-container .sewchic-home-post .sewchic-home-button-text {
       border: transparent solid 5px;
       background-color: white;
