@@ -36,7 +36,7 @@
             if(!$query->have_posts()) 
                 throw new Exception("Could not load posts for this category");
             $query->the_post();
-            $img_url = common_get_feed_image_url();
+            $img_url = common_get_feed_image_url('full');
         }
 
 
@@ -51,10 +51,10 @@
         </div>
         <div class="sewchic-home-post-products">
             <?php if($query->have_posts()) $query->the_post();?>
-            <a href="<?php the_permalink(); ?>" class="sewchic-home-post sewchic-home-post-small" style="background-image: url('<?php echo common_get_feed_image_url(); ?>');">
+            <a href="<?php the_permalink(); ?>" class="sewchic-home-post sewchic-home-post-small" style="background-image: url('<?php echo common_get_feed_image_url('medium'); ?>');">
             </a>
             <?php if($query->have_posts()) $query->the_post();?>
-            <a href="<?php the_permalink(); ?>" class="sewchic-home-post sewchic-home-post-small" style="background-image: url('<?php echo common_get_feed_image_url(); ?>');">
+            <a href="<?php the_permalink(); ?>" class="sewchic-home-post sewchic-home-post-small" style="background-image: url('<?php echo common_get_feed_image_url('medium'); ?>');">
             </a>
         </div>
     </div> 
