@@ -243,8 +243,16 @@ table.shop_attributes{
 
 }
 
-
 /*end generics and overrides*/
+
+/*Photoswipe default overrides*/
+//.pswp__caption__center{
+//    text-align:center;
+//    font-size:large;
+//}
+
+/*End photoswipe default overrides*/
+
 
 /*cart page styles*/
 .cart_totals > table.shop_table, table.shop_table.cart{
@@ -1049,6 +1057,7 @@ nav.woocommerce-MyAccount-navigation{
 @media screen and (min-width:768px) and (max-width:992px){
     nav.woocommerce-MyAccount-navigation ul li a{
         padding:6px;
+        font-size:14px;
     }
 }
 

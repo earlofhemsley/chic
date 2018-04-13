@@ -32,20 +32,18 @@ body {
   .stepped-wrap {
     max-width: 768px; }
 
-  .sewchic-table {
-    display: table;
-    width: 100%; }
-
   .sewchic-row {
-    display: table-row; }
+    display: flex;
+    flex-flow: row nowrap; }
 
   .sewchic-cell {
-    display: table-cell;
-    padding: 0 15px; }
-
-  .sewchic-right-rail {
-    width: 25%;
-    max-width: 300px; } }
+    flex: 1000 auto;
+    margin-right: 30px; }
+    .sewchic-cell:last-of-type {
+      margin-right: 0; }
+    .sewchic-cell.sewchic-right-rail {
+      flex: 1 25%;
+      min-width: 175px; } }
 @media screen and (min-width: 992px) {
   .stepped-wrap {
     max-width: 992px; } }

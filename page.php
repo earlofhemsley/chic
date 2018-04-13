@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="wrap standard-wrap sewchic-table">
+<div class="wrap standard-wrap">
     <div class="sewchic-row">
         <div class="sewchic-cell">
             <?php

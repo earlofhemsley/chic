@@ -39,23 +39,21 @@ body{
         max-width: 768px;
     }
     
-    .sewchic-table{
-        display:table;
-        width:100%;
-    }
-
     .sewchic-row{
-        display:table-row;
+        display:flex;
+        flex-flow:row nowrap;
     }
 
     .sewchic-cell{
-        display:table-cell;
-        padding:0 15px;
-    }
-
-    .sewchic-right-rail{
-        width:25%;
-        max-width:300px;
+        flex: 1000 auto;
+        margin-right:30px;
+        &:last-of-type{
+            margin-right:0;
+        }
+        &.sewchic-right-rail{
+            flex: 1 25%;
+            min-width:175px;
+        }
     }
 }
 

@@ -186,6 +186,17 @@ function sewchic_widgets_setup(){
         'before_widget' => '',
         'after_widget' => '',
     ));
+    
+    register_sidebar(array(
+        'name' => __('Home page lower widget area', 'sewchic'),
+        'id' => 'home-body-lower',
+        'description' => __('Appears beneath home page category content display','sewchic'),
+        'before_widget' => '',
+        'after_widget' => '',
+    ));
+
+
+
     foreach(array('one','two','three') as $i => $value){
         register_sidebar(array(
             'name' => __("Sidebar ", 'sewchic') . $value,

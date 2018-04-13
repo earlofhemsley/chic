@@ -28,6 +28,11 @@
                 ?>
             </div>
         </div>
+        <div class="sewchic-home-secondary-content">
+            <?php 
+                if(is_active_sidebar('home-body-lower')) { dynamic_sidebar('home-body-lower'); }
+            ?>
+        </div>
     </div>
 </div>
 
