@@ -4,7 +4,9 @@ if(!isset($content_width)) $content_width=1200;
 
 $GLOBALS['textdomain'] = 'sewchic';
 
-include_once get_template_directory() . '/classes/models/class-front-page-pair.php';
+require_once( get_template_directory(). '/woocommerce-integration.php');
+require_once( get_template_directory(). '/common/common-functions.php' );
+require_once( get_template_directory(). '/classes/class-tgm-plugin-activation.php');
 
 if(!function_exists('sewchic_register_required_plugins')):
 function sewchic_register_required_plugins(){
@@ -677,10 +679,6 @@ function common_photoswipe_element(){
 endif;
 
 
-
-require_once( get_template_directory(). '/woocommerce-integration.php');
-require_once( get_template_directory(). '/common/common-functions.php' );
-require_once( get_template_directory(). '/classes/class-tgm-plugin-activation.php');
 
 
 ?>

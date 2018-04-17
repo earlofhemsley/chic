@@ -204,8 +204,6 @@ table.shop_attributes {
     line-height: 0;
     visibility: hidden; } }
 /*end generics and overrides*/
-/*Photoswipe default overrides*/
-/*End photoswipe default overrides*/
 /*cart page styles*/
 .cart_totals > table.shop_table tr > th, table.shop_table.cart tr > th {
   display: none; }
