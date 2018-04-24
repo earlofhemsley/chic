@@ -1,0 +1,205 @@
+
+/*********************
+  HOME PAGE STYLES
+*********************/
+.sewchic-home-hero-wrapper{
+    background: repeating-linear-gradient(
+        to right,
+        $headerpink,
+        $headerpink 15px,
+        $beige 15px,
+        $beige 30px
+    );
+    border-bottom:50px solid $headerpink;
+}
+.sewchic-hero-body{
+    padding:20px 0;
+    background-image: none;
+    background-position:center top;
+    background-size:contain;
+    background-repeat: no-repeat;
+}
+
+.sewchic-carousel-item{
+    text-align:center;
+    img{
+        margin:auto;
+    }
+}
+
+.sewchic-home-menu-title{
+    text-decoration:underline;
+    font-weight:bold;
+}
+
+.sewchic-menu{
+    font-size:20px;
+    a{color:$black}
+}
+
+.sewchic-home-post-container{
+    display:flex;
+    flex-flow:column nowrap;
+    justify-content:space-between;
+    &>*{
+        margin:10px;
+        flex: 1 50%;
+    }
+    & * {
+        box-sizing:border-box;
+    }
+
+    .sewchic-home-post-category{
+        .sewchic-home-post{
+            background-position: left center;
+        }
+    }
+    .sewchic-home-post-products{
+        .sewchic-home-post{
+            background-position: center center;
+        }
+    }
+    &.inverted{
+        .sewchic-home-post-category{
+            .sewchic-home-post{
+                background-position: right center;
+            }
+        }
+    }
+    
+    .sewchic-home-post{
+        display:block;
+        background-repeat: no-repeat;
+        background-size:cover;
+        background-origin:border-box;
+        position:relative;
+        text-decoration:none;
+        text-align:center;
+        &.sewchic-home-post-large{
+            height:500px;    
+        }
+        &.sewchic-home-post-small{
+            height:242px;
+            margin-bottom:18px;
+            &:last-of-type{
+                margin-bottom:0;
+            }
+        }
+        .sewchic-home-post-category-title{
+            margin:0;
+            padding: 10px;
+            color: $white;
+            font-size:30px;
+            -webkit-text-stroke: 1px $black;
+            text-shadow:
+                2px 2px $black,
+                1px 1px $black,
+                1px -1px $black,
+                -1px 1px $black,
+                -1px -1px $black
+            ;
+
+             
+        }
+        .sewchic-home-button-text{
+            border:transparent solid 5px;
+            background-color: $white;
+            color: $black;
+            padding: 5px 10px;
+            position: absolute;
+            bottom: 10px;
+            right: 50%;
+            margin-right:-100px;
+            font-size:20px;
+            width:200px;
+            max-width: 84%;
+        }
+        &:hover{
+            .sewchic-home-button-text{
+                border: $light-purple solid 5px;
+                background-color: $black;
+                color: $white;
+            }
+        }
+
+    }
+
+}
+
+
+
+
+
+@media screen and (min-width: 768px){
+    .big-text-sm{
+        font-size:24px;
+        font-weight:bold;
+    }
+
+    .sewchic-home-post-container{
+        flex-flow: row nowrap;
+        .sewchic-home-post-category {
+            flex: 100 auto;
+        }
+        .sewchic-home-post-products{
+            flex: 1 33%;
+        }
+        
+        .sewchic-home-post{
+            text-align:left;
+            .sewchic-home-button-text{
+                width:auto;
+                margin-right:auto;
+                right:15px;
+            }
+            .sewchic-home-post-category-title{
+                font-size:48px;
+                position:absolute;
+                top:10px;
+                right:30px;
+            }
+        }
+
+        &.inverted{
+            flex-flow:row-reverse nowrap;
+            
+            .sewchic-home-post{
+                text-align:right;
+                .sewchic-home-button-text{
+                    left:15px;
+                    right:initial;
+                }
+                .sewchic-home-post-category-title{
+                    left:30px;
+                    right:initial;
+                }
+            }
+
+        }
+    }
+
+
+    
+}
+
+@media screen and (min-width: 992px){
+    .sewchic-home-post-container{
+        .sewchic-home-post-products{
+            flex: 1 20%;
+        }
+    }
+
+}
+
+@media screen and (min-width: 1200px){
+}
+
+.sewchic-copyright{
+    text-align:center;
+    font-size:14px;
+    font-variant:normal;
+    color:$light-grey;
+    a{
+        color:$light-grey;
+    }
+}

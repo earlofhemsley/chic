@@ -1,6 +1,6 @@
 /*Photoswipe default overrides*/
 .pswp__caption__center{
-    text-align:center;
-    font-size:large;
+    text-align:center !important;
+    font-size:large !important;
 }
 /*End photoswipe default overrides*/

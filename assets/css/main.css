@@ -148,28 +148,6 @@ body {
   #sewchic_primary_menu {
     font-size: 24px;
     font-weight: bold; } }
-/********************
-  HEADER STYLES
-  SEARCH FORM
-*********************/
-#sewchic_home_search {
-  margin: 20px 0; }
-  #sewchic_home_search input, #sewchic_home_search label, #sewchic_home_search button {
-    margin: 5px 0; }
-  #sewchic_home_search input {
-    height: auto; }
-
-@media screen and (max-width: 768px) {
-  #sewchic_home_search input {
-    padding: 6px 0; } }
-@media screen and (min-width: 768px) {
-  #sewchic_home_search input, #sewchic_home_search label, #sewchic_home_search button {
-    margin: 0 10px; }
-  #sewchic_home_search label {
-    position: relative;
-    top: 4px; }
-  #sewchic_home_search input {
-    width: 250px; } }
 /*********************
   HOME PAGE STYLES
 *********************/
@@ -294,5 +272,124 @@ body {
   color: #aeaeae; }
   .sewchic-copyright a {
     color: #aeaeae; }
+
+/********************
+  FORM STYLES
+*********************/
+.sewchic-form div.sewchic-input-group {
+  margin: 0; }
+.sewchic-form input, .sewchic-form label, .sewchic-form button {
+  margin: 5px 0; }
+.sewchic-form input {
+  height: auto; }
+
+#sewchic_search_form {
+  margin: 20px 0; }
+
+a.button, input.button, input.submit, button.button, input[type="submit"], button[type="submit"] {
+  background-color: #efefef;
+  border: 1px solid #aeaeae;
+  color: #222;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  -ms-touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none; }
+  a.button:hover, a.button:active, input.button:hover, input.button:active, input.submit:hover, input.submit:active, button.button:hover, button.button:active, input[type="submit"]:hover, input[type="submit"]:active, button[type="submit"]:hover, button[type="submit"]:active {
+    background-color: white; }
+
+a.button.alt, input.button.alt, input.submit.alt, button.button.alt {
+  background-color: #878ac1;
+  color: white; }
+  a.button.alt:hover, a.button.alt:active, input.button.alt:hover, input.button.alt:active, input.submit.alt:hover, input.submit.alt:active, button.button.alt:hover, button.button.alt:active {
+    background-color: #ced0ff;
+    color: #515151; }
+
+button.wcsc-toggle.button {
+  width: 100%;
+  margin-bottom: 10px;
+  display: block; }
+  button.wcsc-toggle.button:active, button.wcsc-toggle.button:hover {
+    background-color: white; }
+  button.wcsc-toggle.button .icon-bar {
+    display: block;
+    margin: 4px auto;
+    width: 22px;
+    background-color: #222;
+    height: 2px;
+    border-radius: 1px; }
+
+.input-text, select.orderby, input.search-field {
+  width: 100%;
+  margin-top: 5px;
+  padding: 10px 12px 8px;
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 1em;
+  background-color: white;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.75);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
+
+.input-checkbox {
+  display: none; }
+  .input-checkbox + .input-checkbox-label {
+    position: relative;
+    display: inline-block;
+    background-color: #efefef;
+    border: 1px solid #aeaeae;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.75);
+    padding: 10px;
+    border-radius: 3px;
+    position: relative;
+    vertical-align: middle;
+    margin-right: 7px; }
+
+.input-checkbox:checked + .input-checkbox-label:before, .input-checkbox:active + .input-checkbox-label:before {
+  content: '\2714';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  font-size: 15px; }
+
+@media screen and (min-width: 768px) {
+  #sewchic_search_form input {
+    padding: 6px 0; }
+  #sewchic_search_form label {
+    position: relative;
+    top: 4px; }
+
+  .sewchic-form input, .sewchic-form label, .sewchic-form button {
+    margin: 0 10px; }
+
+  button.wcsc-toggle.button {
+    display: none; }
+
+  .wcsc-collapse {
+    display: block;
+    height: initial !important; }
+
+  .sewchic-form-inline.sewchic-form h1, .sewchic-form-inline.sewchic-form h2, .sewchic-form-inline.sewchic-form h3, .sewchic-form-inline.sewchic-form h4, .sewchic-form-inline.sewchic-form h5, .sewchic-form-inline.sewchic-form h6,
+  .sewchic-form-inline.sewchic-form div.sewchic-input-group {
+    display: inline;
+    margin: 10px;
+    white-space: nowrap;
+    line-height: 50px; }
+  .sewchic-form-inline.sewchic-form .input-text {
+    width: auto; }
+  .sewchic-form-inline.sewchic-form input, .sewchic-form-inline.sewchic-form label, .sewchic-form-inline.sewchic-form button {
+    margin: 0 10px; } }
 
 /*# sourceMappingURL=main.css.map */

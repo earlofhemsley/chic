@@ -22,9 +22,7 @@
                         sewchic_custom_logo(true);
                     ?>
                     <h3 id="sewchic-tagline"><?php bloginfo('description'); ?></h3>
-                    <div class="sewchic-header-widget-element" id="sewchic_home_search">
-                        <?php get_search_form(); ?>
-                    </div>
+                    <?php get_search_form(); ?>
                 </div>
             </div>
             <div class="sewchic-header-pink">

@@ -33,7 +33,7 @@ span.required {
   .woocommerce-error li,
   .woocommerce-info li {
     list-style: none outside !important;
-    padding-left: 0 !important;
+    padding-left: 30px !important;
     margin-left: 0 !important; }
 
 .screen-reader-text {
@@ -43,83 +43,6 @@ span.required {
   position: absolute !important;
   width: 1px;
   word-wrap: normal !important; }
-
-a.button, input.button, input.submit, button.button, input[type="submit"], button[type="submit"] {
-  background-color: #efefef;
-  border: 1px solid #aeaeae;
-  color: #222;
-  padding: 6px 12px;
-  margin-bottom: 0;
-  font-weight: 400;
-  line-height: 1.42857143;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  touch-action: manipulation;
-  -ms-touch-action: manipulation;
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none; }
-  a.button:hover, a.button:active, input.button:hover, input.button:active, input.submit:hover, input.submit:active, button.button:hover, button.button:active, input[type="submit"]:hover, input[type="submit"]:active, button[type="submit"]:hover, button[type="submit"]:active {
-    background-color: white; }
-
-a.button.alt, input.button.alt, input.submit.alt, button.button.alt {
-  background-color: #878ac1;
-  color: white; }
-  a.button.alt:hover, a.button.alt:active, input.button.alt:hover, input.button.alt:active, input.submit.alt:hover, input.submit.alt:active, button.button.alt:hover, button.button.alt:active {
-    background-color: #ced0ff;
-    color: #515151; }
-
-button.wcsc-toggle.button {
-  width: 100%;
-  margin-bottom: 10px;
-  display: block; }
-  button.wcsc-toggle.button:active, button.wcsc-toggle.button:hover {
-    background-color: white; }
-  button.wcsc-toggle.button .icon-bar {
-    display: block;
-    margin: 4px auto;
-    width: 22px;
-    background-color: #222;
-    height: 2px;
-    border-radius: 1px; }
-
-.input-text, select.orderby, input.search-field {
-  width: 100%;
-  padding: 10px 12px 8px;
-  box-sizing: border-box;
-  font-size: 16px;
-  line-height: 1em;
-  background-color: white;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.75);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.75);
-  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
-
-.input-checkbox {
-  display: none; }
-  .input-checkbox + .input-checkbox-label {
-    position: relative;
-    display: inline-block;
-    background-color: #efefef;
-    border: 1px solid #aeaeae;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.75);
-    padding: 10px;
-    border-radius: 3px;
-    position: relative;
-    vertical-align: middle;
-    margin-right: 7px; }
-
-.input-checkbox:checked + .input-checkbox-label:before, .input-checkbox:active + .input-checkbox-label:before {
-  content: '\2714';
-  position: absolute;
-  left: 4px;
-  top: 1px;
-  font-size: 15px; }
 
 select.orderby {
   margin-bottom: 5px; }
@@ -166,13 +89,6 @@ ul.page-numbers {
     ul.page-numbers li span.current {
       background-color: white; }
 
-@media screen and (min-width: 768px) {
-  button.wcsc-toggle.button {
-    display: none; }
-
-  .wcsc-collapse {
-    display: block;
-    height: initial !important; } }
 table.shop_table, table.shop_attributes {
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.1); }

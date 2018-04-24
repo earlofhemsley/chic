@@ -1,0 +1,160 @@
+/********************
+  FORM STYLES
+*********************/
+
+.sewchic-form{
+    div.sewchic-input-group{
+        margin:0;
+    }
+    input,label,button{
+        margin:5px 0;
+    }
+    input{
+        height:auto;
+    }
+
+}
+
+
+#sewchic_search_form{
+    margin: 20px 0;
+}
+
+a.button, input.button, input.submit, button.button, input[type="submit"], button[type="submit"]{
+    background-color: $lighter-grey;
+    border: 1px solid $light-grey;
+    color:$black;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    -ms-touch-action: manipulation;
+    cursor:pointer;
+    user-select:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    &:hover, &:active{
+        background-color:white;
+    }
+}
+a.button.alt, input.button.alt, input.submit.alt, button.button.alt {
+    background-color:$addToCartBlue2;
+    color:white;
+    &:hover, &:active{
+        background-color:$addToCartBlue;
+        color:$woobutton-font-color;
+    }
+}
+
+
+button.wcsc-toggle.button{
+    width:100%;
+    margin-bottom:10px;
+    display:block;
+    //padding:10px;
+    &:active, &:hover{
+        background-color:white;
+    }
+    .icon-bar{
+        display:block;
+        margin:4px auto;
+        width:22px;
+        background-color:$black;
+        height:2px;
+        border-radius:1px;
+    }
+}
+
+
+.input-text, select.orderby, input.search-field{
+    width:100%;
+    margin-top:5px;
+    padding:10px 12px 8px;
+    box-sizing:border-box;
+    font-size:16px;
+    line-height:1em;
+    background-color:white;
+    background-image:none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.75);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.75);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+
+.input-checkbox{
+    display:none;
+    & + .input-checkbox-label{
+        position:relative;
+        display:inline-block;
+        background-color: $lighter-grey;
+        border: 1px solid $light-grey;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0.75);
+        padding:10px;
+        border-radius:3px;
+        position:relative;
+        vertical-align:middle;
+        margin-right:7px;
+    }
+}
+
+.input-checkbox:checked, .input-checkbox:active{
+    & + .input-checkbox-label:before{
+        content:'\2714';
+        position:absolute;
+        left:4px;
+        top:1px;
+        font-size:15px;
+    }
+}
+
+@media screen and (min-width: 768px){
+    #sewchic_search_form {
+        input{
+            padding: 6px 0;
+            //width: 250px;
+        }
+        label{
+            position:relative;
+            top:4px;
+        }
+    }
+
+    .sewchic-form{
+        input,label,button{
+            margin: 0 10px;
+        }
+    }
+
+    button.wcsc-toggle.button{
+        display:none;
+    }
+    .wcsc-collapse{
+        display:block;
+        height:initial !important;
+    }
+
+    .sewchic-form-inline.sewchic-form {
+        h1,h2,h3,h4,h5,h6,
+        div.sewchic-input-group
+        {
+            display:inline; 
+            margin: 10px;
+            white-space:nowrap;
+            line-height:50px;
+        }
+        .input-text{
+            width:auto;
+        }
+        input,label,button{
+            margin:0 10px;
+        }
+    }
+
+}
