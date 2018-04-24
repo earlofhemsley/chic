@@ -4,7 +4,7 @@
 
 .sewchic-form{
     div.sewchic-input-group{
-        margin:0;
+        margin: 10px 0;
     }
     input,label,button{
         margin:5px 0;
@@ -118,7 +118,6 @@ button.wcsc-toggle.button{
     #sewchic_search_form {
         input{
             padding: 6px 0;
-            //width: 250px;
         }
         label{
             position:relative;
@@ -127,9 +126,7 @@ button.wcsc-toggle.button{
     }
 
     .sewchic-form{
-        input,label,button{
-            margin: 0 10px;
-        }
+        //nothing needed
     }
 
     button.wcsc-toggle.button{

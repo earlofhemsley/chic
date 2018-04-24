@@ -277,7 +277,7 @@ body {
   FORM STYLES
 *********************/
 .sewchic-form div.sewchic-input-group {
-  margin: 0; }
+  margin: 10px 0; }
 .sewchic-form input, .sewchic-form label, .sewchic-form button {
   margin: 5px 0; }
 .sewchic-form input {
@@ -370,9 +370,6 @@ button.wcsc-toggle.button {
   #sewchic_search_form label {
     position: relative;
     top: 4px; }
-
-  .sewchic-form input, .sewchic-form label, .sewchic-form button {
-    margin: 0 10px; }
 
   button.wcsc-toggle.button {
     display: none; }
