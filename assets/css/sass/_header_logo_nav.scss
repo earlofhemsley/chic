@@ -82,6 +82,10 @@
                 display:block;
                 position:absolute;
                 left: -99999px;
+                li{
+                    display:block;
+                    white-space:nowrap;
+                }
             }
             &:hover{
                 background: #eee;
