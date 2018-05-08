@@ -43,7 +43,7 @@ class woocommerce_general{
 
     public function before_sidebar(){ 
         if(!(is_shop() || is_product_category() || is_product_tag())): ?> 
-                <div class="sewchic-cell sewchic-right-rail">
+                <div class="sewchic-cell force-one-fifth sewchic-right-rail">
         <?php endif;
     }
 

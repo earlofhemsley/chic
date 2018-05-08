@@ -233,7 +233,14 @@ function sewchic_widgets_setup(){
         'after_widget' => '</div>',
     ));
 
-
+    register_sidebar(array(
+        'name' => __('Global site footer'),
+        'id' => 'footer-widgets',
+        'description' => __('Widgets in this area fill an area in the footer','sewchic'),
+        'before_widget' => '',
+        'after_widget' => '',
+    ));
+    
 }
 add_action('widgets_init','sewchic_widgets_setup');
 endif;
@@ -246,8 +253,8 @@ function sewchic_register_menus(){
         'carousel' => __('Home page carousel','sewchic'),
         'home-footer-1' => __('First (from left) optional home page footer menu','sewchic'),
         'home-footer-2' => __('Second (from left) optional home page footer menu','sewchic'),
-        'home-footer-3' => __('Third (from left) optional home page footer menu','sewchic'),
-        'home-footer-4' => __('Fourth (from left) optional home page footer menu','sewchic'),
+        //'home-footer-3' => __('Third (from left) optional home page footer menu','sewchic'),
+        //'home-footer-4' => __('Fourth (from left) optional home page footer menu','sewchic'),
     ));
 }
 add_action('init','sewchic_register_menus');

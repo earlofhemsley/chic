@@ -11,7 +11,7 @@
             }
         ?>
         </div>
-        <div class="sewchic-cell sewchic-right-rail">
+        <div class="sewchic-cell sewchic-right-rail force-one-fifth">
             <?php get_sidebar(); ?>
         </div>
     </div>

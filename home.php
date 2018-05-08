@@ -36,7 +36,4 @@
     </div>
 </div>
 
-<div class="sewchic-home-sidebar-wrapper">
-    <?php get_sidebar(); ?>
-</div>
 <?php get_footer(); ?>

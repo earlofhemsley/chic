@@ -28,6 +28,16 @@ body {
 .text-left {
   text-align: left; }
 
+.sewchic-menu {
+  font-size: 20px; }
+  .sewchic-menu ul {
+    display: none; }
+  .sewchic-menu a {
+    color: #222;
+    text-decoration: none; }
+    .sewchic-menu a:hover {
+      text-decoration: underline; }
+
 @media screen and (min-width: 768px) {
   .stepped-wrap {
     max-width: 768px; }
@@ -35,15 +45,31 @@ body {
   .sewchic-row {
     display: flex;
     flex-flow: row nowrap; }
+    .sewchic-row.sewchic-row-reverse {
+      flex-flow: row-reverse nowrap; }
 
   .sewchic-cell {
-    flex: 1000 auto;
+    flex: 1000 0%;
     margin-right: 30px; }
     .sewchic-cell:last-of-type {
       margin-right: 0; }
+    .sewchic-cell.force-one-fifth {
+      flex: 1 20%; }
+    .sewchic-cell.force-quarter-width {
+      flex: 1 25%; }
+    .sewchic-cell.force-half-width {
+      flex: 1 50%; }
     .sewchic-cell.sewchic-right-rail {
-      flex: 1 25%;
-      min-width: 175px; } }
+      min-width: 175px; }
+
+  .sewchic-row-reverse .sewchic-cell {
+    margin-left: 30px;
+    margin-right: 0; }
+    .sewchic-row-reverse .sewchic-cell:last-of-type {
+      margin-left: 0; }
+
+  .sewchic-menu {
+    padding-left: 25px; } }
 @media screen and (min-width: 992px) {
   .stepped-wrap {
     max-width: 992px; } }
@@ -169,15 +195,6 @@ body {
   text-align: center; }
   .sewchic-carousel-item img {
     margin: auto; }
-
-.sewchic-home-menu-title {
-  text-decoration: underline;
-  font-weight: bold; }
-
-.sewchic-menu {
-  font-size: 20px; }
-  .sewchic-menu a {
-    color: #222; }
 
 .sewchic-home-post-container {
   display: flex;
@@ -374,6 +391,9 @@ button.wcsc-toggle.button {
     position: relative;
     top: 4px; }
 
+  .sewchic-form.limited-width {
+    max-width: 500px; }
+
   button.wcsc-toggle.button {
     display: none; }
 
@@ -391,5 +411,33 @@ button.wcsc-toggle.button {
     width: auto; }
   .sewchic-form-inline.sewchic-form input, .sewchic-form-inline.sewchic-form label, .sewchic-form-inline.sewchic-form button {
     margin: 0 10px; } }
+/*****************
+ * FOOTER STYLES
+ * **************/
+.sewchic-footer-wrapper {
+  background-color: #fbfae7;
+  padding: 15px 0;
+  margin-top: 15px;
+  width: 100%;
+  box-sizing: border-box; }
+
+.sewchic-footer-menu-container,
+.sewchic-footer-menu-title {
+  text-align: center; }
+
+.sewchic-footer-menu-title {
+  text-decoration: underline;
+  font-weight: bold;
+  margin-bottom: 5px; }
+
+.sewchic-footer-menu {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0; }
+
+@media screen and (min-width: 768px) {
+  .sewchic-footer-menu-container,
+  .sewchic-footer-menu-title {
+    text-align: left; } }
 
 /*# sourceMappingURL=main.css.map */
