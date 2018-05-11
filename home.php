@@ -29,6 +29,20 @@
             </div>
         </div>
         <div class="sewchic-home-secondary-content">
+        <?php if(is_active_sidebar('home-body-middle-left') || is_active_sidebar('home-body-middle-right')): ?>
+            <div class="sewchic-row">
+            <?php if(is_active_sidebar('home-body-middle-left')): ?>
+                <div class="sewchic-cell">
+                    <?php dynamic_sidebar('home-body-middle-left'); ?>
+                </div>
+            <?php endif; ?> 
+            <?php if(is_active_sidebar('home-body-middle-right')): ?>
+                <div class="sewchic-cell">
+                    <?php dynamic_sidebar('home-body-middle-right'); ?>
+                </div>
+            <?php endif; ?> 
+            </div>
+        <?php endif;?>
             <?php 
                 if(is_active_sidebar('home-body-lower')) { dynamic_sidebar('home-body-lower'); }
             ?>

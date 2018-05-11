@@ -33,6 +33,10 @@ body{
     text-align:left;
 }
 
+.sewchic-cell{
+    margin-bottom:15px;
+}
+
 .sewchic-menu{
     font-size:20px;
     //ul { display:none; }
@@ -63,6 +67,7 @@ body{
     .sewchic-cell{
         flex: 1000 0%;
         margin-right:30px;
+        margin-bottom:0;
         &:last-of-type{
             margin-right:0;
         }

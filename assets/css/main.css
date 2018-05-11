@@ -28,6 +28,9 @@ body {
 .text-left {
   text-align: left; }
 
+.sewchic-cell {
+  margin-bottom: 15px; }
+
 .sewchic-menu {
   font-size: 20px; }
   .sewchic-menu a {
@@ -48,7 +51,8 @@ body {
 
   .sewchic-cell {
     flex: 1000 0%;
-    margin-right: 30px; }
+    margin-right: 30px;
+    margin-bottom: 0; }
     .sewchic-cell:last-of-type {
       margin-right: 0; }
     .sewchic-cell.force-one-fifth {
@@ -247,6 +251,9 @@ body {
       border: #fff2ff solid 5px;
       background-color: #222;
       color: white; }
+
+.sewchic-home-secondary-content {
+  padding: 0 10px; }
 
 @media screen and (min-width: 768px) {
   .big-text-sm {

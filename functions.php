@@ -190,9 +190,25 @@ function sewchic_widgets_setup(){
     ));
     
     register_sidebar(array(
+        'name' => __('Home page middle left widget area', 'sewchic'),
+        'id' => 'home-body-middle-left',
+        'description' => __('Appears beneath home page category content display, and if content is in the middle right widget area, will position itself to the left. Otherwise will occupy the full width of the layout','sewchic'),
+        'before_widget' => '',
+        'after_widget' => '',
+    ));
+
+    register_sidebar(array(
+        'name' => __('Home page middle right widget area', 'sewchic'),
+        'id' => 'home-body-middle-right',
+        'description' => __('Appears beneath home page category content display, and if content is in the middle left widget area, will position itself to the right. Otherwise will occupy the full width of the layout','sewchic'),
+        'before_widget' => '',
+        'after_widget' => '',
+    ));
+
+    register_sidebar(array(
         'name' => __('Home page lower widget area', 'sewchic'),
         'id' => 'home-body-lower',
-        'description' => __('Appears beneath home page category content display','sewchic'),
+        'description' => __('Appears above beneath home page category content display','sewchic'),
         'before_widget' => '',
         'after_widget' => '',
     ));
@@ -252,8 +268,6 @@ function sewchic_register_menus(){
         'primary' => __('Primary site navigation, located in site header','sewchic'),
         'home-footer-1' => __('An optional footer menu','sewchic'),
         'home-footer-2' => __('Another optional footer menu','sewchic'),
-        //'home-footer-3' => __('Third (from left) optional home page footer menu','sewchic'),
-        //'home-footer-4' => __('Fourth (from left) optional home page footer menu','sewchic'),
     ));
 }
 add_action('init','sewchic_register_menus');
