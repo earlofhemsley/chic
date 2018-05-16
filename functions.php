@@ -285,10 +285,9 @@ function sewchic_customizer_setup($wp_customizer){
     ));
 
     $wp_customizer->add_setting('front_page_tower_img', array(
-        'sanitize_callback' => function($input) {return $input; },
+        'sanitize_callback' => 'sewchic_image_sanitization'
     ));
     //TODO: Hook up javascript callback for dynamic loading
-    //TODO: actually sanitize/validate what's input
 
 
     $wp_customizer->add_control(new WP_Customize_Image_Control(
@@ -303,7 +302,7 @@ function sewchic_customizer_setup($wp_customizer){
     ));
 
     $wp_customizer->add_setting('sewchic_secondary_tagline', array(
-        'sanitize_callback' => function($input) { return $input; }
+        'sanitize_callback' => 'wp_filter_nohtml_kses'
     ));
     //TODO: strip tags if any
 
@@ -332,7 +331,7 @@ function sewchic_customizer_setup($wp_customizer){
         ));
 
         $wp_customizer->add_setting("sewchic_home_category_{$num}_image",array(
-            'sanitize_callback' => function($input){return $input;} //TODO: make sure this is a valid image
+            'sanitize_callback' => 'sewchic_image_sanitization'
         ));
 
         $wp_customizer->add_control("sewchic_home_category_$num", array(
@@ -358,6 +357,25 @@ function sewchic_customizer_setup($wp_customizer){
 
 
 }
+function sewchic_image_sanitization($file, $setting){
+    //allowed file types
+    $mimes = array(
+        'jpg|jpeg|jpe' => 'image/jpeg',
+        'gif'          => 'image/gif',
+        'png'          => 'image/png'
+    );
+     
+    //check file type from file name
+    $file_ext = wp_check_filetype( $file, $mimes );
+     
+    //if file has a valid mime type return it, otherwise return default
+    if($file_ext['ext']){
+        return $file;
+    } else {
+        return $setting->default;
+    }
+}
+
 add_action('customize_register', 'sewchic_customizer_setup');
 endif;
 
