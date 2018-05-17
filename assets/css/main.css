@@ -6,7 +6,6 @@
  * **********************/
 body {
   font-family: "Trebuchet MS","Garamond","Times New Roman", serif, sans-serif;
-  font-size: 16px;
   font-variant: small-caps; }
 
 .standard-wrap {
@@ -353,7 +352,7 @@ button.wcsc-toggle.button {
     height: 2px;
     border-radius: 1px; }
 
-.input-text, select.orderby, input.search-field {
+.input-text, select, input.search-field, input[type="text"], input[type="textarea"] {
   width: 100%;
   margin-top: 5px;
   padding: 10px 12px 8px;

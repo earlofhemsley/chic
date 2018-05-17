@@ -71,7 +71,7 @@ button.wcsc-toggle.button{
 }
 
 
-.input-text, select.orderby, input.search-field{
+.input-text, select, input.search-field, input[type="text"], input[type="textarea"]{
     width:100%;
     margin-top:5px;
     padding:10px 12px 8px;
