@@ -71,7 +71,21 @@ button.wcsc-toggle.button{
 }
 
 
-.input-text, select, input.search-field, input[type="text"], input[type="textarea"]{
+select,
+textarea,
+input[type="text"], 
+input[type="email"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+{
     width:100%;
     margin-top:5px;
     padding:10px 12px 8px;
