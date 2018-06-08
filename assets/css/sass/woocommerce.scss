@@ -433,9 +433,10 @@ $empty-star:'\2606';
     }
 }
 
+/* product page items */
 .entry-summary{
     .price{
-        margin:10px;
+        margin:10px 0;
         font-weight:bold;
         font-size:24px;
         color:$priceGreen;
@@ -445,13 +446,14 @@ $empty-star:'\2606';
 
 /*variations table*/
 table.variations{
-    margin:10px auto;
+    margin:10px 0;
     label{
         color:black;
         font-size:24px;
         margin:0;
         vertical-align:middle;
     }
+    td{padding-right:10px;}
     
     .bs-inline-hack{
         margin-top:0;
@@ -488,14 +490,17 @@ table.variations{
         }
     }
 
+    .single_variation_wrap > div {
+        margin: 15px 0;
+    }
+
     .quantity-wrapper{
         padding:10px;
         border: 2px solid $headerpink;
         border-radius: 5px;
         max-width:350px;
         margin:auto;
-        width:90%;
-        text-align:center;
+        display:inline-block;
         div, button, input{
             display:inline-block;
         }

@@ -341,8 +341,9 @@ table.shop_table.woocommerce-checkout-review-order-table thead td:first-child, t
       display: inline-block;
       padding: 10px; }
 
+/* product page items */
 .entry-summary .price {
-  margin: 10px;
+  margin: 10px 0;
   font-weight: bold;
   font-size: 24px;
   color: #00ae00;
@@ -350,12 +351,14 @@ table.shop_table.woocommerce-checkout-review-order-table thead td:first-child, t
 
 /*variations table*/
 table.variations {
-  margin: 10px auto; }
+  margin: 10px 0; }
   table.variations label {
     color: black;
     font-size: 24px;
     margin: 0;
     vertical-align: middle; }
+  table.variations td {
+    padding-right: 10px; }
   table.variations .bs-inline-hack {
     margin-top: 0;
     margin-bottom: 0;
@@ -380,14 +383,15 @@ table.variations {
     .wcsc-cart-add-form table.group_table td.label label {
       margin-bottom: 0;
       font-size: 20px; }
+.wcsc-cart-add-form .single_variation_wrap > div {
+  margin: 15px 0; }
 .wcsc-cart-add-form .quantity-wrapper {
   padding: 10px;
   border: 2px solid #fbdedd;
   border-radius: 5px;
   max-width: 350px;
   margin: auto;
-  width: 90%;
-  text-align: center; }
+  display: inline-block; }
   .wcsc-cart-add-form .quantity-wrapper div, .wcsc-cart-add-form .quantity-wrapper button, .wcsc-cart-add-form .quantity-wrapper input {
     display: inline-block; }
 

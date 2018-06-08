@@ -8,6 +8,8 @@ class woocommerce_single_product {
         add_action('woocommerce_after_add_to_cart_form', array($this, 'after_add_to_cart_form'));
         add_action('woocommerce_before_add_to_cart_button', array($this, 'before_add_to_cart_button'));
         add_action('woocommerce_after_add_to_cart_button', array($this, 'after_add_to_cart_button'));
+
+        add_action('woocommerce_before_variations_form', array($this, 'before_variations_form'));
     
         add_filter('woocommerce_product_tabs', array($this, 'single_product_add_a_tab'),100);
         
@@ -30,12 +32,17 @@ class woocommerce_single_product {
         </div><!-- .wcsc-cart-add-form -->    
     <?php }
 
+    public function before_variations_form(){ ?> 
+        <hr />
+    <?php }
+
+
     public function before_add_to_cart_button(){ ?>
-            <div class="quantity-wrapper">
+        <div class="quantity-wrapper">
     <?php }
 
     public function after_add_to_cart_button(){ ?>
-            </div><!-- .quantity-wrapper -->
+        </div><!-- .quantity-wrapper -->
     <?php }
 
     public function single_product_add_a_tab($tabs){
