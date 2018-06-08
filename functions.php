@@ -304,7 +304,6 @@ function sewchic_customizer_setup($wp_customizer){
     $wp_customizer->add_setting('sewchic_secondary_tagline', array(
         'sanitize_callback' => 'wp_filter_nohtml_kses'
     ));
-    //TODO: strip tags if any
 
     $wp_customizer->add_control('sewchic_secondary_tagline', array(
         'section' => 'title_tagline',
@@ -324,14 +323,9 @@ function sewchic_customizer_setup($wp_customizer){
         ));
     }
 
-    //TODO: figure out why the image controls aren't working
     foreach(array(1 => 'first',2 => 'second',3 => 'third') as $num => $ordinal){
         $wp_customizer->add_setting("sewchic_home_category_$num", array(
-            'sanitize_callback' => function($input){return $input;} //TODO: validation: make sure this is a product / blog post category or -1
-        ));
-
-        $wp_customizer->add_setting("sewchic_home_category_{$num}_image",array(
-            'sanitize_callback' => 'sewchic_image_sanitization'
+            'validate_callback' => function($input){return $input;} //TODO: validation: make sure this is a product / blog post category or -1
         ));
 
         $wp_customizer->add_control("sewchic_home_category_$num", array(
@@ -343,6 +337,10 @@ function sewchic_customizer_setup($wp_customizer){
             'choices' => $allCats,
         ));
 
+        $wp_customizer->add_setting("sewchic_home_category_{$num}_image",array(
+            'sanitize_callback' => 'sewchic_image_sanitization'
+        ));
+
         $wp_customizer->add_control(new WP_Customize_Image_Control(
             $wp_customizer,
             "sewchic_home_category_{$num}_image",
@@ -352,6 +350,14 @@ function sewchic_customizer_setup($wp_customizer){
                 'label' => __("Category {$num} Image", 'sewchic'),
                 'description' => __("The featured image for the category defined &uarr;", 'sewchic')
             )
+        ));
+
+        $wp_customizer->add_setting("show_sewchic_home_category_title_$num");
+        $wp_customizer->add_control("show_sewchic_home_category_title_$num", array(
+            'section' => 'front_page_customization',
+            'priority' => 10 + (($num -1)*2) + 2,
+            'label' => "Display category title on front page",
+            'type' => 'checkbox',
         ));
     }
 

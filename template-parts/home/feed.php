@@ -39,13 +39,16 @@
             $img_url = common_get_feed_image_url('full');
         }
 
+        $show_title = get_theme_mod("show_sewchic_home_category_title_$num");
 
         //render template
 ?>
     <div class="sewchic-home-post-container <?php echo $alignment_class; ?>">
         <div class="sewchic-home-post-category">
             <a href="<?php echo get_term_link($cat_obj); ?>" class="sewchic-home-post sewchic-home-post-large" style="background-image: url('<?php echo $img_url; ?>');">
-                <h1 class="sewchic-home-post-category-title"><?php echo $cat_obj->name; ?></h1>
+                <?php if($show_title): ?>
+                    <h1 class="sewchic-home-post-category-title"><?php echo $cat_obj->name; ?></h1>
+                <?php endif; ?>
                 <div class="sewchic-home-button-text"><?php echo $button_text; ?></div>
             </a>
         </div>

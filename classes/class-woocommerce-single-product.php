@@ -36,7 +36,6 @@ class woocommerce_single_product {
         <hr />
     <?php }
 
-
     public function before_add_to_cart_button(){ ?>
         <div class="quantity-wrapper">
     <?php }
