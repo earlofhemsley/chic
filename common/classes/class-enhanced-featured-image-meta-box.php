@@ -30,7 +30,6 @@ abstract class Enhanced_Featured_Image_Meta_Box{
         $screen = get_current_screen();
         if(is_object($screen)){
             if(in_array($screen->post_type, ['page','post'])){
-                error_log("GLOBAL POST ID: " . $post->ID);
                 wp_enqueue_script('enhanced_featured_image_box_js', get_template_directory_uri().'/common/js/enhanced-featured-image.js', ['jquery'], false, true);
                 wp_localize_script('enhanced_featured_image_box_js', 'efi', 
                     [
@@ -44,7 +43,6 @@ abstract class Enhanced_Featured_Image_Meta_Box{
     }
 
     public static function ajax(){
-        error_log('AJAX HIT ... POST: '. var_export($_POST, true));
         if(array_key_exists('_post_id', $_POST)){
             $post = get_post($_POST['_post_id']);
             self::save($post->ID);
@@ -58,13 +56,11 @@ abstract class Enhanced_Featured_Image_Meta_Box{
     public static function save($post_id){
         if(array_key_exists('_thumbnail_id', $_POST) && $_POST['_thumbnail_id'] == -1){
             foreach(self::$keys as $key => $data){
-                error_log("deleting $key from $post_id");
                 delete_post_meta($post_id, $key);
             }
         } else {
             foreach(self::$keys as $key => $data){
                 if(array_key_exists($key, $_POST)){
-                    error_log("SAVING $key: ". var_export($_POST[$key], true));
                     update_post_meta(
                         $post_id,
                         $key,
@@ -72,7 +68,6 @@ abstract class Enhanced_Featured_Image_Meta_Box{
                     );
                 } else {
                     if(is_array($data)){
-                        error_log("SAVING $key: 0"); 
                         update_post_meta(
                             $post_id, 
                             $key,
@@ -142,7 +137,6 @@ abstract class Enhanced_Featured_Image_Meta_Box{
     public static function display($image_size, $figure_class = ''){
         if(is_singular(['page','post']) && in_the_loop()){
         $figure_class .= (get_post_meta(get_the_ID(), '_thumbnail_size', true)) ? ' common-full-width' : ' common-half-width';
-        error_log($figure_class);
         $thumbnail_position = get_post_meta(get_the_ID(), '_thumbnail_position', true);
 
         switch($thumbnail_position){
@@ -158,7 +152,6 @@ abstract class Enhanced_Featured_Image_Meta_Box{
             default:
                 break;        
         }
-        error_log($figure_class);
 
         ?>
             <figure class="<?php echo $figure_class; ?>">
