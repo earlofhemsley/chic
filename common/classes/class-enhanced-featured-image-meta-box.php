@@ -29,7 +29,7 @@ abstract class Enhanced_Featured_Image_Meta_Box{
         global $post;
         $screen = get_current_screen();
         if(is_object($screen)){
-            if(in_array($screen->post_type, ['page','post'])){
+            if($post != null && in_array($screen->post_type, ['page','post'])){
                 wp_enqueue_script('enhanced_featured_image_box_js', get_template_directory_uri().'/common/js/enhanced-featured-image.js', ['jquery'], false, true);
                 wp_localize_script('enhanced_featured_image_box_js', 'efi', 
                     [
