@@ -8,6 +8,9 @@ body {
   font-family: "Trebuchet MS","Garamond","Times New Roman", serif, sans-serif;
   font-variant: small-caps; }
 
+figure {
+  margin: 0; }
+
 .standard-wrap {
   max-width: 1200px; }
 

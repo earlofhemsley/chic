@@ -1,6 +1,7 @@
 <?php 
 
 require_once('classes/class-common-comment-walker.php');
+require_once('classes/class-enhanced-featured-image-meta-box.php');
 
 
 //common functions I typically use across themes

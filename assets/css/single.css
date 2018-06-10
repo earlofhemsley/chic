@@ -8,7 +8,8 @@ figcaption {
   padding: 5px; }
 
 figure.sewchic-single-featured-image {
-  margin: 10px 0 20px; }
+  margin-top: 10px;
+  margin-bottom: 20px; }
   figure.sewchic-single-featured-image img {
     width: 100%;
     height: auto;

@@ -2,6 +2,36 @@
 * COMMON STYLES ... part of the common codebase
 **************************/
 
+.common-full-width, .common-half-width{
+    width:100%;
+}
+
+@media screen and (min-width: 768px){
+    .common-half-width{
+        width:50%;
+    }
+    
+    .common-centered{
+        text-align:center;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .common-left-float{
+        float:left;
+        margin-left:0;
+        margin-right: 15px;
+        margin-bottom: 20px;
+    }
+
+    .common-right-float{
+        float:right;
+        margin-right:0;
+        margin-left: 15px;
+        margin-bottom: 20px;
+    }
+}
+
 
 /**************************
 * NAVIGATION STYLES
