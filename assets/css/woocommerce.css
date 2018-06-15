@@ -28,7 +28,8 @@ span.required {
   .woocommerce-message .button,
   .woocommerce-error .button,
   .woocommerce-info .button {
-    float: right; }
+    float: right;
+    margin-top: -8px; }
   .woocommerce-message li,
   .woocommerce-error li,
   .woocommerce-info li {

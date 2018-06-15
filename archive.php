@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="wrap standard-wrap container-fluid">
+<div class="wrap standard-wrap">
     <?php
         $wpq = $GLOBALS['wp_query'];
         if(is_category()) $headline = 'Category: '.$wpq->queried_object->name;

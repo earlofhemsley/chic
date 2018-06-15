@@ -110,6 +110,7 @@ function sewchic_register_scripts(){
 
     //styles
     wp_enqueue_style('h5bp', get_template_directory_uri().'/assets/css/vendor/h5bp.css');
+    wp_enqueue_style('normalize', get_template_directory_uri().'/assets/css/vendor/normalize.css');
     wp_enqueue_style('core', get_stylesheet_uri(), array('h5bp'));
 
     //conditional script/style loading
@@ -554,7 +555,6 @@ endif;
 if(!function_exists('sewchic_search_again_form')):
 function sewchic_search_again_form($echo = true){
     global $wp_query;
-    //echo '<pre>'; var_dump($wp_query->query_vars['tax_query']); echo '</pre>';
     $home_url = get_home_url();
     $tax_struct = array(
         'category' => array(
@@ -602,7 +602,7 @@ EOT;
             //checkbox logic
             //if the id up for conideration is in the terms array, then set the checked
             $checked = (is_array($terms_array) && in_array($id, $terms_array)) ? 'checked' : '';
-            $result .=  "<div><input class='input-checkbox' type='checkbox' name='{$values['form_name']}[]' id='cb$id' value='$id' $checked /><label for='cb$id' class='input-checkbox-label'></label>$name</div>";
+            $result .=  "<div style='margin: 5px 0;'><input class='input-checkbox' type='checkbox' name='{$values['form_name']}[]' id='cb$id' value='$id' $checked /><label for='cb$id' class='input-checkbox-label'></label>$name</div>";
         }
         $result .= '</div>';
 
