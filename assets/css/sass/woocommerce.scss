@@ -899,6 +899,9 @@ ul.products{
                 margin:5px 0;
             }
         }
+        button[type="submit"], input[type="submit"]{
+            margin-top:5px;
+        }
     }
     
 }

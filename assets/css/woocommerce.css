@@ -675,6 +675,8 @@ ul.products {
     margin: 15px 0; }
     .wcsc-shop-container #filter_widgets_bin .price_slider_wrapper > div .price_label {
       margin: 5px 0; }
+  .wcsc-shop-container #filter_widgets_bin button[type="submit"], .wcsc-shop-container #filter_widgets_bin input[type="submit"] {
+    margin-top: 5px; }
 
 @media screen and (min-width: 768px) {
   .woocommerce-products-header, .woocommerce-result-count {
