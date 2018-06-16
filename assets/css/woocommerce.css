@@ -195,6 +195,12 @@ table.shop_table.cart td, table.shop_table.cart th {
     table.shop_table.cart td.actions div.coupon, table.shop_table.cart th.actions div.coupon {
       padding-bottom: 5px; }
 
+ul#shipping_method {
+  list-style-type: none;
+  padding: 0; }
+  ul#shipping_method li {
+    padding: 3px 0; }
+
 .wc-proceed-to-checkout {
   padding: 1em 0; }
   .wc-proceed-to-checkout a.button.checkout-button {

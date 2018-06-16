@@ -238,6 +238,13 @@ table.shop_table.cart{
     }
 }
 
+ul#shipping_method{
+    list-style-type:none;
+    padding:0;
+    li{
+        padding: 3px 0;
+    }
+}
 
 .wc-proceed-to-checkout{
     padding: 1em 0;
