@@ -20,7 +20,7 @@ class woocommerce_single_product {
         add_filter('woocommerce_dropdown_variation_attribute_options_args',array($this, 'variation_args_filter'));
         add_filter('woocommerce_dropdown_variation_attribute_options_html', array($this, 'variation_select_html_filter'), 10, 2);
         add_filter('woocommerce_reset_variations_link', array($this, 'reset_variations_link_filter'));
-        
+
     }
 
 
@@ -133,8 +133,6 @@ EOT;
         }
         return '&nbsp;&nbsp;'.$tag;
     }
-
-
 
 
 }

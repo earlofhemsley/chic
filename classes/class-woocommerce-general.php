@@ -66,15 +66,18 @@ class woocommerce_general{
 
     //displays the header links ... dependent upon woocommerce installation
     public static function wcsc_header_links(){ 
+        $wc = $GLOBALS['woocommerce'];
         $accountPageId = get_option('woocommerce_myaccount_page_id');
         $cartPageId = get_option('woocommerce_cart_page_id');
         if($accountPageId === false || $cartPageId === false) return;
         $accountText = (is_user_logged_in()) ? __('My Account', 'sewchic') : __('Log in','sewchic');
+        $cartText = __('Cart', 'sewchic');
+        $cartText .= ($wc->cart->get_cart_contents_count() > 0) ? ' ('.$wc->cart->get_cart_contents_count().')' : '';
 ?>
         <div class="sewchic-account-links">
             <a  href="<?php echo get_permalink($accountPageId);?>" title="<?php echo $accountText; ?>"><?php echo $accountText; ?></a>
             <span>|</span>
-            <a  href="<?php echo get_permalink($cartPageId);?>"><?php _e('Cart','sewchic'); ?></a>
+            <a  href="<?php echo get_permalink($cartPageId);?>"><?php echo $cartText; ?></a>
             <?php if(is_user_logged_in()): ?>
             <span>|</span>
             <a href="<?php echo wp_logout_url( get_permalink($accountPageId)); ?>"><?php _e('Log out', 'sewchic'); ?></a>
