@@ -471,6 +471,13 @@ $empty-star:'\2606';
     }
 }
 
+.wcsc-summary-wrap{
+    ol, ul{
+        width:auto;
+        overflow:hidden;
+    }
+}
+
 /*variations table*/
 table.variations{
     margin:10px 0;
