@@ -13,15 +13,8 @@ class woocommerce_checkout{
     }
 
     public function place_reload_for_download_notice($order){
-        error_log('place_reload_for_download_notice has fired');
-        error_log("This order's status: {$order->get_status()}");
-        error_log("This order is paid: ". var_export($order->is_paid(), true));
-        error_log("This order needs payment: " . var_export($order->needs_payment(), true));
-        error_log("This order has downloadable items: " . var_export($order->has_downloadable_item(), true));
-        error_log("For this order, downloads are permitted: " . var_export($order->is_download_permitted(), true));
-        error_log('place_reload_for_download_notice has ended');
         if($order->has_downloadable_item() && !$order->is_download_permitted()){
-            //echo '<div class="woocommerce-info" role="alert">'.__('If you have paid but do not have access to your downloadable products, please try reloading the page. If that doesn\'t work, please visit <a href="/my-account/downloads">your account\'s downloads page</a>. If that also doesn\'t work, please contact us to obtain your product.', 'sewchic').'</div>';
+            echo '<div class="woocommerce-info" role="alert">'.__('If you have paid but do not have access to your downloadable products, please visit <a href="/my-account/downloads">your account\'s downloads page</a>. If that also doesn\'t work, please contact us to obtain your product.', 'sewchic').'</div>';
         }
 
     }
