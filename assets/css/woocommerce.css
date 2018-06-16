@@ -655,9 +655,16 @@ ul.products {
   margin: 10px auto 0; }
 .wcsc-shop-container #filter_widgets_bin {
   text-align: center; }
-  .wcsc-shop-container #filter_widgets_bin ul {
-    list-style-type: none;
-    padding: 0; }
+  .wcsc-shop-container #filter_widgets_bin ul li.chosen a:after {
+    content: 'x';
+    display: inline-block;
+    padding: 0 5px 2px;
+    margin-left: 5px;
+    color: red;
+    font-size: 14px; }
+  .wcsc-shop-container #filter_widgets_bin ul li.chosen a:hover::after {
+    color: white;
+    background-color: red; }
   .wcsc-shop-container #filter_widgets_bin .price_slider_wrapper > div {
     margin: 15px 0; }
     .wcsc-shop-container #filter_widgets_bin .price_slider_wrapper > div .price_label {
