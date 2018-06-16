@@ -369,7 +369,7 @@ table.order_details th.download-file {
   color: #00ae00;
   vertical-align: middle; }
 
-.wcsc-summary-wrap ol, .wcsc-summary-wrap ul {
+.wcsc-summary-wrap ol, .wcsc-summary-wrap ul, .wcsc-summary-wrap hr {
   width: auto;
   overflow: hidden; }
 
