@@ -21,6 +21,9 @@ class woocommerce_single_product {
         add_filter('woocommerce_dropdown_variation_attribute_options_html', array($this, 'variation_select_html_filter'), 10, 2);
         add_filter('woocommerce_reset_variations_link', array($this, 'reset_variations_link_filter'));
 
+        add_action('woocommerce_before_single_product_summary', array($this, 'start_wrap_single_product_summary'), 30);
+        add_action('woocommerce_after_single_product_summary', array($this, 'end_wrap_single_product_summary'), 5);
+
     }
 
 
@@ -133,6 +136,14 @@ EOT;
         }
         return '&nbsp;&nbsp;'.$tag;
     }
+
+    public function start_wrap_single_product_summary(){ ?>
+        <div class="wcsc-summary-wrap">
+    <?php }
+
+    public function end_wrap_single_product_summary(){ ?>
+        </div><!-- .wcsc-summary-wrap -->
+    <?php }
 
 
 }

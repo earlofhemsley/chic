@@ -369,6 +369,10 @@ table.order_details th.download-file {
   color: #00ae00;
   vertical-align: middle; }
 
+.wcsc-summary-wrap ol, .wcsc-summary-wrap ul {
+  width: auto;
+  overflow: hidden; }
+
 /*variations table*/
 table.variations {
   margin: 10px 0; }
@@ -544,7 +548,7 @@ table.variations {
         .wc-tabs-wrapper ul.tabs li a {
           display: initial;
           text-align: initial;
-          padding: 20px 15px;
+          padding: 18px 15px;
           margin: 0;
           background-color: white;
           border-top-left-radius: 5px;
