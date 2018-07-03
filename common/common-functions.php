@@ -366,7 +366,7 @@ function common_get_feed_image_url($size = 'thumbnail'){
             $iframes = $dom->getElementsByTagName('iframe');
             foreach($iframes as $iframe){
                 $src = $iframe->getAttribute('src');
-                if(preg_match('/youtube\.com\/embed\/(\w+)/', $src, $matches)){
+                if(preg_match('/youtube\.com\/embed\/(.+)/', $src, $matches)){
                     return "https://img.youtube.com/vi/{$matches[1]}/0.jpg";
                 }
             }
