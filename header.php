@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="manifest" href="<?php echo get_template_directory_uri().'/assets/site.webmanifest'; ?>">
-        <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri().'/assets/icon.png'; ?>">
 
         <?php wp_head(); ?>
     </head>
