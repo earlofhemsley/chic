@@ -1,6 +1,7 @@
 /*This stylesheet is for single content*/
 
 @import 'colors';
+@import 'mixins';
 
 /*HEADER*/
 figcaption{
@@ -131,6 +132,35 @@ figure.sewchic-single-featured-image{
             max-width:initial !important;
         }
     }
+}
+
+.sewchic-post-links{
+    @include clearfix();
+    &>div{
+        padding: 3px 0;
+    }
+    .sewchic-post-link-arrow{
+        display:none;
+    }
+}
+
+@media screen and (min-width:768px){
+    .sewchic-post-link-read-more{
+        text-align:center;
+    }
+    .sewchic-post-links{
+        text-align:right;
+        .sewchic-post-link-arrow{
+            display:inline;
+        }
+        .sewchic-post-link-label{
+            display:none;
+        }
+        .sewchic-prev-post-link{
+            float:left;
+        }
+    }
+
 }
 
 /***********************

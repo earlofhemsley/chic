@@ -512,6 +512,14 @@ function get_archive_pagination_links(){
 }
 
 //#region single-pagination
+
+if(!function_exists('sewchic_has_multiple_pages')):
+function sewchic_has_multiple_pages(){
+    global $wp_query;
+    return ($wp_query->max_num_pages > 1);
+}
+endif;
+
 if(!function_exists('sewchic_link_pages_link')):
 function sewchic_link_pages_link($link, $i){
     if(!preg_match('/^<a[^>]*>.*<\/a>$/', $link)){
@@ -526,7 +534,7 @@ endif;
 if(!function_exists('sewchic_link_pages_before')):
 function sewchic_link_pages_before(){
     global $page, $numpages;
-    $before = "<ul class='page-numbers sewchic-single-pagination'>\r\n<li>";
+    $before = "<hr /><ul class='page-numbers sewchic-single-pagination'>\r\n<li>";
 
     if($page > 1 && $numpages > 1){
         $before .=  _wp_link_page($page - 1) . "&larr;</a></li>\r\n<li>";

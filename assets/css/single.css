@@ -111,6 +111,30 @@ figure.sewchic-single-featured-image {
 
   .sewchic-single-content figure {
     max-width: initial !important; } }
+.sewchic-post-links:after {
+  content: '.';
+  font-size: 0;
+  display: block;
+  clear: both;
+  line-height: 0;
+  visibility: hidden; }
+.sewchic-post-links > div {
+  padding: 3px 0; }
+.sewchic-post-links .sewchic-post-link-arrow {
+  display: none; }
+
+@media screen and (min-width: 768px) {
+  .sewchic-post-link-read-more {
+    text-align: center; }
+
+  .sewchic-post-links {
+    text-align: right; }
+    .sewchic-post-links .sewchic-post-link-arrow {
+      display: inline; }
+    .sewchic-post-links .sewchic-post-link-label {
+      display: none; }
+    .sewchic-post-links .sewchic-prev-post-link {
+      float: left; } }
 /***********************
 * COMMENTS
 ***********************/
