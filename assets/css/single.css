@@ -127,14 +127,17 @@ figure.sewchic-single-featured-image {
   .sewchic-post-link-read-more {
     text-align: center; }
 
-  .sewchic-post-links {
-    text-align: right; }
-    .sewchic-post-links .sewchic-post-link-arrow {
-      display: inline; }
-    .sewchic-post-links .sewchic-post-link-label {
-      display: none; }
-    .sewchic-post-links .sewchic-prev-post-link {
-      float: left; } }
+  .sewchic-post-links .sewchic-post-link-arrow {
+    display: inline; }
+  .sewchic-post-links .sewchic-post-link-label {
+    display: none; }
+  .sewchic-post-links .sewchic-post-link {
+    width: 50%; }
+  .sewchic-post-links .sewchic-prev-post-link {
+    float: left; }
+  .sewchic-post-links .sewchic-next-post-link {
+    float: right;
+    text-align: right; } }
 /***********************
 * COMMENTS
 ***********************/

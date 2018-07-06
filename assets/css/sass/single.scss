@@ -149,15 +149,21 @@ figure.sewchic-single-featured-image{
         text-align:center;
     }
     .sewchic-post-links{
-        text-align:right;
         .sewchic-post-link-arrow{
             display:inline;
         }
         .sewchic-post-link-label{
             display:none;
         }
+        .sewchic-post-link{
+            width:50%;
+        }
         .sewchic-prev-post-link{
             float:left;
+        }
+        .sewchic-next-post-link{
+            float:right;
+            text-align:right;
         }
     }
 

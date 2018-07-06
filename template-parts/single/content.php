@@ -18,8 +18,6 @@
         'separator'         =>  "</li>\r\n<li>"
     ));
 
-    //check if has another post to go to (forward or back)
-    //if yes, echo an hr, and output the link
     $prev_post_link = get_previous_post_link('<div class="sewchic-post-link sewchic-prev-post-link"><span class="sewchic-post-link-arrow">&larr; </span><span class="sewchic-post-link-label">Previously: </span>%link</div>');
     $next_post_link = get_next_post_link('<div class="sewchic-post-link sewchic-next-post-link"><span class="sewchic-post-link-label">Next: </span>%link<span class="sewchic-post-link-arrow"> &rarr;</div>');
     
