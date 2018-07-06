@@ -207,3 +207,49 @@ figure.gallery-item{
     }
 }
 
+
+/*********************
+ * POST LINK STYLES
+ * ******************/
+.common-post-links{
+    &:after{
+        content:'.';
+        font-size:0;
+        display:block;
+        clear:both;
+        line-height:0;
+        visibility:hidden;
+    }
+    &>div{
+        padding: 3px 0;
+    }
+    .common-post-link-arrow{
+        display:none;
+    }
+}
+
+@media screen and (min-width:768px){
+    .common-post-link-read-more{
+        text-align:center;
+    }
+    .common-post-links{
+        .common-post-link-arrow{
+            display:inline;
+        }
+        .common-post-link-label{
+            display:none;
+        }
+        .common-post-link{
+            width:50%;
+        }
+        .common-prev-post-link{
+            float:left;
+        }
+        .common-next-post-link{
+            float:right;
+            text-align:right;
+        }
+    }
+
+}
+

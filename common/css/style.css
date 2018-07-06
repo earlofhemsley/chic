@@ -166,4 +166,35 @@ figure.gallery-item {
     left: 0;
     position: absolute; }
 
+/*********************
+ * POST LINK STYLES
+ * ******************/
+.common-post-links:after {
+  content: '.';
+  font-size: 0;
+  display: block;
+  clear: both;
+  line-height: 0;
+  visibility: hidden; }
+.common-post-links > div {
+  padding: 3px 0; }
+.common-post-links .common-post-link-arrow {
+  display: none; }
+
+@media screen and (min-width: 768px) {
+  .common-post-link-read-more {
+    text-align: center; }
+
+  .common-post-links .common-post-link-arrow {
+    display: inline; }
+  .common-post-links .common-post-link-label {
+    display: none; }
+  .common-post-links .common-post-link {
+    width: 50%; }
+  .common-post-links .common-prev-post-link {
+    float: left; }
+  .common-post-links .common-next-post-link {
+    float: right;
+    text-align: right; } }
+
 /*# sourceMappingURL=style.css.map */

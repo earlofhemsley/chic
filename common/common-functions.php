@@ -402,6 +402,26 @@ endif;
 
 //#endregion getting a link for link type post out of the content
 
+//get previous/next post links
+//to be used in the loop
+if(!function_exists('common_link_posts')):
+function common_link_posts(){
+    global $textdomain;
+    $prev_post_link = get_previous_post_link('<div class="common-post-link common-prev-post-link"><span class="common-post-link-arrow">&larr; </span><span class="common-post-link-label">Previously: </span>%link</div>');
+    $next_post_link = get_next_post_link('<div class="common-post-link common-next-post-link"><span class="common-post-link-label">Next: </span>%link<span class="common-post-link-arrow"> &rarr;</div>');
+    
+    if(!empty($prev_post_link) || !empty($next_post_link)){
+        echo '<hr style="clear:both;"/>';
+        printf('<h3 class="common-post-link-read-more">%s</h3>', __('Read more', $textdomain));
+        printf('<div class="%1$s">%2$s %3$s</div>',
+            'common-post-links',
+            $prev_post_link,
+            $next_post_link
+        );
+    }
+}
+endif;
+
 
 
 
