@@ -2,9 +2,12 @@
 <div class="wrap standard-wrap">
     <?php
         $wpq = $GLOBALS['wp_query'];
-        if(is_category()) $headline = 'Category: '.$wpq->queried_object->name;
-        if(is_tag()) $headline = 'Tag: '.$wpq->queried_object->name;
-        if(!empty($headline)) echo "<h1>$headline</h1>";
+        if(is_category()) $headline = 'Category: ' . $wpq->queried_object->name;
+        if(is_tag()) $headline = 'Tag: ' . $wpq->queried_object->name;
+        if(!empty($headline)) {
+            echo "<h1>$headline</h1>";
+            if(!empty($wpq->queried_object->description)) echo "<h2>{$wpq->queried_object->description}</h2>";
+        }
     ?>
     <ul class="sewchic-loop-posts">
         <?php 
