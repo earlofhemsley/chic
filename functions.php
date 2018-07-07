@@ -107,6 +107,7 @@ function sewchic_register_scripts(){
 
     wp_register_script('photoswipe-render', get_template_directory_uri() . '/common/js/ps-render.js', array('jquery'), false, true);
     wp_enqueue_script('common-toggle', get_template_directory_uri() . '/common/js/toggle.js', array('jquery'), false, true);
+    wp_register_Script('common-scroll', get_template_directory_uri() . '/common/js/scroll.js', ['jquery'], false, true);
 
     //styles
     wp_enqueue_style('h5bp', get_template_directory_uri().'/assets/css/vendor/h5bp.css');

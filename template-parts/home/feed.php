@@ -1,7 +1,11 @@
 <?php
     $alignment_class = '';
     foreach(array(1 => 'first',2 => 'second',3 => 'third') as $num => $ordinal):
-        $cat_id = intval(get_theme_mod("sewchic_home_category_$num"));
+        //don't do anything if there's no setting.
+        $setting = get_theme_mod("sewchic_home_category_$num", "FAILURE");
+        if($setting === "FAILURE"){ continue; }
+
+        $cat_id = intval($setting);
         if ($cat_id === -1 ){ continue; } // if do not display, then do not display
         
         $img_url_option = get_theme_mod("sewchic_home_category_{$num}_image");

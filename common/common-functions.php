@@ -18,8 +18,13 @@ endif;
 if(!function_exists('common_get_single_meta')):
 function common_get_single_meta(){
     global $multipage, $textdomain;
-    
-    $commentLink = "<span class='separate'><a class='scrollable' data-destination='#{$textdomain}_comments_area' href='#'>" . (get_comments_number() > 0 ? get_comments_number() . _n(' comment', ' comments', get_comments_number(), $textdomain) : 'Leave a comment') . '</a></span>';
+
+    $commentLink = '';
+    if(comments_open()){
+        //this must be registered in functions.php before you even get here.
+        wp_enqueue_script('common-scroll');
+        $commentLink = "<span class='separate'><a class='scrollable' data-destination='#{$textdomain}_comments_area' href='#'>" . (get_comments_number() > 0 ? get_comments_number() . _n(' comment', ' comments', get_comments_number(), $textdomain) : 'Leave a comment') . '</a></span>';
+    }
 
     $pagesLink = '';
     if($multipage){
@@ -32,7 +37,7 @@ function common_get_single_meta(){
     
     $editLink = "";
     if(current_user_can('edit_post', get_the_ID())) { 
-        $editLink = sprintf('<span class="separate"><a href="%s" target="_blank"><span class="glyphicon glyphicon-pencil"></span></a></span>',  
+        $editLink = sprintf('<span class="separate"><a href="%s" target="_blank">Edit</a></span>',  
             get_edit_post_link());
     }
 
@@ -51,18 +56,19 @@ function common_get_single_meta(){
 
     $return .= '<p class='.$textdomain.'-single-meta-links>';
     
-    $return .= '<span class="'.$textdomain.'-single-categories separate">'. __('Filed under', $textdomain) . ': ';
     $categories = wp_get_post_categories(get_the_ID(), array('fields' => 'all'));
-    $keys = array_keys($categories);
-    $last = array_pop($keys);
    
-    foreach($categories as $key => $cat){
-        $comma = ($last != $key) ? ', ' : '';
-        $url = get_category_link($cat->term_id);
-        $return .= "<a href='$url'>{$cat->name}</a>$comma";
+    if($categories){
+        $return .= '<span class="'.$textdomain.'-single-categories separate">'. __('Filed under', $textdomain) . ': ';
+        $keys = array_keys($categories);
+        $last = array_pop($keys);
+        foreach($categories as $key => $cat){
+            $comma = ($last != $key) ? ', ' : '';
+            $url = get_category_link($cat->term_id);
+            $return .= "<a href='$url'>{$cat->name}</a>$comma";
+        }
+        $return .= '</span>';
     }
-    $return .= '</span>';
-    
     $tags = get_the_tags();
     if($tags){
         $return .= '<span class="'.$textdomain.'-single-tags separate">'.__('Tagged as', $textdomain) . ': ';
