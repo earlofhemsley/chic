@@ -6,22 +6,32 @@ jQuery(document).ready(function($){
         switch(method){
             case 'slide':
                 target.slideToggle(400, function(){
-                    if(element.hasClass('activated')){
-                        element.removeClass('activated');
-                    } else {
-                        element.addClass('activated');
-                    }
+                    toggleButton(element);
                 });
                 break;
             default:
                 target.fadeToggle(400, function(){
-                    if(element.hasClass('activated')){
-                        element.removeClass('activated');
-                    } else {
-                        element.addClass('activated');
-                    }
+                    toggleButton(element);
                 });
                 break;
         }
     });
+
+    let toggleButton = function(element){
+        let content = element.html();
+        let showRegex = /show/ig;
+        let hideRegex = /hide/ig;
+        if(showRegex.test(content)){
+            content = content.replace(showRegex, "Hide");
+        }
+        else{
+            content = content.replace(hideRegex, "Show");
+        }
+        element.html(content);
+        if(element.hasClass('activated')){
+            element.removeClass('activated');
+        } else {
+            element.addClass('activated');
+        }
+    }
 });

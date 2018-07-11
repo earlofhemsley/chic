@@ -20,7 +20,7 @@ class woocommerce_archive{
             <div class="wcsc-shop-table">
                 <div class="wcsc-shop-row">
                     <div class="wcsc-shop-cell filter-widgets">
-                            <button type="button" class="wcsc-toggle toggle button" data-toggle="slide" data-target="#filter_widgets_bin"  aria-expanded="false">Toggle filters</button>
+                            <button type="button" class="wcsc-toggle toggle button" data-toggle="slide" data-target="#filter_widgets_bin"  aria-expanded="false">Show Filters</button>
                             <div id="filter_widgets_bin" class="collapse wcsc-collapse">
                                 <?php dynamic_sidebar('product-filter-widgets');?>
                             </div><!-- #filter_widgets_bin --> 

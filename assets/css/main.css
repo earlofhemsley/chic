@@ -157,7 +157,7 @@ figure {
       #sewchic_primary_menu li.menu-item:hover ul.sub-menu {
         left: 0px;
         background: #fbdedd;
-        margin: -5px 0 0 0;
+        margin: -2px 0 0 0;
         padding: 10px;
         z-index: 10; } }
 @media screen and (min-width: 992px) {

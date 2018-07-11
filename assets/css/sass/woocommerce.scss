@@ -810,6 +810,7 @@ ul.products{
         li{
             position:relative;
             display:inline-block;
+            vertical-align:top;
             width:45%;
             max-width:496px;
             margin: 0 2%;
@@ -878,23 +879,31 @@ ul.products{
         margin: 10px auto 0;
     }
     #filter_widgets_bin{
+        display:none;
         text-align:center;
-        ul li.chosen a{
-            &:after{
-                content: 'x';
-                display: inline-block;
-                padding:0 5px 2px;
-                margin-left:5px;
-                color: $red;
-                font-size:14px;
+        ul{ 
+            &:not(.select2-selection__rendered){
+                list-style-type:none;
+                padding:0;
             }
-            &:hover::after{
-                color: $white;
-                background-color: $red;
-            }
-        } 
+            li.chosen a{
+                &:after{
+                    content: 'x';
+                    display: inline-block;
+                    padding:0 5px 2px;
+                    margin-left:5px;
+                    color: $red;
+                    font-size:14px;
+                }
+                &:hover::after{
+                    color: $white;
+                    background-color: $red;
+                }
+            } 
+        }    
         .price_slider_wrapper > div{
-            margin:15px 0;
+            width:95%;
+            margin:15px auto;
             .price_label{
                 margin:5px 0;
             }
@@ -933,9 +942,9 @@ ul.products{
         }
 
         .filter-widgets{
-            width:17%;
+            width:22%;
             vertical-align:top;
-            padding-right:10px;
+            padding-right:35px;
             min-width:205px;
         }
 
@@ -943,7 +952,13 @@ ul.products{
             display:block !important;
             text-align:left;
             .price_slider_wrapper{
-                width:80%;
+                .price_slider{
+                    margin-left:8px;
+                }
+            }
+            ul:not(.select2-selection__rendered){
+                list-style-type:disc;
+                padding-left:40px;
             }
         }
 
