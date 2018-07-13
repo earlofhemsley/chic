@@ -12,9 +12,13 @@
             <div class="sewchic-search-cell">
                 <ul class="sewchic-loop-posts">
                 <?php
-                    while(have_posts()){
-                        the_post();
-                        get_template_part('template-parts/site/archivefeed');
+                    if(have_posts()){
+                        while(have_posts()){
+                            the_post();
+                            get_template_part('template-parts/site/archivefeed');
+                        }
+                    } else {
+                        echo '<h2 style="text-align:center;">Your search returned no results. Try again?</h2>';
                     }
                 ?>
                 </ul>
