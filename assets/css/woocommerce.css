@@ -315,6 +315,8 @@ table.shop_table.woocommerce-checkout-review-order-table thead td:first-child, t
       display: block;
       font-size: 2em;
       font-weight: 700; }
+  .woocommerce-checkout-payment label[for="payment_method_square"] img {
+    max-width: 32px; }
 
 table.order_details td.download-file {
   padding-right: 0; }
@@ -460,7 +462,7 @@ table.variations {
       text-decoration: none; }
 
 .woocommerce-Tabs-panel {
-  box-shadow: 0 1px 1px transparent; }
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0); }
 
 .woocommerce-Reviews .woocommerce-Reviews-title {
   display: none; }

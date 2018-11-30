@@ -395,6 +395,11 @@ table.shop_table.woocommerce-checkout-review-order-table{
             font-weight: 700;
         }
     }
+    label[for="payment_method_square"] {
+        img {
+            max-width: 32px;
+        }
+    }
 }
 
 table.order_details{
