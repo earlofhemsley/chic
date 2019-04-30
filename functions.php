@@ -576,12 +576,13 @@ function sewchic_search_again_form($echo = true){
         )
     );
 
+    $sanitized_search_input = esc_html($wp_query->query_vars['s']);
     //start result and include search term
     $result = <<< EOT
         <form action="$home_url" method="GET">
             <div class="sewchic-form-group">
                 <h4><label for="s">Search term</label></h4>
-                <input class="input-text" type="text" id="s" name="s" placeholder="search term" value="{$wp_query->query_vars['s']}" />
+                <input class="input-text" type="text" id="s" name="s" placeholder="search term" value="$sanitized_search_input" />
             </div>
 EOT;
 
