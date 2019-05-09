@@ -612,7 +612,7 @@ EOT;
             //checkbox logic
             //if the id up for conideration is in the terms array, then set the checked
             $checked = (is_array($terms_array) && in_array($id, $terms_array)) ? 'checked' : '';
-            $result .=  "<div style='margin: 5px 0;'><input class='input-checkbox' type='checkbox' name='{$values['form_name']}[]' id='cb$id' value='$id' $checked /><label for='cb$id' class='input-checkbox-label'></label>$name</div>";
+            $result .=  "<div style='margin: 5px 0;'><input class='input-checkbox sewchic-search-checkbox' type='checkbox' name='{$values['form_name']}[]' id='cb$id' value='$id' $checked /><label for='cb$id' class='input-checkbox-label sewchic-search-checkbox-label'></label>$name</div>";
         }
         $result .= '</div>';
 

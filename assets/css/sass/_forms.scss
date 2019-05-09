@@ -102,9 +102,10 @@ input[type="week"],
 }
 
 
-.input-checkbox{
+//search form styles
+.sewchic-search-checkbox{
     display:none;
-    & + .input-checkbox-label{
+    & + .sewchic-search-checkbox-label{
         position:relative;
         display:inline-block;
         background-color: $lighter-grey;
@@ -131,7 +132,7 @@ input[type="week"],
 @media screen and (min-width: 768px){
     #sewchic_search_form {
         input{
-            padding: 6px 0;
+            padding: 6px 10px;
         }
         label{
             position:relative;
