@@ -131,15 +131,11 @@ table.variations{
         margin:0;
         padding:0;
         li{
+            @include clearfix();
             padding:10px 0;
             border-bottom: 1px solid $lighter-grey;
             &:last-of-type{
                 border:none;
-            }
-            &:after{
-                content:"";
-                clear:both;
-                display:block;
             }
             img{
                 float:left;
