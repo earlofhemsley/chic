@@ -610,6 +610,11 @@ table.variations{
             &:last-of-type{
                 border:none;
             }
+            &:after{
+                content:"";
+                clear:both;
+                display:block;
+            }
             img{
                 float:left;
                 margin: 0 13px 10px 0;

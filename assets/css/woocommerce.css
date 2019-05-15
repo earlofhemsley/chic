@@ -475,6 +475,10 @@ table.variations {
     border-bottom: 1px solid #efefef; }
     .woocommerce-Reviews ol.commentlist li:last-of-type {
       border: none; }
+    .woocommerce-Reviews ol.commentlist li:after {
+      content: "";
+      clear: both;
+      display: block; }
     .woocommerce-Reviews ol.commentlist li img {
       float: left;
       margin: 0 13px 10px 0; }
