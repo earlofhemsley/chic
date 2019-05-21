@@ -73,10 +73,18 @@ class woocommerce_single_product {
 
     public function star_rating($comment){
         $rating = intval(get_comment_meta($comment->comment_ID, 'rating', true));
+        //return if there is no rating
+        if ($rating == 0) {
+            return;
+        }
         echo '<p class="sewchic-wc-star-rating">';
         for($i = 1; $i<=5; $i++){
-            $class = 'glyphicon glyphicon-star';
-            if($i > $rating) $class .= '-empty';
+            $class = 'sewchic-wc-star';
+            if($i <= $rating) {
+                $class .= ' sewchic-wc-star-full';
+            } else {
+                $class .= ' sewchic-wc-star-empty';
+            }
             echo "<span class='$class'></span>";
         }
         echo '</p><!-- .sewchic-wc-star-rating -->';
