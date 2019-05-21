@@ -73,6 +73,10 @@ class woocommerce_single_product {
 
     public function star_rating($comment){
         $rating = intval(get_comment_meta($comment->comment_ID, 'rating', true));
+        //return if there is no rating
+        if ($rating == 0) {
+            return;
+        }
         echo '<p class="sewchic-wc-star-rating">';
         for($i = 1; $i<=5; $i++){
             $class = 'sewchic-wc-star';

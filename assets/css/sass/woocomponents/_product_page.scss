@@ -205,9 +205,6 @@ table.variations{
 
     .sewchic-wc-star {
         display:inline-block;
-        &:after{
-        }
-
         &.sewchic-wc-star-full::after {
             content: $full-star;
         }
