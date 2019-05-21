@@ -158,6 +158,12 @@ table.variations {
   font-size: 16px; }
 .woocommerce-Reviews .comment-respond input {
   height: 36px; }
+.woocommerce-Reviews .sewchic-wc-star {
+  display: inline-block; }
+  .woocommerce-Reviews .sewchic-wc-star.sewchic-wc-star-full::after {
+    content: "★"; }
+  .woocommerce-Reviews .sewchic-wc-star.sewchic-wc-star-empty::after {
+    content: "☆"; }
 
 @media screen and (min-width: 768px) {
   .woocommerce-breadcrumb {
